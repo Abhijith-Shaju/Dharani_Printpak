@@ -32,7 +32,7 @@
             display: flex; align-items: center; justify-content: center;
             transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
-        .btn-action:hover { transform: scale(1.1) rotate(90deg); background-color: #000; }
+        .btn-action:hover { transform: scale(1.1) rotate(90deg); border: #FF5733 4px solid; }
 
         /* Structural Glass Effect */
         .glass-panel {
@@ -45,7 +45,7 @@
         /* Gallery Drawer */
         .gallery-card .drawer {
             transform: translateX(-100%);
-            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+            /* transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1); */
         }
         .gallery-card:hover .drawer { transform: translateX(0); }
 
@@ -53,154 +53,205 @@
             font-family: 'Great Vibes', cursive;
         }
 
+        /* wobble animation */
+
+        .wobble{
+            position: relative;
+            animation: moveBox 2s ease-in-out infinite alternate;
+            /* 
+            animation-name: moveBox;
+            animation-duration: 2s;
+            animation-iteration-count: infinite;
+            animation-timing-function: linear;
+            */
+        }
+
+        @keyframes moveBox {
+            0% {
+                transform: translateY(-10px);
+            }
+            100% {
+                transform: translateY(0px);
+            }
+
+            /* 0%   { transform: translate(0, 0); }
+            12.5% { transform: translate(10px, -5px); }
+            25%   { transform: translate(20px, 0); }
+            37.5% { transform: translate(10px, 5px); }
+            50%   { transform: translate(0, 0); }
+            62.5% { transform: translate(-10px, -5px); }
+            75%   { transform: translate(-20px, 0); }
+            87.5% { transform: translate(-10px, 5px); }
+            100%  { transform: translate(0, 0); } */
+
+
+        }
+/* 
+        .wobbleText{
+            position: relative;
+            animation: updownText 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes updownText {
+            0% {
+                transform: translateY(-8px);
+            }
+            100% {
+                transform: translateY(0px);
+            }
+        } */
+
 
     </style>
 </head>
 <body class="min-h-screen flex flex-col bg-[#fafafa]">
-
-    <nav class="top-0 left-0 w-full z-[100] p-6 md:p-10 flex justify-between items-center pointer-events-none duration-300"  id="navbar">
-        <div class="pointer-events-auto px-4 py-3 flex justify-center items-center">
-            <svg class="logo h-20 w-auto transition-colors duration-300" viewBox="0 0 500 500">
-                <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-                        width="100%" viewBox="0 0 432 448" enable-background="new 0 0 432 448" xml:space="preserve">
-                    <path fill="currentColor" opacity="1.000000" stroke="currentColor" 
-                        d="
-                    M377.917786,228.000000 
-                        C377.917725,200.200394 377.917725,172.900803 377.917725,145.899475 
-                        C375.944733,144.746506 374.820343,145.772415 373.703735,146.332825 
-                        C363.729828,151.338531 353.830566,156.495651 343.803375,161.391113 
-                        C340.313538,163.094940 339.218323,165.443329 339.235352,169.276581 
-                        C339.377533,201.270309 339.231567,233.265442 339.412140,265.258789 
-                        C339.436951,269.658539 338.089966,272.133545 334.220093,274.333466 
-                        C300.478241,293.514984 266.863159,312.919464 233.192291,332.226044 
-                        C231.806198,333.020813 230.589066,334.405731 227.838348,333.840088 
-                        C227.838348,326.640503 227.727402,319.262299 227.903717,311.890961 
-                        C227.959000,309.580383 230.351959,308.896729 232.045807,307.941406 
-                        C259.179901,292.637909 286.272736,277.259094 313.539246,262.194794 
-                        C318.058380,259.698029 319.858276,256.990021 319.789246,251.720291 
-                        C319.483643,228.395035 319.670624,205.063522 319.627716,181.734360 
-                        C319.624176,179.798904 320.167603,177.742340 318.924988,175.883255 
-                        C316.904388,175.115646 315.380768,176.398315 313.820862,177.191025 
-                        C293.774170,187.378311 273.782654,197.675049 253.686401,207.763168 
-                        C250.389221,209.418304 249.205811,211.473923 249.233871,215.129517 
-                        C249.389893,235.458099 249.217316,255.789322 249.399628,276.117462 
-                        C249.434265,279.979553 248.272675,282.267578 244.757538,283.931427 
-                        C239.400604,286.466980 234.256760,289.452820 229.125000,292.192688 
-                        C227.147171,290.225800 227.700058,288.296448 227.697662,286.568085 
-                        C227.658279,258.239807 227.755463,229.910889 227.578659,201.583649 
-                        C227.552750,197.433060 229.078506,195.330917 232.656631,193.554977 
-                        C285.328522,167.412262 337.940521,141.149017 390.582306,114.945572 
-                        C392.161255,114.159622 393.677246,112.882332 395.713684,113.466591 
-                        C396.729309,115.353096 396.324463,117.387672 396.325134,119.344788 
-                        C396.344849,179.334229 396.312500,239.323715 396.390076,299.313080 
-                        C396.395020,303.122772 395.590607,305.725769 392.025330,307.910950 
-                        C338.907776,340.467590 285.886200,373.180847 232.829086,405.836121 
-                        C231.592224,406.597382 230.425858,407.683289 228.648895,407.438141 
-                        C227.136139,406.215485 227.704529,404.423706 227.699371,402.870697 
-                        C227.649033,387.706848 227.759979,372.541840 227.601135,357.379517 
-                        C227.565002,353.931549 228.703079,351.871582 231.741577,350.246460 
-                        C237.251404,347.299591 242.561005,343.978424 248.999084,340.200287 
-                        C248.999084,350.792389 248.999084,360.012726 248.999084,369.343842 
-                        C251.811264,369.866486 253.307434,368.301086 254.878342,367.357086 
-                        C294.289764,343.672577 333.640869,319.887512 373.092010,296.269470 
-                        C376.695190,294.112396 378.024963,291.672241 377.982361,287.486206 
-                        C377.782135,267.825958 377.908234,248.162384 377.917786,228.000000 
-                    z"/>
-                    <path fill="currentColor" opacity="1.000000" stroke="currentColor" 
-                        d="
-                    M69.121765,121.748901 
-                        C116.410423,145.311996 163.299332,168.844833 210.379807,191.987885 
-                        C216.490402,194.991653 218.612991,198.387756 218.499680,205.211960 
-                        C218.057083,231.863724 218.333588,258.527222 218.301254,285.186340 
-                        C218.298691,287.300781 218.770477,289.505249 217.291031,292.179169 
-                        C210.479492,289.257111 204.015549,285.656006 197.849823,281.547211 
-                        C195.962921,280.289764 196.714233,277.847961 196.710541,275.909027 
-                        C196.672440,255.914749 196.574585,235.919235 196.776367,215.926941 
-                        C196.819092,211.692703 195.482193,209.328094 191.651352,207.409149 
-                        C171.250244,197.189819 150.981491,186.706253 130.662140,176.323532 
-                        C129.516357,175.738068 128.473846,174.736389 126.972702,175.221985 
-                        C125.891975,176.536514 126.350410,178.094101 126.348869,179.531082 
-                        C126.322403,204.190735 126.418068,228.850998 126.252159,253.509552 
-                        C126.225899,257.412445 127.641251,259.462860 130.958847,261.310669 
-                        C158.315750,276.547821 185.532669,292.036591 212.913101,307.230896 
-                        C216.917709,309.453186 218.754639,311.920654 218.419342,316.598022 
-                        C218.007584,322.342072 218.321091,328.138123 218.321091,333.697693 
-                        C215.716309,334.528198 214.472153,333.155884 213.088242,332.363922 
-                        C179.549606,313.170319 146.059296,293.891846 112.454796,274.814453 
-                        C108.180992,272.388184 106.526985,269.622162 106.567612,264.572479 
-                        C106.822281,232.916824 106.629715,201.257782 106.772636,169.600723 
-                        C106.790688,165.601517 105.686073,163.187042 101.960678,161.400391 
-                        C92.352768,156.792557 82.929314,151.800598 73.419762,146.986603 
-                        C72.119873,146.328583 70.855339,145.447617 69.327957,145.604858 
-                        C67.627663,147.187103 68.152405,149.130219 68.151474,150.877441 
-                        C68.127068,196.697769 68.166313,242.518143 68.092941,288.338348 
-                        C68.087608,291.668335 68.970772,293.828522 71.987900,295.638977 
-                        C112.265808,319.807800 152.468384,344.102203 192.696808,368.353516 
-                        C193.669693,368.940002 194.724030,369.391418 196.609116,370.345551 
-                        C196.609116,360.396332 196.609116,351.050201 196.609116,340.535095 
-                        C204.526276,344.371918 211.069595,348.140747 217.319626,352.435211 
-                        C218.369888,353.156830 218.298309,354.494171 218.297852,355.663788 
-                        C218.291321,372.325226 218.281174,388.986633 218.239685,405.648010 
-                        C218.238174,406.253662 217.906921,406.858459 217.760101,407.358856 
-                        C215.847366,407.973694 214.682571,406.844116 213.448227,406.084290 
-                        C160.258469,373.343323 107.092903,340.562958 53.857117,307.897034 
-                        C50.769432,306.002380 49.583504,303.880859 49.588829,300.287689 
-                        C49.678703,239.638275 49.650589,178.988724 49.666695,118.339188 
-                        C49.667130,116.703323 49.372200,115.003166 50.743820,112.645691 
-                        C56.708576,115.605995 62.744999,118.601868 69.121765,121.748901 
-                    z"/>
-                    <path fill="currentColor" opacity="1.000000" stroke="currentColor" 
-                        d="
-                    M253.929504,49.935452 
-                        C298.981445,67.767464 343.674744,85.458717 388.203644,103.084915 
-                        C388.135284,105.698761 386.402496,105.912010 385.143005,106.522827 
-                        C332.395355,132.103851 279.629913,157.648254 226.906189,183.278473 
-                        C224.058945,184.662582 221.729370,184.575562 218.922684,183.189117 
-                        C167.549530,157.811783 116.133469,132.521347 64.742668,107.179733 
-                        C63.166653,106.402580 61.259693,105.980515 60.332500,104.097298 
-                        C61.080791,102.040558 63.111580,101.869690 64.699516,101.188957 
-                        C114.441727,79.865143 164.206604,58.594173 213.929672,37.225895 
-                        C216.599960,36.078350 218.863190,36.011631 221.530945,37.096184 
-                        C232.172882,41.422554 242.884796,45.576763 253.929504,49.935452 
-                    M139.149155,90.401703 
-                        C136.120926,89.003868 133.299759,87.682571 129.697998,89.357826 
-                        C120.494957,93.638390 111.102623,97.510460 101.832146,101.649284 
-                        C100.471550,102.256737 98.492332,102.307648 98.078987,104.595009 
-                        C99.394753,105.312317 100.666252,106.081688 101.999924,106.721474 
-                        C140.727554,125.299706 179.479156,143.828201 218.164093,162.494827 
-                        C221.659012,164.181229 224.452103,163.395233 227.590073,161.897018 
-                        C266.053650,143.532867 304.547913,125.232986 343.018616,106.883690 
-                        C344.455017,106.198563 346.203644,105.831429 346.967590,104.110031 
-                        C346.309937,102.426292 344.649384,102.280251 343.336517,101.745232 
-                        C332.395905,97.286636 321.357452,93.058777 310.509583,88.387207 
-                        C306.796417,86.788155 303.795685,86.948242 300.193024,88.635414 
-                        C274.264008,100.778267 248.232361,112.701744 222.277771,124.790352 
-                        C219.489960,126.088806 217.147034,126.215691 214.275757,124.886887 
-                        C189.499023,113.420456 164.654572,102.100319 139.149155,90.401703 
-                    M260.990173,88.406303 
-                        C268.295898,85.048126 275.601593,81.689957 283.593964,78.016151 
-                        C281.934326,77.117065 281.243042,76.653023 280.487823,76.346519 
-                        C260.764099,68.341408 241.022278,60.380665 221.320557,52.321838 
-                        C219.122437,51.422710 217.253510,51.548401 215.138412,52.473198 
-                        C196.089905,60.801838 177.007721,69.053467 157.956024,77.374847 
-                        C156.851334,77.857353 155.291687,78.034676 155.142410,80.030128 
-                        C155.896759,80.488945 156.680786,81.090714 157.558746,81.481445 
-                        C176.402512,89.867958 195.277130,98.185677 214.087967,106.645248 
-                        C217.032867,107.969620 219.502884,107.340736 222.162109,106.119614 
-                        C234.861038,100.288300 247.584442,94.510262 260.990173,88.406303 
-                    z"/>
-                    </svg>
-            </svg>
-            <div class="ml-4 text-[24px] font-bold uppercase tracking-[0.2em] text-center leading-5" >Dharani <br /> <span class="text-[12px] opacity-40"> Printpak </span> </div>
-        </div>
-        <div class="hidden lg:flex pointer-events-auto bg-black text-white px-8 py-4 rounded-full space-x-8 text-[10px] font-black uppercase tracking-widest shadow-2xl" id="nav-menu">
-            <a href="#about" class="hover:text-orange-500 transition">Heritage</a>
-            <a href="#products" class="hover:text-orange-500 transition">Systems</a>
-            <a href="#contact" class="text-orange-500">Inquiry</a>
-        </div>
-    </nav>
     
-    <section class="flex-1 flex flex-col justify-center px-6 md:px-12 relative overflow-hidden bg-[#fafafa]">
+    <section class="min-h-screen max-h-screen flex flex-col justify-between px-6 md:px-12 relative overflow-hidden bg-[#fafafa]">
+
+        <nav class="top-0 left-0 w-full z-[100] mt-4 p-6 md:px-7 md:py-4 flex justify-between items-center pointer-events-none duration-300"  id="navbar">
+            <div class="pointer-events-auto px-4 py-3 flex justify-center items-center">
+                <svg class="logo h-20 w-auto transition-colors duration-300" viewBox="0 0 500 500">
+                    <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                            width="100%" viewBox="0 0 432 448" enable-background="new 0 0 432 448" xml:space="preserve">
+                        <path fill="currentColor" opacity="1.000000" stroke="currentColor" 
+                            d="
+                        M377.917786,228.000000 
+                            C377.917725,200.200394 377.917725,172.900803 377.917725,145.899475 
+                            C375.944733,144.746506 374.820343,145.772415 373.703735,146.332825 
+                            C363.729828,151.338531 353.830566,156.495651 343.803375,161.391113 
+                            C340.313538,163.094940 339.218323,165.443329 339.235352,169.276581 
+                            C339.377533,201.270309 339.231567,233.265442 339.412140,265.258789 
+                            C339.436951,269.658539 338.089966,272.133545 334.220093,274.333466 
+                            C300.478241,293.514984 266.863159,312.919464 233.192291,332.226044 
+                            C231.806198,333.020813 230.589066,334.405731 227.838348,333.840088 
+                            C227.838348,326.640503 227.727402,319.262299 227.903717,311.890961 
+                            C227.959000,309.580383 230.351959,308.896729 232.045807,307.941406 
+                            C259.179901,292.637909 286.272736,277.259094 313.539246,262.194794 
+                            C318.058380,259.698029 319.858276,256.990021 319.789246,251.720291 
+                            C319.483643,228.395035 319.670624,205.063522 319.627716,181.734360 
+                            C319.624176,179.798904 320.167603,177.742340 318.924988,175.883255 
+                            C316.904388,175.115646 315.380768,176.398315 313.820862,177.191025 
+                            C293.774170,187.378311 273.782654,197.675049 253.686401,207.763168 
+                            C250.389221,209.418304 249.205811,211.473923 249.233871,215.129517 
+                            C249.389893,235.458099 249.217316,255.789322 249.399628,276.117462 
+                            C249.434265,279.979553 248.272675,282.267578 244.757538,283.931427 
+                            C239.400604,286.466980 234.256760,289.452820 229.125000,292.192688 
+                            C227.147171,290.225800 227.700058,288.296448 227.697662,286.568085 
+                            C227.658279,258.239807 227.755463,229.910889 227.578659,201.583649 
+                            C227.552750,197.433060 229.078506,195.330917 232.656631,193.554977 
+                            C285.328522,167.412262 337.940521,141.149017 390.582306,114.945572 
+                            C392.161255,114.159622 393.677246,112.882332 395.713684,113.466591 
+                            C396.729309,115.353096 396.324463,117.387672 396.325134,119.344788 
+                            C396.344849,179.334229 396.312500,239.323715 396.390076,299.313080 
+                            C396.395020,303.122772 395.590607,305.725769 392.025330,307.910950 
+                            C338.907776,340.467590 285.886200,373.180847 232.829086,405.836121 
+                            C231.592224,406.597382 230.425858,407.683289 228.648895,407.438141 
+                            C227.136139,406.215485 227.704529,404.423706 227.699371,402.870697 
+                            C227.649033,387.706848 227.759979,372.541840 227.601135,357.379517 
+                            C227.565002,353.931549 228.703079,351.871582 231.741577,350.246460 
+                            C237.251404,347.299591 242.561005,343.978424 248.999084,340.200287 
+                            C248.999084,350.792389 248.999084,360.012726 248.999084,369.343842 
+                            C251.811264,369.866486 253.307434,368.301086 254.878342,367.357086 
+                            C294.289764,343.672577 333.640869,319.887512 373.092010,296.269470 
+                            C376.695190,294.112396 378.024963,291.672241 377.982361,287.486206 
+                            C377.782135,267.825958 377.908234,248.162384 377.917786,228.000000 
+                        z"/>
+                        <path fill="currentColor" opacity="1.000000" stroke="currentColor" 
+                            d="
+                        M69.121765,121.748901 
+                            C116.410423,145.311996 163.299332,168.844833 210.379807,191.987885 
+                            C216.490402,194.991653 218.612991,198.387756 218.499680,205.211960 
+                            C218.057083,231.863724 218.333588,258.527222 218.301254,285.186340 
+                            C218.298691,287.300781 218.770477,289.505249 217.291031,292.179169 
+                            C210.479492,289.257111 204.015549,285.656006 197.849823,281.547211 
+                            C195.962921,280.289764 196.714233,277.847961 196.710541,275.909027 
+                            C196.672440,255.914749 196.574585,235.919235 196.776367,215.926941 
+                            C196.819092,211.692703 195.482193,209.328094 191.651352,207.409149 
+                            C171.250244,197.189819 150.981491,186.706253 130.662140,176.323532 
+                            C129.516357,175.738068 128.473846,174.736389 126.972702,175.221985 
+                            C125.891975,176.536514 126.350410,178.094101 126.348869,179.531082 
+                            C126.322403,204.190735 126.418068,228.850998 126.252159,253.509552 
+                            C126.225899,257.412445 127.641251,259.462860 130.958847,261.310669 
+                            C158.315750,276.547821 185.532669,292.036591 212.913101,307.230896 
+                            C216.917709,309.453186 218.754639,311.920654 218.419342,316.598022 
+                            C218.007584,322.342072 218.321091,328.138123 218.321091,333.697693 
+                            C215.716309,334.528198 214.472153,333.155884 213.088242,332.363922 
+                            C179.549606,313.170319 146.059296,293.891846 112.454796,274.814453 
+                            C108.180992,272.388184 106.526985,269.622162 106.567612,264.572479 
+                            C106.822281,232.916824 106.629715,201.257782 106.772636,169.600723 
+                            C106.790688,165.601517 105.686073,163.187042 101.960678,161.400391 
+                            C92.352768,156.792557 82.929314,151.800598 73.419762,146.986603 
+                            C72.119873,146.328583 70.855339,145.447617 69.327957,145.604858 
+                            C67.627663,147.187103 68.152405,149.130219 68.151474,150.877441 
+                            C68.127068,196.697769 68.166313,242.518143 68.092941,288.338348 
+                            C68.087608,291.668335 68.970772,293.828522 71.987900,295.638977 
+                            C112.265808,319.807800 152.468384,344.102203 192.696808,368.353516 
+                            C193.669693,368.940002 194.724030,369.391418 196.609116,370.345551 
+                            C196.609116,360.396332 196.609116,351.050201 196.609116,340.535095 
+                            C204.526276,344.371918 211.069595,348.140747 217.319626,352.435211 
+                            C218.369888,353.156830 218.298309,354.494171 218.297852,355.663788 
+                            C218.291321,372.325226 218.281174,388.986633 218.239685,405.648010 
+                            C218.238174,406.253662 217.906921,406.858459 217.760101,407.358856 
+                            C215.847366,407.973694 214.682571,406.844116 213.448227,406.084290 
+                            C160.258469,373.343323 107.092903,340.562958 53.857117,307.897034 
+                            C50.769432,306.002380 49.583504,303.880859 49.588829,300.287689 
+                            C49.678703,239.638275 49.650589,178.988724 49.666695,118.339188 
+                            C49.667130,116.703323 49.372200,115.003166 50.743820,112.645691 
+                            C56.708576,115.605995 62.744999,118.601868 69.121765,121.748901 
+                        z"/>
+                        <path fill="currentColor" opacity="1.000000" stroke="currentColor" 
+                            d="
+                        M253.929504,49.935452 
+                            C298.981445,67.767464 343.674744,85.458717 388.203644,103.084915 
+                            C388.135284,105.698761 386.402496,105.912010 385.143005,106.522827 
+                            C332.395355,132.103851 279.629913,157.648254 226.906189,183.278473 
+                            C224.058945,184.662582 221.729370,184.575562 218.922684,183.189117 
+                            C167.549530,157.811783 116.133469,132.521347 64.742668,107.179733 
+                            C63.166653,106.402580 61.259693,105.980515 60.332500,104.097298 
+                            C61.080791,102.040558 63.111580,101.869690 64.699516,101.188957 
+                            C114.441727,79.865143 164.206604,58.594173 213.929672,37.225895 
+                            C216.599960,36.078350 218.863190,36.011631 221.530945,37.096184 
+                            C232.172882,41.422554 242.884796,45.576763 253.929504,49.935452 
+                        M139.149155,90.401703 
+                            C136.120926,89.003868 133.299759,87.682571 129.697998,89.357826 
+                            C120.494957,93.638390 111.102623,97.510460 101.832146,101.649284 
+                            C100.471550,102.256737 98.492332,102.307648 98.078987,104.595009 
+                            C99.394753,105.312317 100.666252,106.081688 101.999924,106.721474 
+                            C140.727554,125.299706 179.479156,143.828201 218.164093,162.494827 
+                            C221.659012,164.181229 224.452103,163.395233 227.590073,161.897018 
+                            C266.053650,143.532867 304.547913,125.232986 343.018616,106.883690 
+                            C344.455017,106.198563 346.203644,105.831429 346.967590,104.110031 
+                            C346.309937,102.426292 344.649384,102.280251 343.336517,101.745232 
+                            C332.395905,97.286636 321.357452,93.058777 310.509583,88.387207 
+                            C306.796417,86.788155 303.795685,86.948242 300.193024,88.635414 
+                            C274.264008,100.778267 248.232361,112.701744 222.277771,124.790352 
+                            C219.489960,126.088806 217.147034,126.215691 214.275757,124.886887 
+                            C189.499023,113.420456 164.654572,102.100319 139.149155,90.401703 
+                        M260.990173,88.406303 
+                            C268.295898,85.048126 275.601593,81.689957 283.593964,78.016151 
+                            C281.934326,77.117065 281.243042,76.653023 280.487823,76.346519 
+                            C260.764099,68.341408 241.022278,60.380665 221.320557,52.321838 
+                            C219.122437,51.422710 217.253510,51.548401 215.138412,52.473198 
+                            C196.089905,60.801838 177.007721,69.053467 157.956024,77.374847 
+                            C156.851334,77.857353 155.291687,78.034676 155.142410,80.030128 
+                            C155.896759,80.488945 156.680786,81.090714 157.558746,81.481445 
+                            C176.402512,89.867958 195.277130,98.185677 214.087967,106.645248 
+                            C217.032867,107.969620 219.502884,107.340736 222.162109,106.119614 
+                            C234.861038,100.288300 247.584442,94.510262 260.990173,88.406303 
+                        z"/>
+                    </svg>
+                </svg>
+                <div class="ml-4 text-[24px] font-bold uppercase tracking-[0.2em] text-center leading-5"> Dharani <br /> <span class="text-[12px] opacity-40"> Printpak </span> </div>
+            </div>
+            <div class="hidden lg:flex pointer-events-auto bg-black text-white px-8 py-4 rounded-full space-x-8 text-[10px] font-black uppercase tracking-widest shadow-2xl" id="nav-menu">
+                <a href="#about" class="hover:text-orange-500 transition">About</a>
+                <a href="#about" class="hover:text-orange-500 transition">Products</a>
+
+                <a href="#about" class="hover:text-orange-500 transition">Heritage</a>
+                <a href="#products" class="hover:text-orange-500 transition">Systems</a>
+                <a href="#contact" class="text-orange-500">Inquiry</a>
+            </div>
+        </nav>
         
         <div class="absolute -left-20 top-1/2 -translate-y-1/2 text-[30vw] font-black text-black/[0.02] select-none leading-none pointer-events-none">
             1994
@@ -208,16 +259,16 @@
 
         <div class="max-w-[1700px] mx-auto w-full relative">
             
-            <div class="reveal active relative z-30 mb-[-2vw]">
-                <h1 class="hero-title font-black uppercase">
+            <div class="reveal active relative z-30 mb-[-1vw]">
+                <h1 class="wobbleText hero-title font-black uppercase">
                     BOX AS <i>NICE</i> <span class="text-orange-500">&RightArrow;</span>
                 </h1>
             </div>
 
             <div class="flex justify-center items-center py-10 md:py-0">
                 <div class="glass-panel relative w-[300px] h-[300px] md:w-[500px] md:h-[500px] rounded-2xl flex items-center justify-center z-20" style="perspective: 1500px;">
-                    
-                    <div id="box-3d" class="relative w-40 h-40 md:w-60 md:h-60 transition-transform duration-150 ease-out" style="transform-style: preserve-3d;">
+
+                    <div id="box-3d" class="relative w-40 h-40 md:w-60 md:h-60 transition-transform duration-150 ease-out  style="transform-style: preserve-3d;">
                         
                         <div class="absolute inset-0 bg-white border-[4px] border-slate-200 flex flex-col items-center justify-center shadow-2xl" style="transform: translateZ(40px);">
                             
@@ -241,7 +292,7 @@
                             <div id="mouth-wrapper" class="relative w-16 h-10 flex items-center justify-center">
                                 <svg id="mouth-svg" viewBox="0 0 100 50" class="w-full h-full transition-all duration-300">
                                     <path id="mouth-path"
-                                        d="M10 25 Q50 40 90 25"
+                                        d="M15 20 Q50 45 85 20"
                                         stroke="#0f172a"
                                         stroke-width="4"
                                         fill="transparent"
@@ -249,9 +300,9 @@
                                 </svg>
                             </div>
 
-                            <div class="text-[8px] font-black uppercase tracking-[0.4em] text-slate-300 mono text-center leading-tight mt-6">
-                                ACESIX_HEAVY_DUTY <br> 
-                                <span class="text-orange-500 font-bold uppercase">Load_Ready</span>
+                            <div class="text-[14px] font-black uppercase tracking-[0.4em] text-slate-300 mono text-center leading-tight mt-6">
+                                Packsy <br> 
+                                <span class="text-[8px] text-orange-500 font-bold uppercase">Shelf_Ready</span>
                             </div>
                         </div>
 
@@ -260,8 +311,8 @@
                     </div>
 
                     <div class="absolute -bottom-10 -left-10 pointer-events-auto">
-                        <a href="#about" class="btn-action shadow-[0_20px_50px_rgba(255,87,51,0.3)]">
-                            <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <a href="#about" class="btn-action hover:shadow-[0_10px_30px_rgba(255,87,51,0.3)] text-white hover:text-[#FF5733] hover:bg-[#fafafa]/40">
+                            <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path 
                                     stroke-linecap="round" 
                                     stroke-linejoin="round" 
@@ -277,24 +328,22 @@
             <div class="reveal active relative flex flex-row justify-between items-end mt-[-4vw] text-right">
                 <div class="max-w-xs relative group flex flex-col items-start">
                     
-                    <p class="text-[9px] font-black uppercase tracking-[0.3em] text-orange-600 mb-4">// PRODUCTION_HUB_SIVAKASI</p> 
-                    <p class="text-xs font-semibold leading-relaxed text-slate-500 mb-6">Experience refined presentation for products requiring functional strength and visual elegance.</p>
-                    <a href="#contact" id="inquiry-btn" class=" inline-block px-10 py-4 h-min bg-black text-white font-black text-[10px] uppercase tracking-[0.4em] hover:bg-orange-600 transition-all duration-500 shadow-xl">
-                            Get a Quote &rarr;
+                    <p class="text-[10px] font-black uppercase tracking-[0.3em] text-orange-600 mb-4">// PRODUCTION_HUB_SIVAKASI</p> 
+                    <p class="text-xs text-left font-semibold leading-relaxed text-slate-500 mb-6">Experience refined presentation for products requiring functional strength and visual elegance.</p>
+                    <a href="#contact" id="inquiry-btn" class="inline-block px-10 py-3 h-min bg-black text-white font-black text-[12px] uppercase tracking-[0.4em] hover:bg-orange-600 transition-all duration-500 shadow-xl">
+                            Partner With Us <span class="text-lg"> + </span>
                     </a>
                     
                 </div>
                 
-                <h1 class="hero-title font-black uppercase">
+                <h1 class="wobbleText hero-title font-black uppercase">
                     AS YOUR <br />
                     PRODUCT<span class="text-orange-600">*</span>
                 </h1> 
             </div>
             
-            <div class="max-w-[1700px] mx-auto w-full mt-20 flex flex-col md:flex-row justify-between items-end border-t border-slate-100 pt-10 reveal active">
-                
-                
-                <div class="text-right">
+            <div class="max-w-[1700px] mx-auto w-full mt-12 mb-8 flex md:flex-row justify-start items-center border-t border-slate-100 pt-10 reveal active">
+                <div class="text-left">
                     <p class="mono text-5xl font-black tracking-tighter">SINCE'94</p>
                     <p class="text-[9px] font-black uppercase tracking-[0.5em] opacity-30 mt-2 italic">Dharani Printpak Heritage</p>
                 </div>
@@ -336,68 +385,144 @@
         </div>
     </section>
 
-    <section id="products" class="py-40 bg-white px-6 md:px-12">
-        <div class="max-w-[1700px] mx-auto">
-            <div class="mb-24 reveal">
-                <h2 class="text-xs font-black uppercase tracking-[0.5em] text-orange-600 mb-6">Systems Catalog</h2>
-                <h3 class="text-6xl font-black uppercase tracking-tighter">Structural Lineup</h3>
+    <section id="products" class="h-screen bg-white px-6 md:px-12 flex flex-col py-20 overflow-hidden">
+    <div class="max-w-[1700px] mx-auto w-full h-full flex flex-col">
+        
+        <div class="mb-12 reveal shrink-0">
+            <h2 class="text-xs font-black uppercase tracking-[0.5em] text-orange-600 mb-4">Systems Catalog</h2>
+            <h3 class="text-5xl font-black uppercase tracking-tighter">Structural Lineup</h3>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 md:grid-rows-1 gap-8 flex-1 min-h-0 h-full mb-4">
+            
+            <div class="gallery-card flex flex-col justify-between group md:col-span-1 relative overflow-hidden reveal bg-[url('./Rigid_Box_V2.png')] bg-cover bg-center border border-slate-100 h-full">
+                <div class="p-10 w-full h-full flex flex-col justify-between relative z-10 transition-opacity duration-500 group">
+                    <div>
+                        <h4 class="text-4xl font-extrabold text-black uppercase mt-4 group-hover:text-white duration-500">Rigid<br/> <span class="text-orange-600 group-hover:text-black duration-500">Boxes</span></h4>
+                    </div>
+                    <p class="text-xs font-extrabold text-orange-400 uppercase tracking-widest group-hover:opacity-0 duration-500">Electronics, Luxury Gifts <br> Corporate Gift & Premium Retail</p>
+                </div>
+
+                <div class="drawer absolute inset-0 bg-[#FF5733]/100 p-10 flex flex-col justify-end text-white opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-4 group-hover:translate-y-0">
+                    <!-- <h4 class="text-4xl font-extrabold text-[#fafafa] uppercase mt-4">Rigid<br/> <span class="text-orange-600">Boxes</span></h4> -->
+                    <p class="mono text-[10px] mb-4 uppercase tracking-widest text-gray-700 font-bold ">// CUSTOM_SPECS</p>
+                    <p class="w-full text-justify font-bold">
+                        Rigid boxes are designed for products that require strong protection and refined presentation.
+                        Made from high-density board and finished with premium papers, they offer durability along with an
+                        elegant look and feel.<br /> <br />
+                        We manufacture custom collapsible rigid boxes, providing the same luxury appeal with the
+                        added benefit of space-saving, flat-pack convenience.
+                    </p>
+
+                    <hr class="border border-white/20 my-6">
+
+                    <ul class="flex flex-wrap items-center gap-4 text-white font-bold uppercase tracking-wider text-[10px]">
+                    <li class="bg-white text-[#FF5733] font-bold px-4 py-2 rounded-full flex items-center shadow-sm hover:bg-orange-700 transition-colors">
+                        Magnetic Closures
+                    </li>
+                    <li class="bg-white text-[#FF5733] font-bold px-4 py-2 rounded-full flex items-center shadow-sm hover:bg-orange-700 transition-colors">
+                        Telescopic & Lift-Off Lids
+                    </li>
+                    <li class="bg-white text-[#FF5733] font-bold px-4 py-2 rounded-full flex items-center shadow-sm hover:bg-orange-700 transition-colors">
+                        Foil Stamping & Embossing
+                    </li>
+                    <li class="bg-white text-[#FF5733] font-bold px-4 py-2 rounded-full flex items-center shadow-sm hover:bg-orange-700 transition-colors">
+                        Custom Sizes & Finishes
+                    </li>
+                    <li class="bg-white text-[#FF5733] font-bold px-4 py-2 rounded-full flex items-center shadow-sm hover:bg-orange-700 transition-colors">
+                        Collapsible Construction
+                    </li>
+                </ul>
+                </div>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
-                <div class="gallery-card relative aspect-[3/4] bg-[#f5f5f5] overflow-hidden reveal">
-                    <div class="p-12 h-full flex flex-col justify-between">
-                        <div>
-                            <span class="mono text-xs text-slate-300">SYSTEM_01</span>
-                            <h4 class="text-4xl font-black uppercase mt-10">Rigid<br/>Boxes</h4>
-                        </div>
-                        <p class="text-xs font-bold text-slate-400 uppercase tracking-widest">Electronics & Luxury</p>
+            
+            <div class="gallery-card flex flex-col justify-between group md:col-span-1 relative overflow-hidden reveal bg-[url('./monocarton.png')] bg-cover bg-center border border-slate-100 h-full">
+                <div class="p-10 w-full h-full flex flex-col justify-between relative z-10 transition-opacity duration-500 group">
+                    <div>
+                        <h4 class="text-4xl text-center font-extrabold text-black uppercase mt-4 group-hover:text-white duration-500">Mono <span class="text-orange-600 group-hover:text-black duration-500">Cartons</span></h4>
                     </div>
-                    <div class="drawer absolute inset-0 bg-orange-600 p-12 flex flex-col justify-end text-white">
-                        <p class="mono text-[10px] mb-6 uppercase tracking-widest">// CUSTOM_SPECS</p>
-                        <ul class="text-sm font-bold uppercase space-y-4">
-                            <li class="flex items-center"><span class="w-4 h-px bg-white mr-4"></span> Magnetic Closures</li>
-                            <li class="flex items-center"><span class="w-4 h-px bg-white mr-4"></span> Telescopic Lids</li>
-                            <li class="flex items-center"><span class="w-4 h-px bg-white mr-4"></span> Foil Stamping</li>
-                        </ul>
-                    </div>
+                    <p class="text-xs font-extrabold text-orange-400 uppercase tracking-widest group-hover:opacity-0 duration-500">Electronics, Luxury Gifts <br> Corporate Gift & Premium Retail</p>
                 </div>
-                <div class="gallery-card relative aspect-[3/4] bg-[#f5f5f5] overflow-hidden reveal" style="transition-delay: 150ms;">
-                    <div class="p-12 h-full flex flex-col justify-between">
-                        <div>
-                            <span class="mono text-xs text-slate-300">SYSTEM_02</span>
-                            <h4 class="text-4xl font-black uppercase mt-10">Mono<br/>Cartons</h4>
-                        </div>
-                        <p class="text-xs font-bold text-slate-400 uppercase tracking-widest">Retail Accuracy</p>
-                    </div>
-                    <div class="drawer absolute inset-0 bg-black p-12 flex flex-col justify-end text-white">
-                        <p class="mono text-[10px] mb-6 uppercase tracking-widest">// REFINEMENT</p>
-                        <ul class="text-sm font-bold uppercase space-y-4">
-                            <li class="flex items-center"><span class="w-4 h-px bg-white mr-4"></span> UV Coating</li>
-                            <li class="flex items-center"><span class="w-4 h-px bg-white mr-4"></span> Lamination</li>
-                            <li class="flex items-center"><span class="w-4 h-px bg-white mr-4"></span> Metallic Effects</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="gallery-card relative aspect-[3/4] bg-[#f5f5f5] overflow-hidden reveal" style="transition-delay: 300ms;">
-                    <div class="p-12 h-full flex flex-col justify-between">
-                        <div>
-                            <span class="mono text-xs text-slate-300">SYSTEM_03</span>
-                            <h4 class="text-4xl font-black uppercase mt-10">Paper<br/>Bags</h4>
-                        </div>
-                        <p class="text-xs font-bold text-slate-400 uppercase tracking-widest">Durable Carry</p>
-                    </div>
-                    <div class="drawer absolute inset-0 bg-slate-800 p-12 flex flex-col justify-end text-white">
-                        <p class="mono text-[10px] mb-6 uppercase tracking-widest">// DURABILITY</p>
-                        <ul class="text-sm font-bold uppercase space-y-4">
-                            <li class="flex items-center"><span class="w-4 h-px bg-white mr-4"></span> Rope Handles</li>
-                            <li class="flex items-center"><span class="w-4 h-px bg-white mr-4"></span> Textured Paper</li>
-                            <li class="flex items-center"><span class="w-4 h-px bg-white mr-4"></span> Multiple Formats</li>
-                        </ul>
-                    </div>
+
+                <div class="drawer absolute inset-0 bg-[#FF5733]/100 p-10 flex flex-col justify-end text-white opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-4 group-hover:translate-y-0">
+                    <!-- <h4 class="text-4xl font-extrabold text-[#fafafa] uppercase mt-4">Rigid<br/> <span class="text-orange-600">Boxes</span></h4> -->
+                    <p class="mono text-[10px] mb-4 uppercase tracking-widest text-gray-700 font-bold ">// CUSTOM_SPECS</p>
+                    <p class="w-full text-justify font-bold">
+                        Rigid boxes are designed for products that require strong protection and refined presentation.
+                        Made from high-density board and finished with premium papers, they offer durability along with an
+                        elegant look and feel.<br /> <br />
+                        We manufacture custom collapsible rigid boxes, providing the same luxury appeal with the
+                        added benefit of space-saving, flat-pack convenience.
+                    </p>
+
+                    <hr class="border border-white/20 my-6">
+
+                    <ul class="flex flex-wrap items-center gap-4 text-white font-bold uppercase tracking-wider text-[10px]">
+                    <li class="bg-white text-[#FF5733] font-bold px-4 py-2 rounded-full flex items-center shadow-sm hover:bg-orange-700 transition-colors">
+                        Magnetic Closures
+                    </li>
+                    <li class="bg-white text-[#FF5733] font-bold px-4 py-2 rounded-full flex items-center shadow-sm hover:bg-orange-700 transition-colors">
+                        Telescopic & Lift-Off Lids
+                    </li>
+                    <li class="bg-white text-[#FF5733] font-bold px-4 py-2 rounded-full flex items-center shadow-sm hover:bg-orange-700 transition-colors">
+                        Foil Stamping & Embossing
+                    </li>
+                    <li class="bg-white text-[#FF5733] font-bold px-4 py-2 rounded-full flex items-center shadow-sm hover:bg-orange-700 transition-colors">
+                        Custom Sizes & Finishes
+                    </li>
+                    <li class="bg-white text-[#FF5733] font-bold px-4 py-2 rounded-full flex items-center shadow-sm hover:bg-orange-700 transition-colors">
+                        Collapsible Construction
+                    </li>
+                </ul>
                 </div>
             </div>
+
+            <div class="gallery-card flex flex-col justify-between group md:col-span-1 relative overflow-hidden reveal bg-[url('./paperbag.png')] bg-cover bg-center border border-slate-100 h-full">
+                <div class="p-10 w-full h-full flex flex-col justify-between relative z-10 transition-opacity duration-500 group">
+                    <div>
+                        <h4 class="text-4xl text-right font-extrabold text-black uppercase mt-4 group-hover:text-white duration-500">Paper<br/> <span class="text-orange-600 group-hover:text-black duration-500">Bag</span></h4>
+                    </div>
+                    <p class="text-xs font-extrabold text-orange-400 uppercase tracking-widest group-hover:opacity-0 duration-500">Electronics, Luxury Gifts <br> Corporate Gift & Premium Retail</p>
+                </div>
+
+                <div class="drawer absolute inset-0 bg-[#FF5733]/100 p-10 flex flex-col justify-end text-white opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-4 group-hover:translate-y-0">
+                    <!-- <h4 class="text-4xl font-extrabold text-[#fafafa] uppercase mt-4">Rigid<br/> <span class="text-orange-600">Boxes</span></h4> -->
+                    <p class="mono text-[10px] mb-4 uppercase tracking-widest text-gray-700 font-bold ">// CUSTOM_SPECS</p>
+                    <p class="w-full text-justify font-bold">
+                        Rigid boxes are designed for products that require strong protection and refined presentation.
+                        Made from high-density board and finished with premium papers, they offer durability along with an
+                        elegant look and feel.<br /> <br />
+                        We manufacture custom collapsible rigid boxes, providing the same luxury appeal with the
+                        added benefit of space-saving, flat-pack convenience.
+                    </p>
+
+                    <hr class="border border-white/20 my-6">
+
+                    <ul class="flex flex-wrap items-center gap-4 text-white font-bold uppercase tracking-wider text-[10px]">
+                    <li class="bg-white text-[#FF5733] font-bold px-4 py-2 rounded-full flex items-center shadow-sm hover:bg-orange-700 transition-colors">
+                        Magnetic Closures
+                    </li>
+                    <li class="bg-white text-[#FF5733] font-bold px-4 py-2 rounded-full flex items-center shadow-sm hover:bg-orange-700 transition-colors">
+                        Telescopic & Lift-Off Lids
+                    </li>
+                    <li class="bg-white text-[#FF5733] font-bold px-4 py-2 rounded-full flex items-center shadow-sm hover:bg-orange-700 transition-colors">
+                        Foil Stamping & Embossing
+                    </li>
+                    <li class="bg-white text-[#FF5733] font-bold px-4 py-2 rounded-full flex items-center shadow-sm hover:bg-orange-700 transition-colors">
+                        Custom Sizes & Finishes
+                    </li>
+                    <li class="bg-white text-[#FF5733] font-bold px-4 py-2 rounded-full flex items-center shadow-sm hover:bg-orange-700 transition-colors">
+                        Collapsible Construction
+                    </li>
+                </ul>
+                </div>
+            </div>
+
         </div>
-    </section>
+    </div>
+</section>
+
 
     <section id="contact" class="py-40 bg-[#0c0f14] px-6 md:px-12">
         <div class="max-w-4xl mx-auto reveal">
@@ -473,14 +598,14 @@
             currentEmotion = type;
 
             switch (type) {
-                case "sad":
-                    mouthPath.setAttribute("d", "M30 25 Q50 45 70 25 Q50 5 30 25");
-                    eyeRow.style.transform = "scaleY(1.2)";
-                    break;
-
-                default:
+                case "happy":
                     mouthPath.setAttribute("d", "M15 20 Q50 45 85 20");
                     eyeRow.style.transform = "scaleY(1)";
+                    break;
+                    
+                    default:
+                    eyeRow.style.transform = "scaleY(1.2)";
+                    mouthPath.setAttribute("d", "M30 25 Q50 45 70 25 Q50 5 30 25");
                 }
             }
                 
@@ -501,8 +626,8 @@
             const moveY = (clientY - centerY) / centerY;
 
             box3d.style.transform = `
-                rotateY(${moveX * 6}deg)
-                rotateX(${-moveY * 6}deg)
+                rotateY(${moveX * 10}deg)
+                rotateX(${-moveY * 10}deg)
             `;
 
             /* --- Pupil Tracking --- */
@@ -525,12 +650,22 @@
             const maxDist = 700;
             const proximity = Math.max(0, Math.min(1, 1 - (dist / maxDist)));
 
-            if (proximity < 0.25) {
-                setEmotion("sad");
+            if (proximity > 0.35) {
+                setEmotion("happy");
             }
             else {
-                setEmotion("neutral");
+                setEmotion("default");
             }
+
+            // inquiryBtn.addEventListener('mouseover', ()=> {
+            //     setEmotion("happy");
+            // })
+
+            // inquiryBtn.addEventListener('mouseout', ()=>{
+            //     setEmotion("default");
+            // })
+
+
         });
 
 
