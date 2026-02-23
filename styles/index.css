@@ -1,113 +1,134 @@
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=JetBrains+Mono&display=swap');
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation: none !important;
+        transition: none !important;
+    }
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=JetBrains+Mono&display=swap');
         
-        body { font-family: 'Inter', sans-serif; background-color: #ffffff; color: #000000; overflow-x: hidden; transform: translateZ(0);}
-        .mono { font-family: 'JetBrains Mono', monospace; }
-        
-        /* Asymmetrical Typography */
-        .hero-title { font-size: clamp(2rem, 6vw, 8rem); line-height: 0.8; letter-spacing: -0.05em; }
-        
-        /* Reveal Animations */
-        .reveal { opacity: 0; transform: translateY(30px); transition: all 0.9s cubic-bezier(0.16, 1, 0.3, 1); }
-        .reveal.active { opacity: 1; transform: translateY(0); }
+body { font-family: 'Inter', sans-serif; background-color: #ffffff; color: #000000; overflow-x: hidden; transform: translateZ(0);}
+.mono { font-family: 'JetBrains Mono', monospace; }
 
-        /* The New "Industrial Orange" Circular Button */
-        .btn-action {
-            width: 90px;
-            height: 90px;
-            background-color: #FF5733; 
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            /* Smooth transitions for all properties except the pulse */
-            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), 
-                        background-color 0.3s ease, 
-                        border 0.3s ease;
-            
-            animation: ring-pulse 2s infinite;
-            position: relative;
-            z-index: 1;
-        }
+/* Asymmetrical Typography */
+.hero-title { font-size: clamp(2rem, 6vw, 8rem); line-height: 0.8; letter-spacing: -0.05em; }
 
-        .btn-action:hover {
-            /* THIS IS THE FIX: 'none' stops the animation and '!important' 
-            ensures the keyframe box-shadows are completely removed. */
-            animation: none !important;
-            box-shadow: none !important;
+/* Reveal Animations */
+.reveal { opacity: 0; transform: translateY(30px); transition: transform 0.6s ease, opacity 0.6s ease; }
+.reveal.active { opacity: 1; transform: translateY(0); }
 
-            transform: scale(1.1) rotate(90deg);
-            border: #FF5733 4px solid;
-            background-color: #ffffff; /* Optional: high contrast hover */
-        }
-
-        @keyframes ring-pulse {
-            0% {
-                box-shadow: 0 0 0 0px rgba(255, 87, 51, 0.3);
-            }
-            70% {
-                box-shadow: 0 0 0 20px rgba(255, 87, 51, 0);
-            }
-            100% {
-                box-shadow: 0 0 0 0px rgba(255, 87, 51, 0);
-            }
-        }
-
-        .btn-action:hover { transform: scale(1.1) rotate(90deg); border: #FF5733 4px solid; }
-
-        /* Structural Glass Effect */
-        .glass-panel {
-            background: rgba(255,255,255,0.6);
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(0,0,0,0.06);
-            box-shadow: 0 40px 100px rgba(0,0,0,0.08);
-        }
-
-        /* Gallery Drawer */
-        .gallery-card .drawer {
-            transform: translateX(-100%);
-        }
-        .gallery-card:hover .drawer { transform: translateX(0); }
-
-        .calligraphy-text {
-            font-family: 'Great Vibes', cursive;
-        }
+/* The New "Industrial Orange" Circular Button */
+.btn-action {
+    width: 90px;
+    height: 90px;
+    background-color: #FF5733; 
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* Smooth transitions for all properties except the pulse */
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), 
+                background-color 0.3s ease, 
+                border 0.3s ease;
+    
+    animation: ring-pulse 2s infinite;
+    position: relative;
+    z-index: 1;
+}
 
 
-        #box-3d {
-            transform-style: preserve-3d;
-            will-change: transform;
-        }
+.btn-action::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    border: 2px solid rgba(255,87,51,0.4);
+    animation: pulseScale 2s infinite;
+}
 
-        #box-3d > div {
-            backface-visibility: hidden;
-            -webkit-backface-visibility: hidden;
-        }
+@keyframes pulseScale {
+    0% {
+        transform: scale(1);
+        opacity: 0.6;
+    }
+    100% {
+        transform: scale(1.6);
+        opacity: 0;
+    }
+}
 
-        .cube-face{
-            position: absolute;
-            inset: 0;
-            backface-visibility: hidden;
-            /* Prevents jagged edges in some browsers */
-            outline: 1px solid transparent;
-        }
+.btn-action:hover {
+    animation: none !important;
+    box-shadow: none !important;
 
-        /* wobble animation */
+    transform: scale(1.1) rotate(90deg);
+    border: #FF5733 4px solid;
+    background-color: #ffffff; /* Optional: high contrast hover */
+}
 
-        /* .wobble{
-            position: relative;
-            animation: moveBox 2s ease-in-out infinite alternate;
 
-        } */
+.btn-action:hover { transform: scale(1.1) rotate(90deg); border: #FF5733 4px solid; }
 
-        @keyframes moveBox {
-            0% {
-                transform: translateY(-10px);
-            }
-            100% {
-                transform: translateY(0px);
-            }
+/* Structural Glass Effect */
+.glass-panel {
+    /* background: rgba(255,255,255,0.6); */
+    background: rgba(255,255,255,0.75);
+    border: 1px solid rgba(0,0,0,0.06);
+    box-shadow: 0 40px 100px rgba(0,0,0,0.08);
+}
 
-        }
+@media (min-width: 1024px) {
+    .glass-panel {
+        backdrop-filter: blur(20px);
+    }
+}
+
+/* Gallery Drawer */
+.gallery-card .drawer {
+    transform: translateX(-100%);
+}
+.gallery-card:hover .drawer { transform: translateX(0); }
+
+.calligraphy-text {
+    font-family: 'Great Vibes', cursive;
+}
+
+
+#box-3d {
+    transform-style: preserve-3d;
+    will-change: transform;
+}
+
+#box-3d > div {
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+}
+
+.cube-face{
+    position: absolute;
+    inset: 0;
+    backface-visibility: hidden;
+    /* Prevents jagged edges in some browsers */
+    outline: 1px solid transparent;
+}
+
+/* wobble animation */
+
+/* .wobble{
+    position: relative;
+    animation: moveBox 2s ease-in-out infinite alternate;
+
+} */
+
+@keyframes moveBox {
+    0% {
+        transform: translateY(-10px);
+    }
+    100% {
+        transform: translateY(0px);
+    }
+
+}
 
 
 /* Hide orange overlay by default */
@@ -157,7 +178,7 @@
     overflow: hidden;   /* THIS creates cinematic crop */
     position: relative;
 
-    transform: translate(-15%, -10%) scale(1.4);
+    transform: translate(-15%, -10%);
 }
 
 .map-scene::after {
@@ -191,6 +212,9 @@
     width: 130%;
     aspect-ratio: 5 / 3;
 
+    will-change: transform;
+    backface-visibility: hidden;
+
     position: absolute;
     left: 50%;
     top: 50%;
@@ -198,11 +222,12 @@
     transform-style: preserve-3d;
     transform:
         translate(-50%, -50%)
-        rotateX(60deg);
+        rotateX(60deg)
+        scale(1.4);
 
     animation: rotateMap 30s linear infinite;
 
-    filter: drop-shadow(0 80px 100px rgba(0,0,0,0.7));
+    filter: none;
 }
 
 /* SVG fills slab */
@@ -211,7 +236,7 @@
     width: 100%;
     height: 100%;
     display: block;
-    filter: drop-shadow(0 0 30px rgba(255,255,255,0.05));
+    /* filter: drop-shadow(0 0 30px rgba(255,255,255,0.05)); */
 }
 
 
@@ -224,6 +249,15 @@
     background: rgba(255,255,255,0.02);
     transform: translateZ(-25px);
     filter: blur(25px);
+}
+
+
+.map-3d::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    box-shadow: 0 80px 100px rgba(0,0,0,0.6);
+    pointer-events: none;
 }
 
 
@@ -243,6 +277,13 @@
             translate(-50%, -50%)
             rotateX(60deg)
             rotateZ(360deg);
+    }
+}
+
+@media (max-width: 768px) {
+    .map-3d {
+        animation: none;
+        transform: translate(-50%, -50%) rotateX(60deg) rotateZ(20deg);
     }
 }
 

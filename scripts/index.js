@@ -1,15 +1,30 @@
 /* ================================
-1. Reveal On Scroll
+1. Reveal On Scroll + Single-Trigger Map
 ================================ */
-const observer = new IntersectionObserver((entries) => {
+const observer = new IntersectionObserver((entries, observer) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
+            // Add the standard reveal class
             entry.target.classList.add('active');
+
+            // Handle the Map Animation Trigger
+            if (entry.target.id === 'location') {
+                const mapAnim = document.getElementById('mapAnimationTrigger');
+                if (mapAnim) {
+                    mapAnim.beginElement();
+                }
+                
+                // IMPORTANT: This line makes it happen ONLY ONCE
+                observer.unobserve(entry.target);
+            }
         }
     });
-}, { threshold: 0.1 });
+}, { threshold: 0.2 });
 
-document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+// Observe your elements
+document.querySelectorAll('.reveal, #location').forEach((el) => {
+    observer.observe(el);
+});
 
 /* ================================
 2. Unified Avatar Logic
