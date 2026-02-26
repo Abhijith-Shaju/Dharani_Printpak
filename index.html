@@ -876,66 +876,118 @@
 
         <div class="lg:col-span-7 reveal" style="transition-delay: 200ms;">
             <div class="bg-white/[0.02] border border-white/5 p-8 md:p-12 rounded-2xl backdrop-blur-sm">
-                <form class="space-y-12">
-<div class="grid md:grid-cols-2 gap-12">
-    <div class="relative group">
-        <input type="text" id="corp" placeholder=" " class="peer bg-transparent w-full border-b border-white/10 py-4 outline-none text-white font-bold focus:border-orange-500 transition-all">
-        <label for="corp" class="absolute left-0 top-4 text-[10px] font-black uppercase tracking-widest text-slate-500 transition-all peer-focus:-top-6 peer-focus:text-orange-500 peer-[:not(:placeholder-shown)]:-top-6">
-            Corporate Entity
-        </label>
-    </div>
+                <form 
+                    name="rfq" 
+                    method="POST" 
+                    data-netlify="true" 
+                    netlify-honeypot="bot-field"
+                    class="space-y-12"
+                    >
+                    <!-- Required hidden input -->
+                    <input type="hidden" name="form-name" value="rfq" />
 
-    <div class="relative group">
-        <input type="email" id="email" placeholder=" " class="peer bg-transparent w-full border-b border-white/10 py-4 outline-none text-white font-bold focus:border-orange-500 transition-all">
-        <label for="email" class="absolute left-0 top-4 text-[10px] font-black uppercase tracking-widest text-slate-500 transition-all peer-focus:-top-6 peer-focus:text-orange-500 peer-[:not(:placeholder-shown)]:-top-6">
-            Department Email
-        </label>
-    </div>
+                    <!-- Honeypot field -->
+                    <p class="hidden">
+                        <label>Don’t fill this out: <input name="bot-field" /></label>
+                    </p>
 
-    <div class="relative group">
-        <input id="phone" type="tel" class="peer bg-transparent w-full border-b border-white/10 py-4 outline-none text-white font-bold focus:border-orange-500 transition-all">
-    </div>
+                    <div class="grid md:grid-cols-2 gap-12">
 
-    <div class="flex flex-col justify-end">
-        <p class="text-[9px] font-black uppercase tracking-[0.3em] text-slate-600 mb-4">// SELECT_ALL_APPLICABLE</p>
-        <div class="flex flex-wrap gap-3 w-full">
-            <label class="flex-1 cursor-pointer group/check ">
-                <input type="checkbox" name="box-type" value="rigid" class="hidden peer">
-                <div class="flex justify-center py-2 border border-white/10 text-[10px] font-black uppercase tracking-widest text-slate-500 transition-all peer-checked:bg-orange-600 peer-checked:text-white peer-checked:border-orange-600 group-hover/check:border-orange-500/50 flex items-center">
-                    <!-- <span class="mr-2 opacity-0 peer-checked:opacity-100 transition-opacity">✓</span> -->
-                    Rigid
-                </div>
-            </label>
-            <label class="flex-1 cursor-pointer group/check">
-                <input type="checkbox" name="box-type" value="mono" class="hidden peer">
-                <div class="flex justify-center py-2 border border-white/10 text-[10px] font-black uppercase tracking-widest text-slate-500 transition-all peer-checked:bg-orange-600 peer-checked:text-white peer-checked:border-orange-600 group-hover/check:border-orange-500/50 flex items-center">
-                    <!-- <span class="mr-2 opacity-0 peer-checked:opacity-100 transition-opacity">✓</span> -->
-                    Mono
-                </div>
-            </label>
-            <label class="flex-1 cursor-pointer group/check">
-                <input type="checkbox" name="box-type" value="paperboard" class="hidden peer">
-                <div class="flex justify-center py-2 border border-white/10 text-[10px] font-black uppercase tracking-widest text-slate-500 transition-all peer-checked:bg-orange-600 peer-checked:text-white peer-checked:border-orange-600 group-hover/check:border-orange-500/50 flex items-center">
-                    <!-- <span class="mr-2 opacity-0 peer-checked:opacity-100 transition-opacity">✓</span> -->
-                    Paperboard
-                </div>
-            </label>
-        </div>
-    </div>
-</div>
+                        <!-- Corporate Entity -->
+                        <div class="relative group">
+                        <input 
+                            type="text" 
+                            id="corp" 
+                            name="corporate_entity"
+                            placeholder=" " 
+                            required
+                            class="peer bg-transparent w-full border-b border-white/10 py-4 outline-none text-white font-bold focus:border-orange-500 transition-all"
+                        >
+                        <label for="corp" class="absolute left-0 top-4 text-[10px] font-black uppercase tracking-widest text-slate-500 transition-all peer-focus:-top-6 peer-focus:text-orange-500 peer-[:not(:placeholder-shown)]:-top-6">
+                            Corporate Entity
+                        </label>
+                        </div>
 
+                        <!-- Email -->
+                        <div class="relative group">
+                        <input 
+                            type="email" 
+                            id="email" 
+                            name="department_email"
+                            placeholder=" " 
+                            required
+                            class="peer bg-transparent w-full border-b border-white/10 py-4 outline-none text-white font-bold focus:border-orange-500 transition-all"
+                        >
+                        <label for="email" class="absolute left-0 top-4 text-[10px] font-black uppercase tracking-widest text-slate-500 transition-all peer-focus:-top-6 peer-focus:text-orange-500 peer-[:not(:placeholder-shown)]:-top-6">
+                            Department Email
+                        </label>
+                        </div>
+
+                        <!-- Phone -->
+                        <div class="relative group">
+                        <input 
+                            id="phone" 
+                            type="tel" 
+                            name="phone_number"
+                            class="peer bg-transparent w-full border-b border-white/10 py-4 outline-none text-white font-bold focus:border-orange-500 transition-all"
+                        >
+                        </div>
+
+                        <!-- Box Type -->
+                        <div class="flex flex-col justify-end">
+                        <p class="text-[9px] font-black uppercase tracking-[0.3em] text-slate-600 mb-4">// SELECT_ALL_APPLICABLE</p>
+
+                        <div class="flex flex-wrap gap-3 w-full">
+
+                            <label class="flex-1 cursor-pointer group/check">
+                            <input type="checkbox" name="box_type[]" value="Rigid" class="hidden peer">
+                            <div class="flex justify-center py-2 border border-white/10 text-[10px] font-black uppercase tracking-widest text-slate-500 transition-all peer-checked:bg-orange-600 peer-checked:text-white peer-checked:border-orange-600 group-hover/check:border-orange-500/50">
+                                Rigid
+                            </div>
+                            </label>
+
+                            <label class="flex-1 cursor-pointer group/check">
+                            <input type="checkbox" name="box_type[]" value="Mono" class="hidden peer">
+                            <div class="flex justify-center py-2 border border-white/10 text-[10px] font-black uppercase tracking-widest text-slate-500 transition-all peer-checked:bg-orange-600 peer-checked:text-white peer-checked:border-orange-600 group-hover/check:border-orange-500/50">
+                                Mono
+                            </div>
+                            </label>
+
+                            <label class="flex-1 cursor-pointer group/check">
+                            <input type="checkbox" name="box_type[]" value="Paperboard" class="hidden peer">
+                            <div class="flex justify-center py-2 border border-white/10 text-[10px] font-black uppercase tracking-widest text-slate-500 transition-all peer-checked:bg-orange-600 peer-checked:text-white peer-checked:border-orange-600 group-hover/check:border-orange-500/50">
+                                Paperboard
+                            </div>
+                            </label>
+
+                        </div>
+                        </div>
+                    </div>
+
+                    <!-- Structural Requirements -->
                     <div class="relative group">
-                        <textarea rows="4" id="reqs" placeholder=" " class="peer bg-transparent w-full border-b border-white/10 py-4 outline-none text-white font-bold focus:border-orange-500 transition-all resize-none"></textarea>
+                        <textarea 
+                        rows="4" 
+                        id="reqs" 
+                        name="structural_requirements"
+                        placeholder=" " 
+                        required
+                        class="peer bg-transparent w-full border-b border-white/10 py-4 outline-none text-white font-bold focus:border-orange-500 transition-all resize-none"
+                        ></textarea>
                         <label for="reqs" class="absolute left-0 top-4 text-[10px] font-black uppercase tracking-widest text-slate-500 transition-all peer-focus:-top-6 peer-focus:text-orange-500 peer-[:not(:placeholder-shown)]:-top-6">
-                            Structural Requirements
+                        Structural Requirements
                         </label>
                     </div>
 
-                    <button class="group relative w-full bg-orange-600 hover:bg-white text-white hover:text-black py-8 font-black uppercase tracking-[0.5em] text-xs transition-all duration-500 overflow-hidden">
-                        <span class="relative z-10">Submit RFQ &rarr;</span>
+                    <button 
+                        type="submit"
+                        class="group relative w-full bg-orange-600 hover:bg-white text-white hover:text-black py-8 font-black uppercase tracking-[0.5em] text-xs transition-all duration-500 overflow-hidden"
+                    >
+                        <span class="relative z-10">Submit RFQ →</span>
                         <div class="absolute inset-0 bg-white translate-y-full group-hover:translate-y-0 transition-transform duration-500"></div>
                     </button>
-                </form>
+
+                    </form>
             </div>
         </div>
 
