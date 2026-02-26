@@ -7,7 +7,7 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=JetBrains+Mono&display=swap');
         
-body { font-family: 'Inter', sans-serif; background-color: #ffffff; color: #000000; overflow-x: hidden; transform: translateZ(0);}
+body { font-family: 'Inter', sans-serif; background-color: #ffffff; color: #000000; overflow-x: hidden;}
 .mono { font-family: 'JetBrains Mono', monospace; }
 
 /* Asymmetrical Typography */
@@ -54,6 +54,7 @@ body { font-family: 'Inter', sans-serif; background-color: #ffffff; color: #0000
 }
 
 .btn-action:hover::after{
+    transform: scale(1.1);
     animation: none !important;
     box-shadow: none !important;
     
@@ -65,7 +66,7 @@ body { font-family: 'Inter', sans-serif; background-color: #ffffff; color: #0000
         opacity: 0.6;
     }
     100% {
-        transform: scale(1.6);
+        transform: scale(1.4);
         opacity: 0;
     }
 }
@@ -374,6 +375,10 @@ body { font-family: 'Inter', sans-serif; background-color: #ffffff; color: #0000
     scrollbar-color: rgba(255,255,255,0.2) transparent;
 }
 
+.active-filter {
+    background: #f97316;
+    color: black;
+}
 
 
 

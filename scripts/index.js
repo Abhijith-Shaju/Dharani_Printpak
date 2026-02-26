@@ -98,11 +98,10 @@ document.addEventListener("DOMContentLoaded", function () {
     /* --- Main Animation Loop --- */
     function animate() {
         // 1. Increment Time (Change 0.03 to 0.05 for faster breathing)
-        time += 0.01;
+        time += 0.025;
 
         // 2. Calculate the "Breath" pulse using Sine
         // This oscillates between ~0.98 and ~1.02
-        const breath = 1 + Math.sin(time) * 0.02;
 
         // Smoothing for mouse movement
         curX += (targetX - curX) * friction;
@@ -112,7 +111,6 @@ document.addEventListener("DOMContentLoaded", function () {
         box3d.style.transform = `
             rotateY(${curX * 22}deg)
             rotateX(${-curY * 22}deg)
-            scale(${breath})
         `;
 
         // 4. Update Pupils
@@ -124,9 +122,8 @@ document.addEventListener("DOMContentLoaded", function () {
         // The shadow gets slightly larger/fainter as the box "inhales"
         shadow.style.transform = `
             translateX(${-curX * 40}px)
-            scale(${breath * (1 + Math.abs(curY) * 0.2)})
         `;
-        shadow.style.opacity = 0.3 + (Math.sin(time) * 0.05);
+        shadow.style.opacity = 0.3 ;
 
         requestAnimationFrame(animate);
     }
@@ -223,34 +220,65 @@ document.addEventListener("DOMContentLoaded", function () {
             { image: "./resources/structuralArchieve/one.jpeg",   category: "RIGID SYSTEM",  title: "Luxury Electronics Packaging" },
             { image: "./resources/structuralArchieve/two.jpeg",   category: "MONOCARTON",    title: "Retail Precision Cartons" },
             { image: "./resources/structuralArchieve/three.jpeg", category: "PAPERBOARD",    title: "Premium Retail Bags" },
-            { image: "./resources/structuralArchieve/six.jpeg",   category: "COLLAPSIBLE",   title: "Space Efficient Rigid Box" },
-            { image: "./resources/structuralArchieve/five.jpeg",  category: "COLLAPSIBLE",   title: "Space Efficient Rigid Box" },
-            { image: "./resources/structuralArchieve/seven.jpeg", category: "COLLAPSIBLE",   title: "Space Efficient Rigid Box" },
+            { image: "./resources/structuralArchieve/six.jpeg",   category: "MONOCARTON",   title: "Space Efficient Rigid Box" },
+            { image: "./resources/structuralArchieve/five.jpeg",  category: "MONOCARTON",   title: "Space Efficient Rigid Box" },
+            { image: "./resources/structuralArchieve/seven.jpeg", category: "MONOCARTON",   title: "Space Efficient Rigid Box" },
         ];
 
         const track = document.getElementById("carousel-track");
+        const buttons = document.querySelectorAll(".filter-btn");
         if (!track) return;
 
-        function buildCards() {
-            return showcaseItems.map(item => {
-                const li = document.createElement("li");
-                li.className = "flex-shrink-0 w-[520px] border border-white/10 flex flex-col group cursor-pointer";
-                li.innerHTML = `
-                    <img src="${item.image}" class="h-[420px] object-cover w-full transition-transform duration-700 group-hover:scale-[1.03]" />
-                    <div class="p-8 border-t border-white/10 bg-[#0b0f14]">
-                        <p class="text-[10px] font-black uppercase tracking-[0.5em] text-orange-500 mb-4">${item.category}</p>
-                        <h3 class="text-2xl font-black uppercase">${item.title}</h3>
-                    </div>
-                `;
-                return li;
+        function buildCards(filteredItems) {
+            track.innerHTML = "";
+
+            const createCards = (items) => {
+                return items.map(item => {
+                    const li = document.createElement("li");
+                    li.className = "flex-shrink-0 w-[520px] border border-white/10 flex flex-col group cursor-pointer";
+                    li.innerHTML = `
+                        <img src="${item.image}" class="h-[420px] object-cover w-full transition-transform duration-700 group-hover:scale-[1.03]" />
+                        <div class="p-8 border-t border-white/10 bg-[#0b0f14]">
+                            <p class="text-[10px] font-black uppercase tracking-[0.5em] text-orange-500 mb-4">${item.category}</p>
+                            <h3 class="text-2xl font-black uppercase">${item.title}</h3>
+                        </div>
+                    `;
+                    return li;
+                });
+            };
+
+            const cards = createCards(filteredItems);
+
+            cards.forEach(card => track.appendChild(card));
+            cards.forEach(card => {
+                const clone = card.cloneNode(true);
+                clone.setAttribute("aria-hidden", "true");
+                track.appendChild(clone);
             });
+
+            track.style.animation = "none";
+            void track.offsetWidth; // Force reflow
+            track.style.animation = "";
         }
 
-        buildCards().forEach(card => track.appendChild(card));
+        // Initial Load
+        buildCards(showcaseItems);
 
-        buildCards().forEach(card => {
-            card.setAttribute("aria-hidden", "true");
-            track.appendChild(card);
+        // Filter Click Logic
+        buttons.forEach(button => {
+            button.addEventListener("click", () => {
+                const filter = button.dataset.filter;
+
+                buttons.forEach(btn => btn.classList.remove("active-filter"));
+                button.classList.add("active-filter");
+
+                if (filter === "ALL") {
+                    buildCards(showcaseItems);
+                } else {
+                    const filtered = showcaseItems.filter(item => item.category === filter);
+                    buildCards(filtered);
+                }
+            });
         });
 
         track.addEventListener("mouseenter", () => track.style.animationPlayState = "paused");
@@ -260,15 +288,15 @@ document.addEventListener("DOMContentLoaded", function () {
     window.addEventListener("load", initInfiniteCarousel);
 
 
+
+    
     const cube = document.querySelector('#cursor-cube');
     let mouseX_Cube = 0, mouseY_Cube = 0;
     let cubeX = 0, cubeY = 0;
 
     window.addEventListener('mousemove', (e) => {
-        // Use pageX/pageY so scroll position is respected
-        mouseX_Cube = e.pageX;
-        mouseY_Cube = e.pageY;
-
+        mouseX_Cube = e.clientX;
+        mouseY_Cube = e.clientY;
         cube.style.opacity = "1";
     });
 

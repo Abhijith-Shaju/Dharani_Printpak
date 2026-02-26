@@ -18,7 +18,7 @@
 </head>
 <body class="min-h-screen flex flex-col bg-[#fafafa]">
     
-    <div id="cursor-cube" class="fixed pointer-events-none z-[9999] opacity-0 transition-opacity duration-300">
+    <div id="cursor-cube" class="pointer-events-none z-[9999] opacity-0 transition-opacity duration-300">
         <div class="cube-wrapper">
             <div class="c-face front"></div>
             <div class="c-face back"></div>
@@ -28,6 +28,8 @@
             <div class="c-face bottom"></div>
         </div>
     </div>
+
+
 <!-- ================= MASTER SVG DEFINITIONS ================= -->
     <svg xmlns="./resources/ClientLogos.svg" style="display:none;">
         <symbol id="logo-1" viewBox="0 0 100 100">
@@ -58,7 +60,7 @@
     </svg>
 
     
-    <section class="min-h-screen max-h-screen flex flex-col justify-between px-6 md:px-12 relative overflow-hidden bg-[#f4f4f4]">
+    <section id="hero" class="min-h-screen max-h-screen flex flex-col justify-between px-6 md:px-12 relative overflow-hidden bg-[#f4f4f4]">
 
         <nav class="top-0 left-0 w-full z-[100] mt-4 p-6 md:px-7 md:py-4 flex justify-between items-center pointer-events-none duration-300"  id="navbar">
             <div class="pointer-events-auto px-4 py-3 flex justify-center items-center">
@@ -454,7 +456,7 @@
 
             <div class="grid grid-cols-1 md:grid-cols-3 md:grid-rows-1 gap-8 flex-1 min-h-0 h-full mb-4">
                 
-                <div class="gallery-card flex flex-col justify-between group md:col-span-1 relative overflow-hidden reveal bg-[url('./resources/Rigid_Box_V2.png')] bg-cover bg-center border border-slate-100 h-full">
+                <div class="gallery-card flex flex-col justify-between group md:col-span-1 relative overflow-hidden reveal bg-[url('./resources/rigidbox.png')] bg-cover bg-center border border-slate-100 h-full">
                     <div class="p-10 w-full h-full flex flex-col justify-between relative z-10 transition-opacity duration-500 group">
                         <div>
                             <h4 class="text-4xl text-left font-extrabold text-black uppercase group-hover:text-white duration-500"> Rigid <br /> <span class="text-orange-600 group-hover:text-black duration-500">Boxes</span></h4>
@@ -493,7 +495,7 @@
                 </div>
 
                 
-                <div class="gallery-card flex flex-col justify-between group md:col-span-1 relative overflow-hidden reveal bg-[url('./resources/monocarton1.png')] bg-cover bg-center border border-slate-100 h-full">
+                <div class="gallery-card flex flex-col justify-between group md:col-span-1 relative overflow-hidden reveal bg-[url('./resources/mono_carton.png')] bg-cover bg-center border border-slate-100 h-full">
                     <div class="p-10 w-full h-full flex flex-col justify-between relative z-10 transition-opacity duration-500 group">
                         <div>
                             <h4 class="text-4xl text-center font-extrabold text-black uppercase group-hover:text-white duration-500">Mono <span class="text-orange-600 group-hover:text-black duration-500">Cartons</span></h4>
@@ -532,7 +534,7 @@
                     </div>
                 </div>
 
-                <div class="gallery-card flex flex-col justify-between group md:col-span-1 relative overflow-hidden reveal bg-[url('./resources/Paperboardbags.png')] bg-cover bg-center border border-slate-100 h-full">
+                <div class="gallery-card flex flex-col justify-between group md:col-span-1 relative overflow-hidden reveal bg-[url('./resources/paperboard_bags.png')] bg-cover bg-center border border-slate-100 h-full">
                     <div class="p-10 w-full h-full flex flex-col justify-between relative z-10 transition-opacity duration-500 group">
                         <div>
                             <h4 class="text-4xl text-right font-extrabold text-black uppercase group-hover:text-white duration-500">Paperboard <br /> <span class="text-orange-600 group-hover:text-black duration-500">Bags</span></h4>
@@ -581,8 +583,25 @@
     </div>
 
     <!-- Fade edges -->
-    <div class="w-full inline-flex flex-nowrap overflow-hidden [mask-image:_linear-gradient(to_right,transparent_0,_black_128px,_black_calc(100%-128px),transparent_100%)]">
+    <div class="w-full inline-flex flex-nowrap overflow-hidden ">
         <ul id="carousel-track" class="flex items-stretch gap-12 animate-carousel-scroll"></ul>
+    </div>
+
+
+    <!-- Filter Buttons -->
+    <div class="mt-16 flex justify-center gap-6">
+        <button data-filter="ALL" class="filter-btn active-filter px-8 py-3 border border-white/20 text-xs font-black tracking-[0.4em] uppercase hover:bg-orange-500 hover:text-black transition">
+            All
+        </button>
+        <button data-filter="MONOCARTON" class="filter-btn px-8 py-3 border border-white/20 text-xs font-black tracking-[0.4em] uppercase hover:bg-orange-500 hover:text-black transition">
+            Monocarton
+        </button>
+        <button data-filter="RIGID SYSTEM" class="filter-btn px-8 py-3 border border-white/20 text-xs font-black tracking-[0.4em] uppercase hover:bg-orange-500 hover:text-black transition">
+            Rigid
+        </button>
+        <button data-filter="PAPERBOARD" class="filter-btn px-8 py-3 border border-white/20 text-xs font-black tracking-[0.4em] uppercase hover:bg-orange-500 hover:text-black transition">
+            Paperboard
+        </button>
     </div>
 </section>
 
@@ -832,7 +851,7 @@
         <div class="lg:col-span-5 reveal">
             <h2 class="text-xs font-black uppercase tracking-[0.6em] text-orange-500 mb-8">/ Initiate Partnership</h2>
             <h3 class="text-6xl md:text-8xl font-black uppercase text-white tracking-tighter leading-[0.9] mb-12">
-                Ready to <br> Scale?
+                Ready to <br> Elevate?
             </h3>
             
             <p class="text-slate-400 text-lg font-medium leading-relaxed max-w-md mb-16">
