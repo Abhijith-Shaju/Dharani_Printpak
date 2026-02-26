@@ -178,7 +178,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     const input = document.querySelector("#phone");
-    window.intlTelInput(input, {
+
+    const iti = window.intlTelInput(input, {
     initialCountry: "auto",
     geoIpLookup: callback => {
         fetch("https://ipapi.co/json")
@@ -189,7 +190,20 @@ document.addEventListener("DOMContentLoaded", function () {
     utilsScript: "https://cdn.jsdelivr.net/npm/intl-tel-input@24.5.0/build/js/utils.js",
     });
 
+    // Inject full international number before Netlify submission
+    const form = document.querySelector('form[name="rfq"]');
 
+    if (form) {
+        form.addEventListener("submit", function (e) {
+            if (!iti.isValidNumber()) {
+            e.preventDefault();
+            alert("Please enter a valid phone number.");
+            return;
+            }
+
+            input.value = iti.getNumber(); // <-- This is the important line
+        });
+    }
 
     // Tailwind config gallery
     tailwind.config = {
