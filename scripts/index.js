@@ -374,7 +374,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 li.innerHTML = `
                     <img src="${src}" 
-                        class="border-l-2 w-full h-full object-contain hover:opacity-100 transition-opacity duration-300" />
+                        class="logo-card-border-left w-full h-full object-contain hover:opacity-100 transition-opacity duration-300" />
                 `;
                 return li;
             });
