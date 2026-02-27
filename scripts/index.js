@@ -231,12 +231,40 @@ document.addEventListener("DOMContentLoaded", function () {
 
     function initInfiniteCarousel() {
         const showcaseItems = [
-            { image: "./resources/structuralArchieve/one.jpeg",   category: "RIGID SYSTEM",  title: "Luxury Electronics Packaging" },
-            { image: "./resources/structuralArchieve/two.jpeg",   category: "MONOCARTON",    title: "Retail Precision Cartons" },
-            { image: "./resources/structuralArchieve/three.jpeg", category: "PAPERBOARD",    title: "Premium Retail Bags" },
-            { image: "./resources/structuralArchieve/six.jpeg",   category: "MONOCARTON",   title: "Space Efficient Rigid Box" },
-            { image: "./resources/structuralArchieve/five.jpeg",  category: "MONOCARTON",   title: "Space Efficient Rigid Box" },
-            { image: "./resources/structuralArchieve/seven.jpeg", category: "MONOCARTON",   title: "Space Efficient Rigid Box" },
+            { image: "resources/AIED/mono1/M1.png",   category: "MONOCARTON",  title: "Luxury Electronics Packaging" },
+            { image: "resources/AIED/mono1/M2.png",   category: "MONOCARTON",  title: "Luxury Electronics Packaging" },
+            { image: "resources/AIED/mono1/M3.png",   category: "MONOCARTON",  title: "Luxury Electronics Packaging" },
+            { image: "resources/AIED/mono1/M4.png",   category: "MONOCARTON",  title: "Luxury Electronics Packaging" },
+            { image: "resources/AIED/mono1/M5.png",   category: "MONOCARTON",  title: "Luxury Electronics Packaging" },
+            { image: "resources/AIED/mono1/M6.png",   category: "MONOCARTON",  title: "Luxury Electronics Packaging" },
+            { image: "resources/AIED/mono1/M7.png",   category: "MONOCARTON",  title: "Luxury Electronics Packaging" },
+            { image: "resources/AIED/mono1/M8.png",   category: "MONOCARTON",  title: "Luxury Electronics Packaging" },
+            { image: "resources/AIED/mono1/M9.png",   category: "MONOCARTON",  title: "Luxury Electronics Packaging" },
+            { image: "resources/AIED/mono1/M10.png",   category: "MONOCARTON",  title: "Luxury Electronics Packaging" },
+
+            
+            { image: "resources/AIED/rigid1/R1.png",   category: "RIGID SYSTEM",  title: "Luxury Electronics Packaging" },
+            { image: "resources/AIED/rigid1/R2.png",   category: "RIGID SYSTEM",  title: "Luxury Electronics Packaging" },
+            { image: "resources/AIED/rigid1/R3.png",   category: "RIGID SYSTEM",  title: "Luxury Electronics Packaging" },
+            { image: "resources/AIED/rigid1/R4.png",   category: "RIGID SYSTEM",  title: "Luxury Electronics Packaging" },
+            { image: "resources/AIED/rigid1/R5.png",   category: "RIGID SYSTEM",  title: "Luxury Electronics Packaging" },
+            { image: "resources/AIED/rigid1/R6.png",   category: "RIGID SYSTEM",  title: "Luxury Electronics Packaging" },
+            { image: "resources/AIED/rigid1/R7.png",   category: "RIGID SYSTEM",  title: "Luxury Electronics Packaging" },
+            { image: "resources/AIED/rigid1/R8.png",   category: "RIGID SYSTEM",  title: "Luxury Electronics Packaging" },
+            { image: "resources/AIED/rigid1/R9.png",   category: "RIGID SYSTEM",  title: "Luxury Electronics Packaging" },
+            { image: "resources/AIED/rigid1/R10.png",   category: "RIGID SYSTEM",  title: "Luxury Electronics Packaging" },
+            { image: "resources/AIED/rigid1/R11.png",   category: "RIGID SYSTEM",  title: "Luxury Electronics Packaging" },
+            { image: "resources/AIED/rigid1/R12.png",   category: "RIGID SYSTEM",  title: "Luxury Electronics Packaging" },
+            { image: "resources/AIED/rigid1/R13.png",   category: "RIGID SYSTEM",  title: "Luxury Electronics Packaging" },
+            { image: "resources/AIED/rigid1/R14.png",   category: "RIGID SYSTEM",  title: "Luxury Electronics Packaging" },
+            { image: "resources/AIED/rigid1/R15.png",   category: "RIGID SYSTEM",  title: "Luxury Electronics Packaging" },
+            { image: "resources/AIED/rigid1/R16.png",   category: "RIGID SYSTEM",  title: "Luxury Electronics Packaging" },
+
+
+            { image: "resources/AIED/rigid1/R1.png",   category: "PAPERBOARD",  title: "Luxury Electronics Packaging" },
+
+
+
         ];
 
         const track = document.getElementById("carousel-track");
@@ -244,35 +272,39 @@ document.addEventListener("DOMContentLoaded", function () {
         if (!track) return;
 
         function buildCards(filteredItems) {
+            const track = document.getElementById("carousel-track");
+            if (!track || filteredItems.length === 0) return;
+
             track.innerHTML = "";
+            
+            // 1. Define your speed constant (seconds per card)
+            // Lower = Faster, Higher = Slower
+            const secondsPerCard = 3; 
+            const totalDuration = filteredItems.length * secondsPerCard;
 
-            const createCards = (items) => {
-                return items.map(item => {
-                    const li = document.createElement("li");
-                    li.className = "flex-shrink-0 w-[520px] border border-white/10 flex flex-col group";
-                    li.innerHTML = `
-                        <img src="${item.image}" class="h-[420px] object-cover w-full transition-transform duration-700 group-hover:scale-[1.03]" />
-                        <div class="p-8 border-t border-white/10 bg-[#0b0f14]">
-                            <p class="text-[10px] font-black uppercase tracking-[0.5em] text-orange-500 mb-4">${item.category}</p>
-                            <h3 class="text-2xl font-black uppercase">${item.title}</h3>
-                        </div>
-                    `;
-                    return li;
-                });
-            };
-
-            const cards = createCards(filteredItems);
-
-            cards.forEach(card => track.appendChild(card));
-            cards.forEach(card => {
-                const clone = card.cloneNode(true);
-                clone.setAttribute("aria-hidden", "true");
-                track.appendChild(clone);
+            // 2. Create and Append Cards (Original + Clones)
+            const allCards = [...filteredItems, ...filteredItems]; 
+            allCards.forEach((item, index) => {
+                const li = document.createElement("li");
+                li.className = "flex-shrink-0 w-[520px] border border-white/10 flex flex-col group";
+                if (index >= filteredItems.length) li.setAttribute("aria-hidden", "true");
+                
+                li.innerHTML = `
+                    <img src="${item.image}" class="h-[420px] object-cover w-full transition-transform duration-700 group-hover:scale-[1.03]" />
+                    <div class="p-8 border-t border-white/10 bg-[#0b0f14]">
+                        <p class="text-[10px] font-black uppercase tracking-[0.5em] text-orange-500 mb-4">${item.category}</p>
+                        <h3 class="text-2xl font-black uppercase text-white">${item.title}</h3>
+                    </div>
+                `;
+                track.appendChild(li);
             });
 
+            // 3. Apply Dynamic Speed
             track.style.animation = "none";
             void track.offsetWidth; // Force reflow
-            track.style.animation = "";
+            
+            // Apply the calculated duration directly to the element
+            track.style.animation = `carousel-scroll ${totalDuration}s linear infinite`;
         }
 
         // Initial Load
