@@ -512,11 +512,7 @@ body { font-family: 'Inter', sans-serif; background-color: #ffffff; color: #0000
         line-height: 0.85;
     }
 
-    /* Lock glass panel size */
-    .glass-panel {
-        width: 500px;
-        height: 500px;
-    }
+    
 
     /* Lock spacing under hero */
     #hero {
@@ -536,4 +532,28 @@ body { font-family: 'Inter', sans-serif; background-color: #ffffff; color: #0000
   #why-choose-us .max-w-\[1700px\] {
     max-width: 1300px;
   }
+}
+
+
+/* Box size + depth — always in sync */
+#box-3d {
+    width: 160px;
+    height: 160px;
+    --face-depth: 80px;   /* 160 ÷ 2 */
+}
+
+@media (min-width: 1280px) {
+    #box-3d {
+        width: 192px;
+        height: 192px;
+        --face-depth: 96px;   /* 192 ÷ 2 */
+    }
+}
+
+@media (min-width: 1536px) {
+    #box-3d {
+        width: 240px;
+        height: 240px;
+        --face-depth: 120px;  /* 240 ÷ 2 */
+    }
 }
