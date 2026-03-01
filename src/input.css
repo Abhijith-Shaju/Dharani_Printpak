@@ -1,9 +1,8 @@
-@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-@theme {
-  --animate-carousel-scroll: carousel-scroll 30s linear infinite;
-  --animate-carousel-scroll-logo: carousel-scroll-logo 90s linear infinite;
-
+@layer utilities {
   @keyframes carousel-scroll {
     from { transform: translateX(0); }
     to { transform: translateX(-50%); }
@@ -12,5 +11,13 @@
   @keyframes carousel-scroll-logo {
     from { transform: translateX(0); }
     to { transform: translateX(-50%); }
+  }
+
+  .animate-carousel-scroll {
+    animation: carousel-scroll 30s linear infinite;
+  }
+
+  .animate-carousel-scroll-logo {
+    animation: carousel-scroll-logo 90s linear infinite;
   }
 }
