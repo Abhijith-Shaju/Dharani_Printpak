@@ -415,4 +415,37 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     window.addEventListener('load', initLogoGrid);
+    
+
+
+document.querySelectorAll('.accordion-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+
+        const content = btn.closest('div').nextElementSibling;
+        const icon = btn.querySelector('b');
+        const isOpen = content.style.maxHeight;
+
+        // Close all
+        document.querySelectorAll('.accordion-content').forEach(c => {
+            c.style.maxHeight = null;
+        });
+
+        document.querySelectorAll('.accordion-btn b').forEach(s => {
+            s.textContent = '+';
+            s.style.transform = 'rotate(0deg)';
+        });
+
+        // Open selected
+        if (!isOpen) {
+            content.style.maxHeight = content.scrollHeight + "px";
+            icon.textContent = '−';
+            icon.style.transform = 'rotate(180deg)';
+        }
+    });
 });
+
+
+    
+});
+
+
