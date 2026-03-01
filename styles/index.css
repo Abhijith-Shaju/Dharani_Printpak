@@ -220,6 +220,11 @@ body { font-family: 'Inter', sans-serif; background-color: #ffffff; color: #0000
     line-height: 0.95;
 }
 
+#why-choose-us .why-stat-shadow {
+    font-size: clamp(2.8rem, 3.8vw, 5.2rem);
+    line-height: 0.95;
+}
+
 #why-choose-us .why-stat-label {
     font-size: clamp(0.58rem, 0.5vw, 0.72rem);
 }
