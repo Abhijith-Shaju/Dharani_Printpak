@@ -1,0 +1,183 @@
+/* =============================================
+   CAROUSEL SECTION — RESPONSIVE
+   Add these to the END of your index.css
+   ============================================= */
+
+/* ── Scroll keyframe (translateX -50% = one full set) ── */
+@keyframes carousel-scroll {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+}
+
+/* ── Base (Mobile first — up to 639px) ── */
+#case-carousel {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+}
+
+#case-carousel .carousel-header {
+    padding-left: 1rem;
+    padding-right: 1rem;
+    margin-bottom: 2.5rem;
+}
+
+#case-carousel .carousel-header h2 {
+    font-size: 1.875rem;   /* 30px */
+    line-height: 0.9;
+}
+
+#case-carousel .filter-row {
+    margin-top: 2.5rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+#case-carousel .filter-btn {
+    padding: 0.5rem 1rem;
+    font-size: 9px;
+    letter-spacing: 0.35em;
+}
+
+#carousel-track li {
+    width: 260px;
+}
+
+#carousel-track li img {
+    width: 100%;
+    height: 260px;
+    object-fit: contain;
+    object-position: center;
+    background: #111519;
+    display: block;
+    transition: transform 0.7s ease;
+}
+
+#carousel-track li .card-info {
+    width: 260px;
+    padding: 1rem 1.25rem;
+}
+
+/* ── Tablet (640px+) ── */
+@media (min-width: 640px) {
+    #case-carousel {
+        padding-top: 6rem;
+        padding-bottom: 6rem;
+    }
+
+    #case-carousel .carousel-header {
+        padding-left: 2rem;
+        padding-right: 2rem;
+        margin-bottom: 3.5rem;
+    }
+
+    #case-carousel .carousel-header h2 {
+        font-size: 2.5rem;   /* 40px */
+    }
+
+    #case-carousel .filter-row {
+        margin-top: 3rem;
+        gap: 0.75rem;
+    }
+
+    #case-carousel .filter-btn {
+        padding: 0.6rem 1.5rem;
+        font-size: 10px;
+        letter-spacing: 0.4em;
+    }
+
+    #carousel-track li {
+        width: 320px;
+    }
+
+    #carousel-track li img {
+        height: 320px;
+    }
+
+    #carousel-track li .card-info {
+        width: 320px;
+        padding: 1.25rem 1.5rem;
+    }
+}
+
+/* ── Small Laptop (1024px+) ── */
+@media (min-width: 1024px) {
+    #case-carousel {
+        padding-top: 8rem;
+        padding-bottom: 8rem;
+    }
+
+    #case-carousel .carousel-header {
+        padding-left: 3rem;
+        padding-right: 3rem;
+        margin-bottom: 5rem;
+    }
+
+    #case-carousel .carousel-header h2 {
+        font-size: 3.75rem;  /* 60px */
+    }
+
+    #case-carousel .filter-row {
+        margin-top: 4rem;
+        gap: 1rem;
+        flex-wrap: nowrap;
+    }
+
+    #case-carousel .filter-btn {
+        padding: 0.75rem 2rem;
+        font-size: 11px;
+        letter-spacing: 0.4em;
+    }
+
+    #carousel-track li {
+        width: 380px;
+    }
+
+    #carousel-track li img {
+        height: 380px;
+    }
+
+    #carousel-track li .card-info {
+        width: 380px;
+        padding: 1.5rem 2rem;
+    }
+}
+
+/* ── Desktop (1280px+) ── */
+@media (min-width: 1280px) {
+    #case-carousel {
+        padding-top: 10rem;
+        padding-bottom: 10rem;
+    }
+
+    #case-carousel .carousel-header {
+        margin-bottom: 5rem;
+    }
+
+    #case-carousel .carousel-header h2 {
+        font-size: 4.5rem;   /* 72px */
+    }
+
+    #case-carousel .filter-row {
+        gap: 1.5rem;
+    }
+
+    #case-carousel .filter-btn {
+        padding: 0.75rem 2rem;
+        font-size: 12px;
+    }
+
+    #carousel-track li {
+        width: 420px;
+    }
+
+    #carousel-track li img {
+        height: 420px;
+    }
+
+    #carousel-track li .card-info {
+        width: 420px;
+        padding: 2rem;
+    }
+}
