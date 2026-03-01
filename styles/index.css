@@ -97,6 +97,17 @@ body { font-family: 'Inter', sans-serif; background-color: #ffffff; color: #0000
 
     /* background-color: #E94F37; */
 }
+
+.gallery-card {
+    aspect-ratio: 3 / 4;
+}
+
+.gallery-card-title {
+    font-size: clamp(0.8rem, 1.8vw, 3.5rem);
+    line-height: 0.95;
+    letter-spacing: -0.02em;
+}
+
 .gallery-card:hover .drawer { 
     transform: translateX(0); 
 }
@@ -116,6 +127,31 @@ body { font-family: 'Inter', sans-serif; background-color: #ffffff; color: #0000
 
 #gallery-card-paperboard{
     background-image: url('../resources/paperboard_bags.png');
+}
+
+/* Products section split: desktop + mobile */
+#products-mobile {
+    display: none;
+}
+
+@media (max-width: 1023px) {
+    #products {
+        display: none;
+    }
+
+    #products-mobile {
+        display: block;
+    }
+}
+
+@media (min-width: 1024px) {
+    #products {
+        display: flex;
+    }
+
+    #products-mobile {
+        display: none;
+    }
 }
 
 #box-3d {
