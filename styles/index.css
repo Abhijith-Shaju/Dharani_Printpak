@@ -92,19 +92,54 @@ body { font-family: 'Inter', sans-serif; background-color: #ffffff; color: #0000
 /* Gallery Drawer */
 .gallery-card .drawer {
     transform: translateX(-100%);
-    /* background-color: rgba(255, 87, 51, 0.4); */
-    background-color: #FF5733; 
+    background-color: #FF5733;
+    overflow: hidden;                    /* NO scroll — content must fit */
+    padding: clamp(1rem, 2vw, 2.5rem);
+    justify-content: space-between;
+    display: flex;
+    flex-direction: column;
+}
 
-    /* background-color: #E94F37; */
+.gallery-card .drawer .drawer-title {
+    font-size: clamp(1.4rem, 2.2vw, 3.2rem);
+    line-height: 1;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    text-transform: uppercase;
+}
+
+.gallery-card .drawer ul li {
+    padding: clamp(0.2rem, 0.3vw, 0.4rem) clamp(0.4rem, 0.7vw, 0.9rem);
+    font-size: clamp(0.45rem, 0.58vw, 0.65rem);
+    border-radius: 999px;
+}
+
+.gallery-card .drawer p {
+    font-size: clamp(0.58rem, 0.75vw, 0.9rem);
+    line-height: 1.45;
+}
+
+.gallery-card .drawer hr {
+    margin: clamp(0.3rem, 0.8vw, 1rem) 0;
+}
+
+.gallery-card .drawer .mono {
+    font-size: clamp(0.5rem, 0.55vw, 0.65rem);
+    margin-bottom: clamp(0.3rem, 0.5vw, 0.75rem);
 }
 
 .gallery-card {
-    aspect-ratio: 3 / 4;
+    height: clamp(520px, 38vw, 720px);  /* consistent across all screen sizes */
+    overflow: hidden;                    /* NO scroll ever */
+}
+
+.gallery-card {
+    aspect-ratio: unset;
 }
 
 .gallery-card-title {
-    font-size: clamp(0.8rem, 1.8vw, 3.5rem);
-    line-height: 0.95;
+    font-size: clamp(1.4rem, 1.9vw, 3.2rem);
+    line-height: 1;
     letter-spacing: -0.02em;
 }
 
@@ -278,7 +313,7 @@ body { font-family: 'Inter', sans-serif; background-color: #ffffff; color: #0000
 }
 
 #why-choose-us .why-card-title {
-    font-size: clamp(1.45rem, 1.9vw, 2.4rem);
+    font-size: clamp(1.45rem, 1.5vw, 2.4rem);
     line-height: 1.08;
     margin: 0 0 clamp(0.7rem, 0.95vw, 1.1rem) 0;
 }
@@ -653,4 +688,84 @@ body { font-family: 'Inter', sans-serif; background-color: #ffffff; color: #0000
         height: 240px;
         --face-depth: 120px;  /* 240 ÷ 2 */
     }
+}
+
+
+
+
+
+
+
+
+
+/* 1 — Backdrop blur requires -webkit- prefix in Safari */
+.glass-panel {
+    -webkit-backdrop-filter: blur(0px);
+    backdrop-filter: blur(0px);
+}
+
+@media (min-width: 1024px) {
+    .glass-panel {
+        -webkit-backdrop-filter: blur(20px);
+        backdrop-filter: blur(20px);
+    }
+}
+
+/* 2 — 3D transform context needs -webkit- prefix in Safari */
+#box-3d,
+.cube-wrapper {
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+}
+
+.cube-face {
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+
+/* 3 — scrollbar-width not supported in Safari, wrap in @supports */
+#carousel-track {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255,255,255,0.2) transparent;
+}
+
+/* 4 — flex gap fallback for Safari 14.0 and below */
+@supports not (gap: 1rem) {
+    .nav-menu-items > * + * { margin-left: 2rem; }
+    
+    #why-choose-us .why-stats > * + * { margin-left: 3rem; }
+}
+
+/* 5 — smooth scroll for Safari versions that don't support scroll-behavior */
+html {
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+}
+
+/* 6 — prevent text size adjustment on orientation change (Safari iOS) */
+body {
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+}
+
+/* 7 — animation prefix for Safari */
+@-webkit-keyframes pulseScale {
+    0% { -webkit-transform: scale(1); opacity: 0.6; }
+    100% { -webkit-transform: scale(1.4); opacity: 0; }
+}
+
+@-webkit-keyframes rotateCube {
+    from { -webkit-transform: rotateX(0deg) rotateY(0deg); }
+    to { -webkit-transform: rotateX(360deg) rotateY(360deg); }
+}
+
+@-webkit-keyframes rotateMap {
+    from { -webkit-transform: translate(-50%, -50%) rotateX(60deg) rotateZ(0deg); }
+    to { -webkit-transform: translate(-50%, -50%) rotateX(60deg) rotateZ(360deg); }
+}
+
+/* 8 — fix transition on gallery drawer for Safari */
+.gallery-card .drawer {
+    -webkit-transition: -webkit-transform 0.5s ease;
+    transition: transform 0.5s ease;
 }
