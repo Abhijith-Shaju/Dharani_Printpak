@@ -181,3 +181,49 @@
         padding: 2rem;
     }
 }
+
+
+
+/* ── Carousel card info text ──
+   Add to index.css alongside your other carousel rules */
+
+#carousel-track li .card-info {
+    padding: 1rem 1.25rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    background: #0b0f14;
+}
+
+.carousel-card-category {
+    font-size: 10px;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 0.5em;
+    color: #f97316;
+    margin-bottom: 0.5rem;
+}
+
+.carousel-card-title {
+    font-size: 13px;
+    font-weight: 900;
+    text-transform: uppercase;
+    color: #ffffff;
+    line-height: 1.3;
+}
+
+@media (min-width: 640px) {
+    #carousel-track li .card-info {
+        padding: 1.25rem 1.5rem;
+    }
+    .carousel-card-title {
+        font-size: 14px;
+    }
+}
+
+@media (min-width: 1024px) {
+    #carousel-track li .card-info {
+        padding: 1.5rem 2rem;
+    }
+    .carousel-card-title {
+        font-size: 15px;
+    }
+}

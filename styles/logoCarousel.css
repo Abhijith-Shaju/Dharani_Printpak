@@ -1,0 +1,99 @@
+/* =============================================
+   LOGO TRACK — RESPONSIVE
+   Add these to the END of your index.css
+   ============================================= */
+
+/* ── Scroll keyframe ── */
+@keyframes logo-scroll {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+}
+
+/* ── Wrapper ── */
+#logo-track-wrapper {
+    overflow: hidden;
+    width: 100%;
+    margin-top: 3rem;
+}
+
+/* ── Track ── */
+#logo-track {
+    display: flex;
+    align-items: center;
+    width: max-content;
+    animation: logo-scroll 40s linear infinite;
+}
+
+#logo-track:hover {
+    animation-play-state: paused;
+}
+
+/* ── Each logo cell ── */
+#logo-track li {
+    flex-shrink: 0;
+    background: #f4f4f4;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    margin: 0;
+}
+
+#logo-track li img {
+    display: block;
+    object-fit: contain;
+    width: 100%;
+    height: 100%;
+    transition: opacity 0.3s ease;
+}
+
+/* ── Mobile (base — up to 639px) ── */
+#logo-track-wrapper {
+    margin-top: 3rem;
+}
+
+#logo-track li {
+    width: 190px;
+    height: 120px;
+    padding: 14px;
+}
+
+/* ── Tablet (640px+) ── */
+@media (min-width: 640px) {
+    #logo-track-wrapper {
+        margin-top: 4rem;
+    }
+
+    #logo-track li {
+        width: 230px;
+        height: 155px;
+        padding: 18px;
+    }
+}
+
+/* ── Small Laptop (1024px+) ── */
+@media (min-width: 1024px) {
+    #logo-track-wrapper {
+        margin-top: 5rem;
+    }
+
+    #logo-track li {
+        width: 270px;
+        height: 185px;
+        padding: 22px;
+    }
+}
+
+/* ── Desktop (1280px+) ── */
+@media (min-width: 1280px) {
+    #logo-track-wrapper {
+        margin-top: 5rem;
+    }
+
+    #logo-track li {
+        width: 320px;
+        height: 210px;
+        padding: 24px;
+    }
+}
