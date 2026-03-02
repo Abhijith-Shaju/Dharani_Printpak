@@ -116,13 +116,13 @@
     padding: clamp(1.25rem, 1.5vw, 1.85rem);
     display: flex;
     flex-direction: column;
-    background: rgba(255, 255, 255, 0.02);
+    background: rgba(#FF5733, 0.02);
     border: 1px solid rgba(255, 255, 255, 0.08);
     transition: all 0.3s ease;
 }
 
 #why-choose-us .why-cards-grid > div:hover {
-    background: rgba(255, 255, 255, 0.05);
+    background: rgba(#FF5733, 0.5);
     border-color: rgba(255, 255, 255, 0.15);
     transform: translateY(-5px);
 }
