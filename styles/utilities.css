@@ -23,8 +23,9 @@
     position: absolute;
     width: 20px;
     height: 20px;
-    background: #FF5733;
-    opacity: 0.6;
+    background: rgba(#FF5733, 0.8);
+    opacity: 1;
+    border: #e64428 1px solid;
     display: flex;
     align-items: center;
     justify-content: center;

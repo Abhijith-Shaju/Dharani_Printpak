@@ -39,50 +39,10 @@ body { font-family: 'Inter', sans-serif; background-color: #ffffff; color: #0000
     text-transform: uppercase;
 }
 
-/* Gallery Card Styles - MOVED TO products.css */
-/* All .gallery-card, .gallery-card .drawer and related styles are now in products.css */
-
-.gallery-card .drawer ul li {
-    /* REMOVED - see products.css */
-}
-
-.gallery-card .drawer p {
-    /* REMOVED - see products.css */
-}
-
-.gallery-card .drawer hr {
-    /* REMOVED - see products.css */
-}
-
-.gallery-card .drawer .mono {
-    /* REMOVED - see products.css */
-}
-
-/* .gallery-card {
-    height: clamp(520px, 38vw, 720px);
-    overflow: hidden;
-}
-
-.gallery-card {
-    aspect-ratio: unset;
-}
-
-.gallery-card-title {
-    font-size: clamp(1.4rem, 1.9vw, 3.2rem);
-    line-height: 1;
-    letter-spacing: -0.02em;
-}
-
-.gallery-card:hover .drawer { 
-    transform: translateX(0); 
-} */
 
 .calligraphy-text {
     font-family: 'Great Vibes', cursive;
 }
-
-/* Gallery card background images - MOVED TO products.css */
-/* #gallery-card-rigid-box, #gallery-card-mono-box, #gallery-card-paperboard styles now in products.css */
 
 /* Products section split: desktop + mobile */
 #products-mobile {
@@ -127,13 +87,6 @@ body { font-family: 'Inter', sans-serif; background-color: #ffffff; color: #0000
     outline: 1px solid transparent;
 }
 
-/* wobble animation */
-
-/* .wobble{
-    position: relative;
-    animation: moveBox 2s ease-in-out infinite alternate;
-
-} */
 
 @keyframes moveBox {
     0% {
@@ -391,49 +344,7 @@ body { font-family: 'Inter', sans-serif; background-color: #ffffff; color: #0000
     }
 }
 
-/* =========================================
-   3D LOCATION PIN (HTML ELEMENT)
-   MUST BE OUTSIDE .map-3d
-========================================= */
 
-.map-pin {
-    /* REMOVED - see location.css for .map-pin styles */
-    /* This was a duplicate/alternative version - location.css has the correct implementation */
-}
-
-
-/* =========================================
-   PIN POP OUT ANIMATION - DISABLED
-========================================= */
-
-/* @keyframes popPin - Removed, not used (SVG animation used instead) */
-
-/*
-@keyframes popPin {
-    0% {
-        transform:
-            translate(-50%, -50%)
-            translateZ(0)
-            scale(0.6);
-        opacity: 0;
-    }
-
-    60% {
-        transform:
-            translate(-50%, -50%)
-            translateZ(140px)
-            scale(1.1);
-        opacity: 1;
-    }
-
-    100% {
-        transform:
-            translate(-50%, -50%)
-            translateZ(100px)
-            scale(1);
-    }
-}
-*/
 
 
 #cursor-cube {
@@ -480,11 +391,6 @@ body { font-family: 'Inter', sans-serif; background-color: #ffffff; color: #0000
 
 
 
-
-
-
-
-
 .partners {
     max-width: 1400px;
     margin: auto;
@@ -515,15 +421,6 @@ body { font-family: 'Inter', sans-serif; background-color: #ffffff; color: #0000
 }
 
 
-/* @keyframes logo-scroll - MOVED TO logoCarousel.css */
-/*
-@keyframes logo-scroll {
-  from { transform: translateX(0); }
-  to { transform: translateX(-50%); }
-}
-*/
-
-/* .animate-logo-scroll animation defined in logoCarousel.css */
 
 @media (min-width: 1600px) {
   #hero .max-w-\[1700px\] {
@@ -570,11 +467,6 @@ body { font-family: 'Inter', sans-serif; background-color: #ffffff; color: #0000
         --face-depth: 120px;  /* 240 ÷ 2 */
     }
 }
-
-
-
-
-
 
 
 

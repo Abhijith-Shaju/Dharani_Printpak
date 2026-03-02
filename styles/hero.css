@@ -655,8 +655,8 @@ body { font-family: 'Inter', sans-serif; background-color: #ffffff; color: #0000
 
     /* Lock spacing under hero */
     #hero {
-        padding-left: 80px;
-        padding-right: 80px;
+        padding-left: 7rem;
+        padding-right: 7rem;
     }
 
 }
