@@ -37,8 +37,9 @@
 .c-face:nth-child(5) { transform: rotateX(90deg) translateZ(10px); }
 .c-face:nth-child(6) { transform: rotateX(-90deg) translateZ(10px); }
 
-/* Reveal animation */
-.reveal {
+
+/* Reveal animation - MOVED TO index.css (parent file) */
+/* .reveal {
     opacity: 0;
     transform: translateY(30px);
     transition: transform 0.6s ease, opacity 0.6s ease;
@@ -47,16 +48,9 @@
 .reveal.active {
     opacity: 1;
     transform: translateY(0);
-}
+} */
 
-/* Hero title animation */
-.hero-title {
-    font-size: clamp(2.8rem, 4.5vw, 6.5rem);
-    line-height: 0.85;
-    letter-spacing: -0.05em;
-    font-weight: 900;
-    text-transform: uppercase;
-}
+/* Hero title styling moved to hero.css */
 
 .wobbleText {
     display: inline-block;

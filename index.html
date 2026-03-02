@@ -13,8 +13,18 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@24.5.0/build/css/intlTelInput.css">
     <link rel="stylesheet" href="./dist/output.css">
 
-    <link rel="stylesheet" href="styles/products.css">
-    <link rel="stylesheet" href="styles/logoCarousel.css">
+    <link rel="stylesheet" href="./styles/products.css">
+    <link rel="stylesheet" href="./styles/logoCarousel.css">
+    <link rel="stylesheet" href="./styles/about.css">
+    <link rel="stylesheet" href="./styles/case-carousel.css">
+    <link rel="stylesheet" href="./styles/contact.css">
+    <link rel="stylesheet" href="./styles/footer.css">
+    <link rel="stylesheet" href="./styles/hero.css">
+    <link rel="stylesheet" href="./styles/location.css">
+    <link rel="stylesheet" href="./styles/navbar.css">
+    <link rel="stylesheet" href="./styles/productsCarousel.css">
+    <link rel="stylesheet" href="./styles/utilities.css">
+    <link rel="stylesheet" href="./styles/why-choose-us.css">
 
     <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@24.5.0/build/js/intlTelInput.min.js"></script>
 
@@ -35,7 +45,7 @@
         </div>
     </div>
     
-    <section id="hero" class="flex flex-col justify-between px-0 relative overflow-hidden bg-[#f4f4f4]" style="min-height: 100vh; min-height: 100dvh;">
+    <section id="hero" class="hero flex flex-col justify-between px-0 relative overflow-hidden bg-[#f4f4f4]" style="min-height: 100vh; min-height: 100dvh;">
 
         <nav class="top-0 left-0 w-full z-[100] mt-4 pr-6 pl-0 md:pr-7 md:pl-0 py-4 flex justify-between items-center pointer-events-none duration-300" id="navbar">
             <div class="pointer-events-auto py-3 flex items-center">
@@ -178,14 +188,14 @@
             </div>
         </nav>
         
-        <div class="absolute -left-20 top-1/2 -translate-y-1/2 text-[30vw] font-black text-black/[0.02] select-none leading-none pointer-events-none">
+        <div class=" absolute -left-20 top-1/2 -translate-y-1/2 text-[30vw] font-black text-black/[0.02] select-none leading-none pointer-events-none">
             1994
         </div>
 
         <div class="w-full relative">
             
             <div class="reveal active relative z-30 mb-[-40px]">
-                <h1 class="wobbleText hero-title font-black uppercase">
+                <h1 class=" hero-title font-black uppercase">
                     BOX AS <i>NICE</i> <span class="text-orange-500">→</span>
                 </h1>
             </div>
@@ -273,7 +283,7 @@
                     
                 </div>
                 
-                <h1 class="wobbleText hero-title font-black uppercase">
+                <h1 class=" hero-title font-black uppercase">
                     AS YOUR <br>
                     PRODUCT<span class="text-orange-600">*</span>
                 </h1> 
@@ -619,9 +629,15 @@
             <h2 class="font-black uppercase leading-[0.9] tracking-tighter text-center">Built. Engineered. Delivered.</h2>
         </div>
 
-        <!-- Scrolling track -->
-        <div class="w-full inline-flex flex-nowrap overflow-hidden">
-            <ul id="carousel-track" class="flex gap-4 md:gap-8 lg:gap-12"></ul>
+        <!-- Slider with arrows -->
+        <div class="slider-outer">
+            <button id="slider-prev" class="slider-arrow" aria-label="Previous">&#8592;</button>
+
+            <div class="slider-viewport">
+                <ul id="carousel-track" class="flex gap-4 md:gap-8 lg:gap-12"></ul>
+            </div>
+
+            <button id="slider-next" class="slider-arrow" aria-label="Next">&#8594;</button>
         </div>
 
         <!-- Filter Buttons -->
@@ -1082,6 +1098,15 @@
 </footer>
 
 
+<script src="./scripts/navbar.js"></script>
+<script src="./scripts/hero.js"></script>
+<script src="./scripts/about.js"></script>
+<script src="./scripts/why-choose-us.js"></script>
+<script src="./scripts/products.js"></script>
+<script src="./scripts/case-carousel.js"></script>
+<script src="./scripts/location.js"></script>
+<script src="./scripts/contact.js"></script>
+<script src="./scripts/footer.js"></script>
 <script src="./scripts/index.js"></script>
 </body>
 </html>

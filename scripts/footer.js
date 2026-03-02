@@ -86,4 +86,4 @@ function initFooter() {
     track.addEventListener("mouseleave", () => track.style.animationPlayState = "running");
 }
 
-window.addEventListener("load", initFooter);
+document.addEventListener("DOMContentLoaded", initFooter);

@@ -10,84 +10,15 @@
 body { font-family: 'Inter', sans-serif; background-color: #ffffff; color: #000000; overflow-x: hidden;}
 .mono { font-family: 'JetBrains Mono', monospace; }
 
-/* Asymmetrical Typography */
-.hero-title { font-size: clamp(2.8rem, 4.5vw, 6.5rem); line-height: 0.85; letter-spacing: -0.05em; }
-
 /* Reveal Animations */
 .reveal { opacity: 0; transform: translateY(30px); transition: transform 0.6s ease, opacity 0.6s ease; }
 .reveal.active { opacity: 1; transform: translateY(0); }
 
-/* The New "Industrial Orange" Circular Button */
-.btn-action {
-    width: 90px;
-    height: 90px;
-    background-color: #FF5733; 
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    /* Smooth transitions for all properties except the pulse */
-    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), 
-                background-color 0.3s ease, 
-                border 0.3s ease;
-    
-    position: relative;
-    z-index: 1;
-}
-
-
-.btn-action::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    border-radius: 50%;
-    border: 2px solid rgba(255,87,51,0.4);
-    animation: pulseScale 2s infinite;
-}
-
-
-.btn-action:hover {
-
-    transform: scale(1.1) rotate(90deg);
-    border: #FF5733 4px solid;
-    background-color: #ffffff; /* Optional: high contrast hover */
-}
-
-.btn-action:hover::after{
-    transform: scale(1.1);
-    animation: none !important;
-    box-shadow: none !important;
-    
-}
-
-@keyframes pulseScale {
-    0% {
-        transform: scale(1);
-        opacity: 0.6;
-    }
-    100% {
-        transform: scale(1.4);
-        opacity: 0;
-    }
-}
-
-/* Structural Glass Effect */
-.glass-panel {
-    /* background: rgba(255,255,255,0.6); */
-    background: rgba(255,255,255,0.75);
-    border: 1px solid rgba(0,0,0,0.06);
-    box-shadow: 0 40px 100px rgba(0,0,0,0.08);
-    width: clamp(300px, 22vw, 500px);
-    height: clamp(300px, 22vw, 500px);
-}
-
-
-
-@media (min-width: 1024px) {
-    .glass-panel {
-        backdrop-filter: blur(20px);
-    }
-}
+/* The New "Industrial Orange" Circular Button - MOVED TO hero.css */
+/* General button styling defined in component files:
+   - hero.css: Hero section button (absolute positioning)
+   - products.css: Product card buttons if needed
+*/
 
 /* Gallery Drawer */
 .gallery-card .drawer {
@@ -108,29 +39,28 @@ body { font-family: 'Inter', sans-serif; background-color: #ffffff; color: #0000
     text-transform: uppercase;
 }
 
+/* Gallery Card Styles - MOVED TO products.css */
+/* All .gallery-card, .gallery-card .drawer and related styles are now in products.css */
+
 .gallery-card .drawer ul li {
-    padding: clamp(0.2rem, 0.3vw, 0.4rem) clamp(0.4rem, 0.7vw, 0.9rem);
-    font-size: clamp(0.45rem, 0.58vw, 0.65rem);
-    border-radius: 999px;
+    /* REMOVED - see products.css */
 }
 
 .gallery-card .drawer p {
-    font-size: clamp(0.58rem, 0.75vw, 0.9rem);
-    line-height: 1.45;
+    /* REMOVED - see products.css */
 }
 
 .gallery-card .drawer hr {
-    margin: clamp(0.3rem, 0.8vw, 1rem) 0;
+    /* REMOVED - see products.css */
 }
 
 .gallery-card .drawer .mono {
-    font-size: clamp(0.5rem, 0.55vw, 0.65rem);
-    margin-bottom: clamp(0.3rem, 0.5vw, 0.75rem);
+    /* REMOVED - see products.css */
 }
 
-.gallery-card {
-    height: clamp(520px, 38vw, 720px);  /* consistent across all screen sizes */
-    overflow: hidden;                    /* NO scroll ever */
+/* .gallery-card {
+    height: clamp(520px, 38vw, 720px);
+    overflow: hidden;
 }
 
 .gallery-card {
@@ -145,24 +75,14 @@ body { font-family: 'Inter', sans-serif; background-color: #ffffff; color: #0000
 
 .gallery-card:hover .drawer { 
     transform: translateX(0); 
-}
+} */
 
 .calligraphy-text {
     font-family: 'Great Vibes', cursive;
 }
 
-
-#gallery-card-rigid-box{
-    background-image: url('../resources/rigidbox.png');
-}
-
-#gallery-card-mono-box{
-    background-image: url('../resources/mono_carton.png');
-}
-
-#gallery-card-paperboard{
-    background-image: url('../resources/paperboard_bags.png');
-}
+/* Gallery card background images - MOVED TO products.css */
+/* #gallery-card-rigid-box, #gallery-card-mono-box, #gallery-card-paperboard styles now in products.css */
 
 /* Products section split: desktop + mobile */
 #products-mobile {
@@ -248,12 +168,8 @@ body { font-family: 'Inter', sans-serif; background-color: #ffffff; color: #0000
     height: 10vh;
 }
 
-/* Show orange overlay only when card is active */
-.product-card.active .product-content {
-    opacity: 1;
-    transform: translateY(0);
-    pointer-events: auto;
-}
+/* Product card active state - MOVED TO products.css */
+/* .product-card.active .product-content styles now in products.css */
 
 #why-choose-us .why-header {
     display: flex;
@@ -462,20 +378,7 @@ body { font-family: 'Inter', sans-serif; background-color: #ffffff; color: #0000
    MAP ROTATION
 ========================================= */
 
-@keyframes rotateMap {
-    from {
-        transform:
-            translate(-50%, -50%)
-            rotateX(60deg)
-            rotateZ(0deg);
-    }
-    to {
-        transform:
-            translate(-50%, -50%)
-            rotateX(60deg)
-            rotateZ(360deg);
-    }
-}
+/* @keyframes rotateMap - MOVED TO location.css */
 
 @media (max-width: 1024px) {
     .map-scene{
@@ -494,33 +397,18 @@ body { font-family: 'Inter', sans-serif; background-color: #ffffff; color: #0000
 ========================================= */
 
 .map-pin {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-
-    width: 20px;
-    height: 20px;
-    background: #FF5733;
-    border-radius: 50%;
-
-    box-shadow:
-        0 0 25px rgba(255,87,51,0.7),
-        0 0 60px rgba(255,87,51,0.3);
-
-    transform: translate(-50%, -50%) translateZ(0);
-    transform-style: preserve-3d;
-
-    animation: popPin 0.6s ease-out forwards;
-    animation-delay: 4s;
-
-    cursor: pointer;
+    /* REMOVED - see location.css for .map-pin styles */
+    /* This was a duplicate/alternative version - location.css has the correct implementation */
 }
 
 
 /* =========================================
-   PIN POP OUT ANIMATION
+   PIN POP OUT ANIMATION - DISABLED
 ========================================= */
 
+/* @keyframes popPin - Removed, not used (SVG animation used instead) */
+
+/*
 @keyframes popPin {
     0% {
         transform:
@@ -545,7 +433,7 @@ body { font-family: 'Inter', sans-serif; background-color: #ffffff; color: #0000
             scale(1);
     }
 }
-
+*/
 
 
 #cursor-cube {
@@ -627,14 +515,15 @@ body { font-family: 'Inter', sans-serif; background-color: #ffffff; color: #0000
 }
 
 
+/* @keyframes logo-scroll - MOVED TO logoCarousel.css */
+/*
 @keyframes logo-scroll {
   from { transform: translateX(0); }
   to { transform: translateX(-50%); }
 }
+*/
 
-.animate-logo-scroll {
-  animation: logo-scroll 40s linear infinite;
-}
+/* .animate-logo-scroll animation defined in logoCarousel.css */
 
 @media (min-width: 1600px) {
   #hero .max-w-\[1700px\] {
@@ -648,14 +537,6 @@ body { font-family: 'Inter', sans-serif; background-color: #ffffff; color: #0000
     #hero .max-w-\[1700px\] {
         max-width: 1600px;
     }
-
-    /* Lock title size */
-    .hero-title {
-        font-size: 110px;
-        line-height: 0.85;
-    }
-
-    
 
     /* Lock spacing under hero */
     #hero {
@@ -698,20 +579,7 @@ body { font-family: 'Inter', sans-serif; background-color: #ffffff; color: #0000
 
 
 
-/* 1 — Backdrop blur requires -webkit- prefix in Safari */
-.glass-panel {
-    -webkit-backdrop-filter: blur(0px);
-    backdrop-filter: blur(0px);
-}
-
-@media (min-width: 1024px) {
-    .glass-panel {
-        -webkit-backdrop-filter: blur(20px);
-        backdrop-filter: blur(20px);
-    }
-}
-
-/* 2 — 3D transform context needs -webkit- prefix in Safari */
+/* 1 — 3D transform context needs -webkit- prefix in Safari */
 #box-3d,
 .cube-wrapper {
     -webkit-transform-style: preserve-3d;
