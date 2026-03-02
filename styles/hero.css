@@ -77,8 +77,8 @@ body { font-family: 'Inter', sans-serif; background-color: #ffffff; color: #0000
     background: rgba(255,255,255,0.75);
     border: 1px solid rgba(0,0,0,0.06);
     box-shadow: 0 40px 100px rgba(0,0,0,0.08);
-    width: clamp(300px, 22vw, 500px);
-    height: clamp(300px, 22vw, 500px);
+    width: clamp(300px, 31vw, 500px);
+    height: clamp(300px, 28vw, 500px);
 }
 
 
@@ -227,8 +227,8 @@ body { font-family: 'Inter', sans-serif; background-color: #ffffff; color: #0000
 
 /* Default (Mobile / w-3 h-3) */
 .pupil {
-  width: 0.75rem;  /* 12px */
-  height: 0.75rem; /* 12px */
+  width: 1.2rem;  /* 12px */
+  height: 1.2rem; /* 12px */
 }
 
 
@@ -663,27 +663,12 @@ body { font-family: 'Inter', sans-serif; background-color: #ffffff; color: #0000
 
 
 
-/* Box size + depth — always in sync */
+/* Box size + depth — fluid across all widths */
 #box-3d {
-    width: 160px;
-    height: 160px;
-    --face-depth: 80px;   /* 160 ÷ 2 */
-}
-
-@media (min-width: 1280px) {
-    #box-3d {
-        width: 192px;
-        height: 192px;
-        --face-depth: 96px;   /* 192 ÷ 2 */
-    }
-}
-
-@media (min-width: 1536px) {
-    #box-3d {
-        width: 240px;
-        height: 240px;
-        --face-depth: 120px;  /* 240 ÷ 2 */
-    }
+    --box-size: clamp(140px, 12vw + 90px, 240px);
+    width: var(--box-size);
+    height: var(--box-size);
+    --face-depth: calc(var(--box-size) / 2);
 }
 
 /* 1 — Backdrop blur requires -webkit- prefix in Safari */
@@ -713,8 +698,8 @@ body { font-family: 'Inter', sans-serif; background-color: #ffffff; color: #0000
 
 /* 3 — scrollbar-width not supported in Safari, wrap in @supports */
 #carousel-track {
-    scrollbar-width: thin;
-    scrollbar-color: rgba(255,255,255,0.2) transparent;
+    scrollbar-width: auto;
+    scrollbar-color: #FF5733 #000000;
 }
 
 /* 4 — flex gap fallback for Safari 14.0 and below */
