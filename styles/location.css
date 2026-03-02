@@ -1,0 +1,234 @@
+/* LOCATION SECTION STYLES */
+
+#location {
+    position: relative;
+    overflow: hidden;
+    background: #0c0f14;
+    color: white;
+    padding: 7rem 1.5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+#location .location-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 3rem;
+    margin-bottom: 3rem;
+}
+
+#location .location-left {
+    flex: 1;
+    min-width: 0;
+}
+
+#location .location-right {
+    flex: 1;
+    min-width: 0;
+}
+
+#location .location-eyebrow {
+    font-size: 0.75rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 0.6em;
+    color: #FF5733;
+    margin-bottom: 1.5rem;
+}
+
+#location .location-title {
+    font-size: clamp(2.2rem, 3.5vw, 4.5rem);
+    font-weight: 900;
+    line-height: 0.95;
+    text-transform: uppercase;
+    margin-bottom: 2rem;
+}
+
+#location .location-copy {
+    font-size: 1rem;
+    line-height: 1.6;
+    opacity: 0.8;
+}
+
+/* 3D Map Scene */
+.map-scene {
+    perspective: 1600px;
+    width: 100%;
+    height: 420px;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: translate(-15%, -10%);
+}
+
+.map-scene::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background:
+        linear-gradient(to right,
+            #0c0f14 0%,
+            transparent 20%,
+            transparent 80%,
+            #0c0f14 100%
+        ),
+        linear-gradient(to bottom,
+            #0c0f14 0%,
+            transparent 15%,
+            transparent 85%,
+            #0c0f14 100%
+        );
+}
+
+.map-3d {
+    width: 130%;
+    aspect-ratio: 5 / 3;
+    min-height: 250px;
+    will-change: transform;
+    backface-visibility: hidden;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform-style: preserve-3d;
+    transform:
+        translate(-50%, -50%)
+        rotateX(60deg)
+        scale(1.4);
+    animation: rotateMap 30s linear infinite;
+    filter: none;
+}
+
+.map-3d svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.map-3d::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(255, 255, 255, 0.02);
+    transform: translateZ(-25px);
+    filter: blur(25px);
+}
+
+.map-3d::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    box-shadow: 0 80px 100px rgba(0, 0, 0, 0.6);
+    pointer-events: none;
+}
+
+@keyframes rotateMap {
+    from {
+        transform:
+            translate(-50%, -50%)
+            rotateX(60deg)
+            rotateZ(0deg);
+    }
+    to {
+        transform:
+            translate(-50%, -50%)
+            rotateX(60deg)
+            rotateZ(360deg);
+    }
+}
+
+/* Map pin */
+.map-pin {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 40px;
+    height: 40px;
+    background: #FF5733;
+    border-radius: 50% 50% 50% 0;
+    transform: translate(-50%, -100%) rotate(-45deg);
+    animation: pulsePin 2s ease-in-out infinite;
+}
+
+.map-pin::after {
+    content: "";
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    width: 24px;
+    height: 24px;
+    background: white;
+    border-radius: 50%;
+}
+
+@keyframes pulsePin {
+    0%, 100% {
+        transform: translate(-50%, -100%) rotate(-45deg) scale(1);
+    }
+    50% {
+        transform: translate(-50%, -100%) rotate(-45deg) scale(1.1);
+    }
+}
+
+/* Location info cards */
+#location .location-info {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+#location .info-card {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 2rem;
+    border-radius: 0.5rem;
+    transition: all 0.3s ease;
+}
+
+#location .info-card:hover {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: #FF5733;
+    transform: translateY(-5px);
+}
+
+#location .info-card h3 {
+    font-size: 1.25rem;
+    font-weight: 900;
+    margin-bottom: 1rem;
+    color: #FF5733;
+}
+
+#location .info-card p {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    opacity: 0.8;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .map-scene {
+        display: none;
+    }
+
+    .map-3d {
+        animation: none;
+        transform: translate(-50%, -50%) rotateX(60deg) rotateZ(20deg);
+    }
+}
+
+@media (max-width: 768px) {
+    #location {
+        padding: 4rem 1.5rem;
+    }
+
+    #location .location-header {
+        flex-direction: column;
+    }
+
+    .map-pin {
+        display: none;
+    }
+}

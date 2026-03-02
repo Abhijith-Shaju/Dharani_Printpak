@@ -1,0 +1,140 @@
+/* CASE CAROUSEL SECTION STYLES */
+
+#case-carousel {
+    position: relative;
+    background: #0b0f14;
+    color: white;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    overflow: hidden;
+}
+
+/* Carousel container */
+.carousel-wrapper {
+    position: relative;
+    padding: 3rem 0;
+}
+
+/* Carousel track */
+#carousel-track {
+    display: flex;
+    gap: 1rem;
+    animation: carousel-scroll 100s linear infinite;
+    will-change: transform;
+}
+
+#carousel-track li {
+    flex-shrink: 0;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.7s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+#carousel-track li:hover {
+    border-color: #FF5733;
+    transform: translateY(-5px);
+}
+
+#carousel-track img {
+    display: block;
+    background: #111519;
+}
+
+/* Card info section */
+.card-info {
+    background: rgba(0, 0, 0, 0.5);
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex-grow: 1;
+}
+
+.carousel-card-category {
+    font-size: 0.75rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #FF5733;
+    margin-bottom: 0.5rem;
+}
+
+.carousel-card-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    line-height: 1.2;
+    color: white;
+}
+
+/* Filter buttons */
+.carousel-filters {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin: 2rem 0;
+    flex-wrap: wrap;
+}
+
+.filter-btn {
+    padding: 0.75rem 1.5rem;
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 50px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.filter-btn:hover {
+    border-color: #FF5733;
+    color: #FF5733;
+}
+
+.filter-btn.active-filter {
+    background: #FF5733;
+    border-color: #FF5733;
+    color: white;
+}
+
+/* Carousel animation */
+@keyframes carousel-scroll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(calc(-100% / 2));
+    }
+}
+
+/* Pause on hover */
+#carousel-track:hover {
+    animation-play-state: paused;
+}
+
+/* Responsive */
+@media (max-width: 1280px) {
+    #carousel-track li {
+        /* Card width handled by JS based on getCardWidth() */
+    }
+}
+
+@media (max-width: 768px) {
+    #case-carousel {
+        padding: 2rem 1rem;
+    }
+
+    .carousel-filters {
+        gap: 0.75rem;
+        margin: 1.5rem 0;
+    }
+
+    .filter-btn {
+        padding: 0.6rem 1.2rem;
+        font-size: 0.75rem;
+    }
+}
