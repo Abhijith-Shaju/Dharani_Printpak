@@ -45,74 +45,85 @@ function initCaseCarousel() {
     const filterBtns = document.querySelectorAll(".filter-btn");
     if (!track) return;
 
-    let currentFilter  = "ALL";
-    let currentIndex   = 0;
-    let activeItems    = [...showcaseItems];
+    const ITEMS_PER_PAGE = 3;
 
-    function getVisibleCount() {
-        const w = window.innerWidth;
-        if (w >= 1280) return 4;
-        if (w >= 1024) return 3;
-        if (w >= 640)  return 2;
-        return 1;
+    let currentFilter = "ALL";
+    let currentPage   = 0;
+    let activeItems   = [...showcaseItems];
+
+    function getGap() {
+        const styles = window.getComputedStyle(track);
+        return parseFloat(styles.gap || "0");
     }
 
     function getCardWidth() {
-        const w = window.innerWidth;
-        if (w >= 1280) return 420;
-        if (w >= 1024) return 380;
-        if (w >= 640)  return 320;
-        return 260;
+        const viewport = track.parentElement;
+        const viewportWidth = viewport ? viewport.clientWidth : 0;
+        const totalGap = getGap() * (ITEMS_PER_PAGE - 1);
+        return Math.max(0, (viewportWidth - totalGap) / ITEMS_PER_PAGE);
     }
 
-    function buildCards() {
+    function getPageStarts() {
+        const maxStart = Math.max(0, activeItems.length - ITEMS_PER_PAGE);
+        const starts = [];
+
+        for (let i = 0; i <= maxStart; i += ITEMS_PER_PAGE) {
+            starts.push(i);
+        }
+
+        if (starts.length === 0 || starts[starts.length - 1] !== maxStart) {
+            starts.push(maxStart);
+        }
+
+        return starts;
+    }
+
+    function buildCards({ resetPage = true } = {}) {
         track.innerHTML = "";
+        const cardW = getCardWidth();
+
         activeItems.forEach(item => {
-            const cardW = getCardWidth();
             const li = document.createElement("li");
-            li.className  = "flex-shrink-0 border border-white/10 flex flex-col transition-all duration-300 hover:border-orange-500 hover:-translate-y-1";
-            li.style.width = cardW + "px";
+            li.className = "flex-shrink-0 border border-white/10 flex flex-col transition-all duration-300 hover:border-orange-500 hover:-translate-y-1";
+            li.style.width = `${cardW}px`;
 
             li.innerHTML = `
                 <img src="${item.image}" loading="lazy" alt="${item.title}"
-                     style="width:${cardW}px; height:${cardW}px; object-fit:contain; object-position:center; background:#111519; display:block;" />
-                <div class="card-info" style="width:${cardW}px;">
+                     style="width:100%; aspect-ratio:1/1; object-fit:contain; object-position:center; background:#111519; display:block;" />
+                <div class="card-info">
                     <p class="carousel-card-category">${item.category}</p>
                     <h3 class="carousel-card-title">${item.title}</h3>
                 </div>
             `;
             track.appendChild(li);
         });
-        goTo(0);
+
+        if (resetPage) currentPage = 0;
+        goToPage(currentPage);
     }
 
-    function goTo(index) {
-        const visible = getVisibleCount();
-        const maxIndex = Math.max(0, activeItems.length - visible);
-        
-        // Loop: if we go past the end, go back to start; if we go before start, go to end
-        if (index > maxIndex) {
-            currentIndex = 0;
-        } else if (index < 0) {
-            currentIndex = maxIndex;
-        } else {
-            currentIndex = index;
-        }
+    function goToPage(pageIndex) {
+        const pageStarts = getPageStarts();
+        const maxPage = pageStarts.length - 1;
 
+        if (pageIndex > maxPage) currentPage = 0;
+        else if (pageIndex < 0) currentPage = maxPage;
+        else currentPage = pageIndex;
+
+        const startIndex = pageStarts[currentPage];
         const cardW = getCardWidth();
-        const gap   = window.innerWidth >= 1024 ? 48 : window.innerWidth >= 640 ? 32 : 16;
-        const offset = currentIndex * (cardW + gap);
+        const gap = getGap();
+        const offset = startIndex * (cardW + gap);
 
         track.style.transform = `translateX(-${offset}px)`;
 
-        // Update arrow states
         if (prevBtn) prevBtn.style.opacity = "1";
         if (nextBtn) nextBtn.style.opacity = "1";
     }
 
-    // Arrow clicks
-    if (prevBtn) prevBtn.addEventListener("click", () => goTo(currentIndex - 1));
-    if (nextBtn) nextBtn.addEventListener("click", () => goTo(currentIndex + 1));
+    // Arrow clicks (always move by 3 cards)
+    if (prevBtn) prevBtn.addEventListener("click", () => goToPage(currentPage - 1));
+    if (nextBtn) nextBtn.addEventListener("click", () => goToPage(currentPage + 1));
 
     // Filter buttons
     filterBtns.forEach(btn => {
@@ -125,7 +136,7 @@ function initCaseCarousel() {
                 ? [...showcaseItems]
                 : showcaseItems.filter(i => i.category === currentFilter);
 
-            buildCards();
+            buildCards({ resetPage: true });
         });
     });
 
@@ -134,11 +145,11 @@ function initCaseCarousel() {
     window.addEventListener("resize", () => {
         clearTimeout(resizeTimer);
         resizeTimer = setTimeout(() => {
-            buildCards();
+            buildCards({ resetPage: false });
         }, 200);
     });
 
-    buildCards();
+    buildCards({ resetPage: true });
 }
 
 
@@ -219,18 +230,29 @@ function initMobileCarousel() {
     if (!track) return;
 
     let currentFilter = "ALL";
-    let currentIndex  = 0;
+    let currentPage   = 0;
     let activeItems   = [...showcaseItems];
 
-    function getCardWidth() {
-        // Must match CSS: 100vw - 2 * 1.25rem padding
-        return track.parentElement.clientWidth;
+    function getGap() {
+        const styles = window.getComputedStyle(track);
+        return parseFloat(styles.gap || "0");
     }
 
-    function buildCards() {
+    const ITEMS_PER_PAGE = 3;
+
+    function getCardWidth() {
+        const viewport = track.parentElement;
+        const viewportWidth = viewport ? viewport.clientWidth : 0;
+        const totalGap = getGap() * (ITEMS_PER_PAGE - 1);
+        return Math.max(0, (viewportWidth - totalGap) / ITEMS_PER_PAGE);
+    }
+
+    function buildCards({ resetPage = true } = {}) {
         track.innerHTML = "";
+        const cardW = getCardWidth();
         activeItems.forEach(item => {
             const li = document.createElement("li");
+            li.style.width = `${cardW}px`;
             li.innerHTML = `
                 <img src="${item.image}" loading="lazy" alt="${item.title}" />
                 <div class="card-info-mobile">
@@ -240,33 +262,37 @@ function initMobileCarousel() {
             `;
             track.appendChild(li);
         });
-        goTo(0);
+        if (resetPage) currentPage = 0;
+        goToPage(currentPage);
     }
 
-    function goTo(index) {
-        const max = Math.max(0, activeItems.length - 1);
+    function goToPage(pageIndex) {
+        const max = Math.max(0, Math.ceil(activeItems.length / ITEMS_PER_PAGE) - 1);
 
         // Loop around
-        if (index > max) currentIndex = 0;
-        else if (index < 0) currentIndex = max;
-        else currentIndex = index;
+        if (pageIndex > max) currentPage = 0;
+        else if (pageIndex < 0) currentPage = max;
+        else currentPage = pageIndex;
 
-        const gap    = 16; // 1rem in px
-        const cardW  = getCardWidth();
-        const offset = currentIndex * (cardW + gap);
+        const gap = getGap();
+        const cardW = getCardWidth();
+        const rawOffset = currentPage * ITEMS_PER_PAGE * (cardW + gap);
+        const viewportWidth = track.parentElement ? track.parentElement.clientWidth : 0;
+        const maxOffset = Math.max(0, track.scrollWidth - viewportWidth);
+        const offset = Math.min(rawOffset, maxOffset);
         track.style.transform = `translateX(-${offset}px)`;
 
         // Update counter
-        if (counter) counter.textContent = `${currentIndex + 1} / ${activeItems.length}`;
+        if (counter) counter.textContent = `${currentPage + 1} / ${max + 1}`;
 
         // Disable arrows at hard ends if you prefer (optional — remove for infinite loop)
-        // if (prevBtn) prevBtn.disabled = currentIndex === 0;
-        // if (nextBtn) nextBtn.disabled = currentIndex === max;
+        // if (prevBtn) prevBtn.disabled = currentPage === 0;
+        // if (nextBtn) nextBtn.disabled = currentPage === max;
     }
 
-    // Arrow clicks
-    prevBtn?.addEventListener("click", () => goTo(currentIndex - 1));
-    nextBtn?.addEventListener("click", () => goTo(currentIndex + 1));
+    // Arrow clicks (always move by 3 cards)
+    prevBtn?.addEventListener("click", () => goToPage(currentPage - 1));
+    nextBtn?.addEventListener("click", () => goToPage(currentPage + 1));
 
     // Filter buttons
     filterBtns.forEach(btn => {
@@ -277,7 +303,7 @@ function initMobileCarousel() {
             activeItems = currentFilter === "ALL"
                 ? [...showcaseItems]
                 : showcaseItems.filter(i => i.category === currentFilter);
-            buildCards();
+            buildCards({ resetPage: true });
         });
     });
 
@@ -293,7 +319,7 @@ function initMobileCarousel() {
         touchEndX = e.changedTouches[0].screenX;
         const diff = touchStartX - touchEndX;
         if (Math.abs(diff) > 40) {          // 40px threshold
-            diff > 0 ? goTo(currentIndex + 1) : goTo(currentIndex - 1);
+            diff > 0 ? goToPage(currentPage + 1) : goToPage(currentPage - 1);
         }
     }, { passive: true });
 
@@ -301,10 +327,10 @@ function initMobileCarousel() {
     let resizeTimer;
     window.addEventListener("resize", () => {
         clearTimeout(resizeTimer);
-        resizeTimer = setTimeout(() => goTo(currentIndex), 200);
+        resizeTimer = setTimeout(() => buildCards({ resetPage: false }), 200);
     });
 
-    buildCards();
+    buildCards({ resetPage: true });
 }
 
 document.addEventListener("DOMContentLoaded", initMobileCarousel);

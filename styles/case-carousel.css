@@ -6,6 +6,7 @@
     padding: 1rem 7rem;
     border-top: 1px solid rgba(255,255,255,0.05);
     border-bottom: 1px solid rgba(255,255,255,0.05);
+    display: none;
 }
 
 /* Slider layout */
@@ -34,8 +35,15 @@
     
 }
 
-@media (min-width: 640px)  { #carousel-track { gap: 2rem; } #case-carousel{ display: none;} #case-carousel-mobile{ display: block;}}
-@media (min-width: 1024px) { #carousel-track { gap: 3rem; } #case-carousel-mobile{ display: none;}  #case-carousel{ display: block;}}
+#case-carousel-mobile {
+    display: block;
+}
+
+@media (min-width: 1024px) {
+    #carousel-track { gap: 3rem; }
+    #case-carousel-mobile { display: none; }
+    #case-carousel { display: block; }
+}
 
 /* Cards */
 #carousel-track li {
@@ -200,7 +208,7 @@
 /* Each card = full viewport width minus padding */
 #mobile-carousel-track li {
     flex-shrink: 0;
-    width: calc(100vw - 2.5rem); /* matches viewport padding */
+    width: auto;
     border: 1px solid rgba(255,255,255,0.1);
     display: flex;
     flex-direction: column;
@@ -218,20 +226,23 @@
 
 #mobile-carousel-track .card-info-mobile {
     background: rgba(0,0,0,0.6);
-    padding: 0.85rem 1rem;
+    padding: 0.5rem;
+    min-height: 70px;
 }
 #mobile-carousel-track .card-info-mobile .mob-category {
-    font-size: 0.7rem;
+    font-size: 0.55rem;
     font-weight: 900;
     text-transform: uppercase;
-    letter-spacing: 0.1em;
+    letter-spacing: 0.06em;
     color: #FF5733;
     margin-bottom: 0.3rem;
 }
 #mobile-carousel-track .card-info-mobile .mob-title {
-    font-size: 0.95rem;
+    font-size: 0.65rem;
     font-weight: 700;
     color: white;
+    line-height: 1.2;
+    overflow: hidden;
 }
 
 /* Controls row */

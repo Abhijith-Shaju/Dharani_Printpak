@@ -411,21 +411,36 @@ body { font-family: 'Inter', sans-serif; background-color: #ffffff; color: #0000
     outline: 1px solid transparent;
 }
 
+#box-tape {
+    top: clamp(0.45rem, calc(var(--box-size) * 0.08), 1.1rem);
+    left: clamp(0.55rem, calc(var(--box-size) * 0.12), 1.5rem);
+    gap: clamp(0.12rem, calc(var(--box-size) * 0.012), 0.3rem);
+    z-index: 20;
+    pointer-events: none;
+}
+
+#box-tape .tape-strip {
+    width: clamp(0.18rem, calc(var(--box-size) * 0.016), 0.36rem);
+    height: clamp(1rem, calc(var(--box-size) * 0.18), 2.1rem);
+}
+
 #eye-row {
+    position: relative;
     justify-content: center;
-    gap: clamp(0.7rem, 2.2vw, 1.6rem);
-    margin-top: clamp(0.8rem, 2.5vh, 1.8rem);
-    margin-bottom: clamp(0.4rem, 1.3vh, 1.1rem);
+    gap: clamp(0.95rem, calc(var(--box-size) * 0.14), 2rem);
+    margin-top: clamp(1.35rem, calc(var(--box-size) * 0.26), 3rem);
+    margin-bottom: clamp(0.45rem, calc(var(--box-size) * 0.08), 1.2rem);
+    z-index: 10;
 }
 
 #eye-row .eye {
-    width: clamp(1.35rem, 3.7vh, 2.35rem);
-    height: clamp(1.35rem, 3.7vh, 2.35rem);
+    width: clamp(1.55rem, calc(var(--box-size) * 0.2), 2.75rem);
+    height: clamp(1.55rem, calc(var(--box-size) * 0.2), 2.75rem);
 }
 
 #mouth-wrapper {
-    width: clamp(3rem, 9vh, 5rem);
-    height: clamp(1.8rem, 5.6vh, 2.8rem);
+    width: clamp(3.45rem, calc(var(--box-size) * 0.46), 5.8rem);
+    height: clamp(2rem, calc(var(--box-size) * 0.25), 3.2rem);
 }
 
 .hero-box-label {
@@ -450,10 +465,10 @@ body { font-family: 'Inter', sans-serif; background-color: #ffffff; color: #0000
 
 
 .pupil {
-  width: clamp(0.5rem, 1.6vh, 0.95rem);
-  height: clamp(0.5rem, 1.6vh, 0.95rem);
-  top: clamp(0.16rem, 0.55vh, 0.34rem);
-  left: clamp(0.16rem, 0.55vh, 0.34rem);
+  width: clamp(0.62rem, calc(var(--box-size) * 0.08), 1.1rem);
+  height: clamp(0.62rem, calc(var(--box-size) * 0.08), 1.1rem);
+  top: clamp(0.18rem, calc(var(--box-size) * 0.025), 0.4rem);
+  left: clamp(0.18rem, calc(var(--box-size) * 0.025), 0.4rem);
 }
 
 @media (max-height: 820px) {

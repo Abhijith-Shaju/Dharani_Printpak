@@ -214,20 +214,20 @@
                             <div class="cube-face absolute inset-0 bg-gradient-to-br from-white via-white to-slate-200 flex flex-col items-center justify-center shadow-xl" style="transform: translateZ(var(--face-depth)) scale(1.01);">
 
                                 <!-- Tape -->
-                                <div class="absolute top-4 md:top-5 lg:top-6 xl:top-7 left-6 md:left-7 lg:left-8 xl:left-9 flex space-x-1 opacity-80">
-                                    <div class="w-1.5 md:w-1.5 lg:w-2 xl:w-2 h-4 md:h-5 lg:h-6 xl:h-7 bg-orange-600"></div>
-                                    <div class="w-1.5 md:w-1.5 lg:w-2 xl:w-2 h-4 md:h-5 lg:h-6 xl:h-7 bg-orange-600"></div>
-                                    <div class="w-1.5 md:w-1.5 lg:w-2 xl:w-2 h-4 md:h-5 lg:h-6 xl:h-7 bg-slate-200"></div>
+                                <div id="box-tape" class="absolute flex opacity-80">
+                                    <div class="tape-strip bg-orange-600"></div>
+                                    <div class="tape-strip bg-orange-600"></div>
+                                    <div class="tape-strip bg-slate-200"></div>
                                 </div>
 
                                 <!-- Eyes -->
                                 <div id="eye-row" class="flex transition-transform duration-300">
                                     <div class="eye bg-slate-900 rounded-full relative overflow-hidden border-2 border-white shadow-inner shadow-black/40">
-                                        <div class="pupil absolute bg-white rounded-full top-1.5 left-1.5"></div>
+                                        <div class="pupil absolute bg-white rounded-full"></div>
                                         <div class="lid absolute inset-0 bg-slate-50 transition-all duration-100 -translate-y-full"></div>
                                     </div>
                                     <div class="eye bg-slate-900 rounded-full relative overflow-hidden border-2 border-white shadow-inner shadow-black/40">
-                                        <div class="pupil absolute bg-white rounded-full top-1.5 left-1.5"></div>
+                                        <div class="pupil absolute bg-white rounded-full"></div>
                                         <div class="lid absolute inset-0 bg-slate-50 transition-all duration-100 -translate-y-full"></div>
                                     </div>
                                 </div>
