@@ -2,11 +2,18 @@
 
 #products {
     min-height: 100vh;
+    min-height: 100dvh;
     background-color: #f4f4f4;
     padding: 5rem 7rem;
     display: flex;
     flex-direction: column;
     overflow: hidden;
+}
+
+@supports (-webkit-touch-callout: none) {
+    #products {
+        min-height: -webkit-fill-available;
+    }
 }
 
 #products-mobile {

@@ -3,23 +3,29 @@ document.addEventListener("DOMContentLoaded", function () {
     /* ============================================================
        1. REVEAL ON SCROLL + SINGLE-TRIGGER MAP
     ============================================================ */
-    const scrollObserver = new IntersectionObserver((entries, obs) => {
-        entries.forEach(entry => {
-            if (!entry.isIntersecting) return;
+    if ("IntersectionObserver" in window) {
+        const scrollObserver = new IntersectionObserver((entries, obs) => {
+            entries.forEach(entry => {
+                if (!entry.isIntersecting) return;
 
-            entry.target.classList.add("active");
+                entry.target.classList.add("active");
 
-            if (entry.target.id === "location") {
-                const mapAnim = document.getElementById("mapAnimationTrigger");
-                if (mapAnim) mapAnim.beginElement();
-                obs.unobserve(entry.target);
-            }
+                if (entry.target.id === "location") {
+                    const mapAnim = document.getElementById("mapAnimationTrigger");
+                    if (mapAnim) mapAnim.beginElement();
+                    obs.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.2 });
+
+        document.querySelectorAll(".reveal, #location").forEach(el => {
+            scrollObserver.observe(el);
         });
-    }, { threshold: 0.2 });
-
-    document.querySelectorAll(".reveal, #location").forEach(el => {
-        scrollObserver.observe(el);
-    });
+    } else {
+        document.querySelectorAll(".reveal").forEach(el => el.classList.add("active"));
+        const mapAnim = document.getElementById("mapAnimationTrigger");
+        if (mapAnim) mapAnim.beginElement();
+    }
 
 
     /* ============================================================
