@@ -18,15 +18,49 @@ body { font-family: 'Inter', sans-serif; background-color: #ffffff; color: #0000
 
 /* Asymmetrical Typography */
 .hero-title {
-    font-size: calc(110px * var(--scale));
+    font-size: clamp(72px, 7.5vh, 110px);
     line-height: 0.85;
     letter-spacing: -0.05em;
 }
+
+    #hero .w-full.relative {
+        gap: clamp(0.25rem, 1vh, 1rem);
+    }
+
+    #hero .mono.text-5xl {
+        font-size: clamp(2rem, 4.5vh, 3rem);
+    }
+
+    #hero .border-t {
+        padding-top: clamp(0.5rem, 1.5vh, 2.5rem) !important;
+        margin-bottom: clamp(0.5rem, 1vh, 2rem) !important;
+    }
+
+/* Specifically target 1470x956 range */
+@media (min-width: 1400px) and (max-height: 980px) {
+    .hero-title           { font-size: 76px; }
+    #box-3d               { --box-size: 160px; }
+    .glass-panel          { width: 330px; height: 330px; }
+
+    /* Pull the middle section tighter */
+    #hero .flex.justify-center {
+        padding-top:    0.5rem;
+        padding-bottom: 0;
+    }
+
+    /* Compress the mt-[-100px] overlap so it doesn't push outside */
+    #hero .mt-\[-100px\] {
+        margin-top: -60px;
+    }
+}
+
 
 
 #hero {
     padding-left:  calc(112px * var(--scale));
     padding-right: calc(112px * var(--scale));
+    padding-top:    clamp(0.5rem, 1.5vh, 1.25rem);
+    padding-bottom: clamp(0.5rem, 1.5vh, 1.25rem);
 }
 
 #navbar {
@@ -211,7 +245,7 @@ body { font-family: 'Inter', sans-serif; background-color: #ffffff; color: #0000
 }
 
 #box-3d {
-    --box-size: calc(220px * var(--scale));
+    --box-size: clamp(140px, 18vh, 220px);
     width:  var(--box-size);
     height: var(--box-size);
     --face-depth: calc(var(--box-size) / 2);
@@ -698,6 +732,8 @@ body { font-family: 'Inter', sans-serif; background-color: #ffffff; color: #0000
 .glass-panel {
     -webkit-backdrop-filter: blur(0px);
     backdrop-filter: blur(0px);
+        width:  clamp(300px, 32vh, 480px);
+        height: clamp(300px, 32vh, 480px);
 }
 
 @media (min-width: 1024px) {
