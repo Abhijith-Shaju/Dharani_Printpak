@@ -295,8 +295,6 @@ document.addEventListener("DOMContentLoaded", function () {
             logoResizeTimer = setTimeout(buildLogos, 200);
         });
 
-        track.addEventListener("mouseenter", () => track.style.animationPlayState = "paused");
-        track.addEventListener("mouseleave", () => track.style.animationPlayState = "running");
     }
 
     window.addEventListener("load", initLogoGrid);

@@ -141,4 +141,27 @@ function initCaseCarousel() {
     buildCards();
 }
 
+
+
+const track = document.getElementById('carousel-track');
+// 1. Grab ALL elements with the class
+const arrows = document.querySelectorAll('.slider-arrow');
+
+const syncHeight = new ResizeObserver((entries) => {
+  for (let entry of entries) {
+    const height = entry.contentRect.height;
+    
+    // 2. Loop through each arrow and apply the height
+    arrows.forEach(arrow => {
+      arrow.style.height = `${height}px`;
+    });
+  }
+});
+
+syncHeight.observe(track);
+    
+
+
+
 document.addEventListener("DOMContentLoaded", initCaseCarousel);
+

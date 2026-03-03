@@ -47,5 +47,4 @@ function animateStatNumber(element) {
     
     animate();
 }
-
 document.addEventListener("DOMContentLoaded", initWhyChooseUs);
