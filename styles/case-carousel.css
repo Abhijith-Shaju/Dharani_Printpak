@@ -34,8 +34,8 @@
     
 }
 
-@media (min-width: 640px)  { #carousel-track { gap: 2rem; } }
-@media (min-width: 1024px) { #carousel-track { gap: 3rem; } }
+@media (min-width: 640px)  { #carousel-track { gap: 2rem; } #case-carousel{ display: none;} #case-carousel-mobile{ display: block;}}
+@media (min-width: 1024px) { #carousel-track { gap: 3rem; } #case-carousel-mobile{ display: none;}  #case-carousel{ display: block;}}
 
 /* Cards */
 #carousel-track li {
@@ -131,4 +131,147 @@
     .slider-outer { padding: 1.5rem 0.75rem; }
     .slider-arrow { width: 38px; height: 38px; font-size: 1rem; }
     .filter-btn   { padding: 0.6rem 1rem; font-size: 0.75rem; }
+}
+
+
+
+
+
+
+
+
+
+/* ── MOBILE CAROUSEL ── */
+#case-carousel-mobile {
+    overflow: hidden;
+    padding-bottom: 2rem;
+}
+
+/* Filter row — horizontal scroll, no wrapping */
+.filter-row-mobile {
+    display: flex;
+    gap: 0.5rem;
+    overflow-x: auto;
+    padding: 0 1.25rem 1rem;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    scroll-snap-type: x mandatory;
+}
+.filter-row-mobile::-webkit-scrollbar { display: none; }
+
+.filter-btn-mobile {
+    flex-shrink: 0;
+    padding: 0.5rem 1.1rem;
+    background: rgba(255,255,255,0.07);
+    color: white;
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 50px;
+    font-size: 0.75rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    scroll-snap-align: start;
+}
+.filter-btn-mobile.active-filter {
+    background: #FF5733;
+    border-color: #FF5733;
+    color: white;
+}
+
+/* Viewport clips the track */
+.mobile-carousel-viewport {
+    overflow: hidden;
+    padding: 0.5rem 1.25rem;
+}
+
+/* Track — single card at a time */
+#mobile-carousel-track {
+    display: flex;
+    gap: 1rem;
+    transition: transform 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    will-change: transform;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* Each card = full viewport width minus padding */
+#mobile-carousel-track li {
+    flex-shrink: 0;
+    width: calc(100vw - 2.5rem); /* matches viewport padding */
+    border: 1px solid rgba(255,255,255,0.1);
+    display: flex;
+    flex-direction: column;
+    transition: border-color 0.3s ease;
+}
+
+#mobile-carousel-track li img {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: contain;
+    object-position: center;
+    background: #111519;
+    display: block;
+}
+
+#mobile-carousel-track .card-info-mobile {
+    background: rgba(0,0,0,0.6);
+    padding: 0.85rem 1rem;
+}
+#mobile-carousel-track .card-info-mobile .mob-category {
+    font-size: 0.7rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #FF5733;
+    margin-bottom: 0.3rem;
+}
+#mobile-carousel-track .card-info-mobile .mob-title {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: white;
+}
+
+/* Controls row */
+.mobile-carousel-controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+    padding: 1rem 0 0.5rem;
+}
+
+.mobile-arrow {
+    width: 42px;
+    height: 42px;
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.2);
+    color: white;
+    font-size: 1rem;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.25s, border-color 0.25s;
+}
+.mobile-arrow:hover,
+.mobile-arrow:active {
+    background: #FF5733;
+    border-color: #FF5733;
+}
+.mobile-arrow:disabled {
+    opacity: 0.25;
+    pointer-events: none;
+}
+
+.mobile-counter {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: rgba(255,255,255,0.5);
+    min-width: 48px;
+    text-align: center;
+    letter-spacing: 0.05em;
 }

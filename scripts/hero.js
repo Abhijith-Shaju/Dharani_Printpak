@@ -1,6 +1,7 @@
 /* HERO COMPONENT LOGIC */
 
 function initHero() {
+    
     /* ============================================================
        1. REVEAL ON SCROLL + SINGLE-TRIGGER MAP
     ============================================================ */
@@ -36,9 +37,11 @@ function initHero() {
 
     if (!box3d) return; // Skip if hero not in viewport
 
+    const scale = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--scale')) || 1;
+
     let currentEmotion = "neutral";
     const friction  = 0.08;
-    const lookRange = 600;
+    const lookRange = 600 * scale;
 
     let targetX = 0, targetY = 0;
     let curX    = 0, curY    = 0;
@@ -88,11 +91,11 @@ function initHero() {
         box3d.style.transform = `rotateY(${curX * 22}deg) rotateX(${-curY * 22}deg)`;
 
         pupils.forEach(pupil => {
-            pupil.style.transform = `translate(${curX * 14}px, ${curY * 14}px)`;
+            pupil.style.transform = `translate(${curX * 14 * scale}px, ${curY * 14 * scale}px)`;
         });
 
         if (shadow) {
-            shadow.style.transform = `translateX(${-curX * 40}px)`;
+            shadow.style.transform = `translateX(${-curX * 40 * scale}px)`;
             shadow.style.opacity   = 0.3;
         }
 

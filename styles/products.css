@@ -1,4 +1,4 @@
-/* PRODUCTS SECTION STYLES */
+ /* PRODUCTS SECTION STYLES */
 
 #products {
     min-height: 100vh;
@@ -54,7 +54,7 @@
     transform: translateX(-100%);
     background-color: #FF5733;
     overflow: hidden;
-    padding: clamp(1rem, 2vw, 2.5rem);
+    padding: clamp(1rem, 2vw, 2.5rem); 
     display: flex;
     flex-direction: column;
     justify-content: space-between;

@@ -161,7 +161,150 @@ const syncHeight = new ResizeObserver((entries) => {
 syncHeight.observe(track);
     
 
-
-
 document.addEventListener("DOMContentLoaded", initCaseCarousel);
 
+
+
+
+
+
+
+
+
+/* MOBILE CAROUSEL */
+function initMobileCarousel() {
+    const showcaseItems = [
+        { image: "./resources/box_photos/MC/M1.png",   category: "MONOCARTON",   title: "Luxury Electronics Packaging" },
+        { image: "./resources/box_photos/MC/M2.png",   category: "MONOCARTON",   title: "Luxury Electronics Packaging" },
+        { image: "./resources/box_photos/MC/M3.png",   category: "MONOCARTON",   title: "Luxury Electronics Packaging" },
+        { image: "./resources/box_photos/MC/M5.png",   category: "MONOCARTON",   title: "Luxury Electronics Packaging" },
+        { image: "./resources/box_photos/MC/M6.png",   category: "MONOCARTON",   title: "Luxury Electronics Packaging" },
+        { image: "./resources/box_photos/MC/M8.png",   category: "MONOCARTON",   title: "Luxury Electronics Packaging" },
+        { image: "./resources/box_photos/MC/M9.png",   category: "MONOCARTON",   title: "Luxury Electronics Packaging" },
+        { image: "./resources/box_photos/MC/M10.png",  category: "MONOCARTON",   title: "Luxury Electronics Packaging" },
+        { image: "./resources/box_photos/MC/MN1.png",  category: "MONOCARTON",   title: "Luxury Electronics Packaging" },
+        { image: "./resources/box_photos/MC/MN2.png",  category: "MONOCARTON",   title: "Luxury Electronics Packaging" },
+        { image: "./resources/box_photos/RN/R1.png",   category: "RIGID SYSTEM", title: "Luxury Electronics Packaging" },
+        { image: "./resources/box_photos/RN/R2.png",   category: "RIGID SYSTEM", title: "Luxury Electronics Packaging" },
+        { image: "./resources/box_photos/RN/R4.png",   category: "RIGID SYSTEM", title: "Luxury Electronics Packaging" },
+        { image: "./resources/box_photos/RN/R5.png",   category: "RIGID SYSTEM", title: "Luxury Electronics Packaging" },
+        { image: "./resources/box_photos/RN/R6.png",   category: "RIGID SYSTEM", title: "Luxury Electronics Packaging" },
+        { image: "./resources/box_photos/RN/R7.png",   category: "RIGID SYSTEM", title: "Luxury Electronics Packaging" },
+        { image: "./resources/box_photos/RN/R8.png",   category: "RIGID SYSTEM", title: "Luxury Electronics Packaging" },
+        { image: "./resources/box_photos/RN/R9.png",   category: "RIGID SYSTEM", title: "Luxury Electronics Packaging" },
+        { image: "./resources/box_photos/RN/R10.png",  category: "RIGID SYSTEM", title: "Luxury Electronics Packaging" },
+        { image: "./resources/box_photos/RN/R11.png",  category: "RIGID SYSTEM", title: "Luxury Electronics Packaging" },
+        { image: "./resources/box_photos/RN/R12.png",  category: "RIGID SYSTEM", title: "Luxury Electronics Packaging" },
+        { image: "./resources/box_photos/RN/R14.png",  category: "RIGID SYSTEM", title: "Luxury Electronics Packaging" },
+        { image: "./resources/box_photos/RN/RN1.png",  category: "RIGID SYSTEM", title: "Luxury Electronics Packaging" },
+        { image: "./resources/box_photos/RN/RN3.png",  category: "RIGID SYSTEM", title: "Luxury Electronics Packaging" },
+        { image: "./resources/box_photos/RN/RN4.png",  category: "RIGID SYSTEM", title: "Luxury Electronics Packaging" },
+        { image: "./resources/box_photos/RN/RN5.png",  category: "RIGID SYSTEM", title: "Luxury Electronics Packaging" },
+        { image: "./resources/box_photos/RN/RN7.png",  category: "RIGID SYSTEM", title: "Luxury Electronics Packaging" },
+        { image: "./resources/box_photos/RN/RN9.png",  category: "RIGID SYSTEM", title: "Luxury Electronics Packaging" },
+        { image: "./resources/box_photos/RN/RN14.png", category: "RIGID SYSTEM", title: "Luxury Electronics Packaging" },
+        { image: "./resources/box_photos/RN/RN15.png", category: "RIGID SYSTEM", title: "Luxury Electronics Packaging" },
+        { image: "./resources/box_photos/RN/RN16.png", category: "RIGID SYSTEM", title: "Luxury Electronics Packaging" },
+        { image: "./resources/box_photos/RN/RN17.png", category: "RIGID SYSTEM", title: "Luxury Electronics Packaging" },
+        { image: "./resources/box_photos/PB/PB1.png",  category: "PAPERBOARD",   title: "Luxury Electronics Packaging" },
+        { image: "./resources/box_photos/PB/PB2.png",  category: "PAPERBOARD",   title: "Luxury Electronics Packaging" },
+        { image: "./resources/box_photos/PB/PB3.png",  category: "PAPERBOARD",   title: "Luxury Electronics Packaging" },
+    ];
+
+    const track      = document.getElementById("mobile-carousel-track");
+    const prevBtn    = document.getElementById("mobile-prev");
+    const nextBtn    = document.getElementById("mobile-next");
+    const counter    = document.getElementById("mobile-counter");
+    const filterBtns = document.querySelectorAll(".filter-btn-mobile");
+    if (!track) return;
+
+    let currentFilter = "ALL";
+    let currentIndex  = 0;
+    let activeItems   = [...showcaseItems];
+
+    function getCardWidth() {
+        // Must match CSS: 100vw - 2 * 1.25rem padding
+        return track.parentElement.clientWidth;
+    }
+
+    function buildCards() {
+        track.innerHTML = "";
+        activeItems.forEach(item => {
+            const li = document.createElement("li");
+            li.innerHTML = `
+                <img src="${item.image}" loading="lazy" alt="${item.title}" />
+                <div class="card-info-mobile">
+                    <p class="mob-category">${item.category}</p>
+                    <h3 class="mob-title">${item.title}</h3>
+                </div>
+            `;
+            track.appendChild(li);
+        });
+        goTo(0);
+    }
+
+    function goTo(index) {
+        const max = Math.max(0, activeItems.length - 1);
+
+        // Loop around
+        if (index > max) currentIndex = 0;
+        else if (index < 0) currentIndex = max;
+        else currentIndex = index;
+
+        const gap    = 16; // 1rem in px
+        const cardW  = getCardWidth();
+        const offset = currentIndex * (cardW + gap);
+        track.style.transform = `translateX(-${offset}px)`;
+
+        // Update counter
+        if (counter) counter.textContent = `${currentIndex + 1} / ${activeItems.length}`;
+
+        // Disable arrows at hard ends if you prefer (optional — remove for infinite loop)
+        // if (prevBtn) prevBtn.disabled = currentIndex === 0;
+        // if (nextBtn) nextBtn.disabled = currentIndex === max;
+    }
+
+    // Arrow clicks
+    prevBtn?.addEventListener("click", () => goTo(currentIndex - 1));
+    nextBtn?.addEventListener("click", () => goTo(currentIndex + 1));
+
+    // Filter buttons
+    filterBtns.forEach(btn => {
+        btn.addEventListener("click", () => {
+            currentFilter = btn.dataset.filter;
+            filterBtns.forEach(b => b.classList.remove("active-filter"));
+            btn.classList.add("active-filter");
+            activeItems = currentFilter === "ALL"
+                ? [...showcaseItems]
+                : showcaseItems.filter(i => i.category === currentFilter);
+            buildCards();
+        });
+    });
+
+    // ── Swipe / Touch support ──
+    let touchStartX = 0;
+    let touchEndX   = 0;
+
+    track.addEventListener("touchstart", e => {
+        touchStartX = e.changedTouches[0].screenX;
+    }, { passive: true });
+
+    track.addEventListener("touchend", e => {
+        touchEndX = e.changedTouches[0].screenX;
+        const diff = touchStartX - touchEndX;
+        if (Math.abs(diff) > 40) {          // 40px threshold
+            diff > 0 ? goTo(currentIndex + 1) : goTo(currentIndex - 1);
+        }
+    }, { passive: true });
+
+    // Recalc on resize
+    let resizeTimer;
+    window.addEventListener("resize", () => {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(() => goTo(currentIndex), 200);
+    });
+
+    buildCards();
+}
+
+document.addEventListener("DOMContentLoaded", initMobileCarousel);
