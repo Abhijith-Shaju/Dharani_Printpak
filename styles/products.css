@@ -133,96 +133,93 @@
 }
 
 /* Mobile product card styles */
-.product-card {
-    height: 10vh;
-    flex: 1;
+/* ── Mobile Products Accordion ── */
+#products-mobile .border {
     border-radius: 0.5rem;
     overflow: hidden;
-    background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3));
-    background-size: cover;
-    background-position: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+/* Image header: ensure it always renders */
+#products-mobile .relative {
+    height: 11rem;          /* fixed height so image is visible */
     position: relative;
-    cursor: pointer;
-    transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    display: block;
 }
 
-.product-card > div:first-child {
-    width: 10vh;
-    height: 10vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.product-card .product-icon {
-    font-size: 2rem;
-}
-
-.product-card .product-content {
+#products-mobile .relative img {
     position: absolute;
     inset: 0;
-    background: #FF5733;
-    padding: clamp(1rem, 2vw, 2rem);
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;         /* prevents inline baseline gap */
+}
+
+/* Dark overlay */
+#products-mobile .relative .bg-black\/50 {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.50);
+    z-index: 1;
+}
+
+/* Button sits above overlay */
+#products-mobile .accordion-btn {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
     display: flex;
-    flex-direction: column;
+    align-items: center;
     justify-content: space-between;
-    color: white;
-    opacity: 0;
-    transform: translateY(100%);
-    pointer-events: none;
-    transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    padding: 0 1.5rem;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    color: #fff;
+    width: 100%;
 }
 
-.product-card.active .product-content {
-    opacity: 1;
-    transform: translateY(0);
-    pointer-events: auto;
-}
-
-.product-card .product-content h3 {
-    font-size: clamp(1.2rem, 1.5vw, 1.8rem);
+#products-mobile .accordion-btn h3 {
+    font-size: 1.35rem;
     font-weight: 900;
     text-transform: uppercase;
-    margin-bottom: 1rem;
+    letter-spacing: -0.02em;
+    margin: 0;
 }
 
-.product-card .product-content p {
-    font-size: clamp(0.85rem, 0.95vw, 1rem);
-    line-height: 1.5;
-    opacity: 0.95;
+/* The + / × indicator */
+#products-mobile .accordion-btn .toggle-icon {
+    font-size: 1.75rem;
+    font-weight: 700;
+    line-height: 1;
+    transition: transform 0.35s ease;
+    display: inline-block;
 }
 
-.product-card .product-content ul {
-    list-style: none;
-    padding: 0;
-    margin: 1rem 0 0 0;
-    font-size: 0.85rem;
+/* Rotate when open */
+#products-mobile .border.open .accordion-btn .toggle-icon {
+    transform: rotate(45deg);   /* + becomes × */
 }
 
-.product-card .product-content ul li {
-    padding: 0.25rem 0;
-    opacity: 0.9;
+/* Accordion body: hidden by default */
+#products-mobile .accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.45s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* Flex container for mobile products */
-#product-flex-container {
-    display: flex;
-    gap: 1rem;
-    width: 100%;
-    transition: width 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+/* Open state */
+#products-mobile .border.open .accordion-content {
+    max-height: 200px;          /* enough for any description */
 }
 
-/* Responsive */
-@media (max-width: 768px) {
-    #products {
-        padding: 3rem 1rem;
-    }
-
-    #products-mobile {
-        padding: 2rem 1rem;
-    }
-
-    .product-card {
-        border-radius: 0.35rem;
-    }
+/* Inner text padding */
+#products-mobile .accordion-content > div {
+    padding: 1.25rem 1.5rem;
+    font-size: 0.875rem;
+    font-weight: 600;
+    line-height: 1.6;
+    text-align: justify;
 }
