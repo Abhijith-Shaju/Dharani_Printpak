@@ -35,7 +35,9 @@ function initHero() {
     const eyeRow     = document.getElementById("eye-row");
     const inquiryBtn = document.getElementById("inquiry-btn");
 
-    if (!box3d) return; // Skip if hero not in viewport
+    if (!box3d || !mouthPath || !eyeRow) return; // Skip if hero not in viewport
+    if (window.__heroAvatarInitialized) return;
+    window.__heroAvatarInitialized = true;
 
     const scale = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--scale')) || 1;
 

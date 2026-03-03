@@ -39,76 +39,81 @@ document.addEventListener("DOMContentLoaded", function () {
     const eyeRow     = document.getElementById("eye-row");
     const inquiryBtn = document.getElementById("inquiry-btn");
 
-    let currentEmotion = "neutral";
-    const friction  = 0.08;
-    const lookRange = 600;
+    if (!window.__heroAvatarInitialized && box3d && mouthPath && eyeRow) {
+        window.__heroAvatarInitialized = true;
 
-    let targetX = 0, targetY = 0;
-    let curX    = 0, curY    = 0;
-    let mouseX  = 0, mouseY  = 0;
-    let time    = 0;
+        const scale = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--scale')) || 1;
+        let currentEmotion = "neutral";
+        const friction  = 0.08;
+        const lookRange = 600 * scale;
 
-    function setEmotion(type) {
-        if (currentEmotion === type) return;
-        currentEmotion = type;
+        let targetX = 0, targetY = 0;
+        let curX    = 0, curY    = 0;
+        let mouseX  = 0, mouseY  = 0;
 
-        if (type === "happy") {
-            mouthPath.setAttribute("d", "M15 20 Q50 45 85 20");
-            eyeRow.style.transform = "scaleY(1)";
-        } else {
-            mouthPath.setAttribute("d", "M30 25 Q50 45 70 25 Q50 5 30 25");
-            eyeRow.style.transform = "scaleY(1.2)";
+        function setEmotion(type) {
+            if (currentEmotion === type) return;
+            currentEmotion = type;
+
+            if (type === "happy") {
+                mouthPath.setAttribute("d", "M15 20 Q50 45 85 20");
+                eyeRow.style.transform = "scaleY(1)";
+            } else {
+                mouthPath.setAttribute("d", "M30 25 Q50 45 70 25 Q50 5 30 25");
+                eyeRow.style.transform = "scaleY(1.2)";
+            }
         }
-    }
 
-    window.addEventListener("mousemove", (e) => {
-        mouseX = e.clientX;
-        mouseY = e.clientY;
+        window.addEventListener("mousemove", (e) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
 
-        const rect          = box3d.getBoundingClientRect();
-        const avatarCenterX = rect.left + rect.width  / 2;
-        const avatarCenterY = rect.top  + rect.height / 2;
+            const rect          = box3d.getBoundingClientRect();
+            const avatarCenterX = rect.left + rect.width  / 2;
+            const avatarCenterY = rect.top  + rect.height / 2;
 
-        targetX = Math.max(-1, Math.min(1, (mouseX - avatarCenterX) / lookRange));
-        targetY = Math.max(-1, Math.min(1, (mouseY - avatarCenterY) / lookRange));
+            targetX = Math.max(-1, Math.min(1, (mouseX - avatarCenterX) / lookRange));
+            targetY = Math.max(-1, Math.min(1, (mouseY - avatarCenterY) / lookRange));
 
-        const btnRect    = inquiryBtn.getBoundingClientRect();
-        const btnCenterX = btnRect.left + btnRect.width  / 2;
-        const btnCenterY = btnRect.top  + btnRect.height / 2;
-        const dist       = Math.hypot(mouseX - btnCenterX, mouseY - btnCenterY);
-
-        setEmotion(dist < 400 ? "happy" : "default");
-    });
-
-    function animateBox() {
-        time += 0.025;
-
-        curX += (targetX - curX) * friction;
-        curY += (targetY - curY) * friction;
-
-        box3d.style.transform = `rotateY(${curX * 22}deg) rotateX(${-curY * 22}deg)`;
-
-        pupils.forEach(pupil => {
-            pupil.style.transform = `translate(${curX * 14}px, ${curY * 14}px)`;
+            if (inquiryBtn) {
+                const btnRect    = inquiryBtn.getBoundingClientRect();
+                const btnCenterX = btnRect.left + btnRect.width  / 2;
+                const btnCenterY = btnRect.top  + btnRect.height / 2;
+                const dist       = Math.hypot(mouseX - btnCenterX, mouseY - btnCenterY);
+                setEmotion(dist < 400 ? "happy" : "default");
+            }
         });
 
-        shadow.style.transform = `translateX(${-curX * 40}px)`;
-        shadow.style.opacity   = 0.3;
+        function animateBox() {
+            curX += (targetX - curX) * friction;
+            curY += (targetY - curY) * friction;
 
-        requestAnimationFrame(animateBox);
+            box3d.style.transform = `rotateY(${curX * 22}deg) rotateX(${-curY * 22}deg)`;
+
+            pupils.forEach(pupil => {
+                pupil.style.transform = `translate(${curX * 14 * scale}px, ${curY * 14 * scale}px)`;
+            });
+
+            if (shadow) {
+                shadow.style.transform = `translateX(${-curX * 40 * scale}px)`;
+                shadow.style.opacity   = 0.3;
+            }
+
+            requestAnimationFrame(animateBox);
+        }
+
+        animateBox();
+
+        function blink() {
+            lids.forEach(lid => lid.style.transform = "translateY(0%)");
+            setTimeout(() => {
+                lids.forEach(lid => lid.style.transform = "translateY(-100%)");
+            }, 120);
+            setTimeout(blink, Math.random() * 4000 + 2500);
+        }
+
+        blink();
     }
-
-    animateBox();
-
-    function blink() {
-        lids.forEach(lid => lid.style.transform = "translateY(0%)");
-        setTimeout(() => {
-            lids.forEach(lid => lid.style.transform = "translateY(-100%)");
-        }, 120);
-        setTimeout(blink, Math.random() * 4000 + 2500);
-    }
-
-    blink();
 
 
     /* ============================================================
