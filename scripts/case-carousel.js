@@ -238,13 +238,18 @@ function initMobileCarousel() {
         return parseFloat(styles.gap || "0");
     }
 
-    const ITEMS_PER_PAGE = 3;
+    function getItemsPerPage() {
+        const viewport = window.innerWidth || document.documentElement.clientWidth || 0;
+        if (viewport <= 768) return 2;
+        return 3;
+    }
 
     function getCardWidth() {
         const viewport = track.parentElement;
         const viewportWidth = viewport ? viewport.clientWidth : 0;
-        const totalGap = getGap() * (ITEMS_PER_PAGE - 1);
-        return Math.max(0, (viewportWidth - totalGap) / ITEMS_PER_PAGE);
+        const itemsPerPage = getItemsPerPage();
+        const totalGap = getGap() * (itemsPerPage - 1);
+        return Math.max(0, (viewportWidth - totalGap) / itemsPerPage);
     }
 
     function buildCards({ resetPage = true } = {}) {
@@ -267,7 +272,8 @@ function initMobileCarousel() {
     }
 
     function goToPage(pageIndex) {
-        const max = Math.max(0, Math.ceil(activeItems.length / ITEMS_PER_PAGE) - 1);
+        const itemsPerPage = getItemsPerPage();
+        const max = Math.max(0, Math.ceil(activeItems.length / itemsPerPage) - 1);
 
         // Loop around
         if (pageIndex > max) currentPage = 0;
@@ -276,7 +282,7 @@ function initMobileCarousel() {
 
         const gap = getGap();
         const cardW = getCardWidth();
-        const rawOffset = currentPage * ITEMS_PER_PAGE * (cardW + gap);
+        const rawOffset = currentPage * itemsPerPage * (cardW + gap);
         const viewportWidth = track.parentElement ? track.parentElement.clientWidth : 0;
         const maxOffset = Math.max(0, track.scrollWidth - viewportWidth);
         const offset = Math.min(rawOffset, maxOffset);
