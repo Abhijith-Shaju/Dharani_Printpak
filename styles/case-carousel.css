@@ -159,13 +159,17 @@
 /* Filter row  horizontal scroll, no wrapping */
 .filter-row-mobile {
     display: flex;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    flex-wrap: nowrap;
     gap: 0.5rem;
     overflow-x: auto;
-    padding: 0 var(--hero-align-x, clamp(0.9rem, 3.4vw, 4.5rem)) 1rem;
+    padding: 0 clamp(0.6rem, 3.2vw, 1.25rem) 1rem;
     scrollbar-width: none;
     -ms-overflow-style: none;
     scroll-snap-type: x mandatory;
-    justify-content: center;
+    justify-content: flex-start;
 }
 .filter-row-mobile::-webkit-scrollbar { display: none; }
 
@@ -176,7 +180,7 @@
     background: rgba(255,255,255,0.07);
     color: white;
     border: 1px solid rgba(255,255,255,0.2);
-    border-radius: 50px;
+    border-radius: 0;
     font-size: 0.7rem;
     font-weight: 800;
     text-transform: uppercase;
@@ -268,7 +272,7 @@
     border: 1px solid rgba(255,255,255,0.2);
     color: white;
     font-size: 1.15rem;
-    border-radius: 50%;
+    border-radius: 0;
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -358,7 +362,7 @@
 
     .filter-row-mobile {
         gap: 0.65rem;
-        padding: 0 var(--hero-align-x, clamp(0.9rem, 3.4vw, 4.5rem)) 1.15rem;
+        padding: 0 clamp(0.85rem, 2.8vw, 1.6rem) 1.15rem;
     }
 
     .filter-btn-mobile {
