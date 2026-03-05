@@ -423,23 +423,25 @@ body { font-family: 'Inter', sans-serif; background-color: #ffffff; color: #0000
 }
 
 #box-tape .tape-strip {
-    width: clamp(0.18rem, calc(var(--box-size) * 0.016), 0.36rem);
+    width: clamp(0.18rem, calc(var(--box-size) * 0.026), 0.46rem);
     height: clamp(1rem, calc(var(--box-size) * 0.18), 1.1rem);
 }
+
 
 #eye-row {
     position: relative;
     justify-content: center;
-    gap: clamp(0.95rem, calc(var(--box-size) * 0.14), 2rem);
+    gap: clamp(1.1rem, 5.5vh, 2.85rem);
     margin-top: clamp(1.35rem, calc(var(--box-size) * 0.26), 3rem);
     margin-bottom: clamp(0.45rem, calc(var(--box-size) * 0.08), 1.2rem);
     z-index: 10;
 }
 
 #eye-row .eye {
-    width: clamp(1.55rem, calc(var(--box-size) * 0.2), 2.75rem);
-    height: clamp(1.55rem, calc(var(--box-size) * 0.2), 2.75rem);
+    width: clamp(1.48rem, calc(var(--box-size) * 0.19), 2.62rem);
+    height: clamp(1.48rem, calc(var(--box-size) * 0.19), 2.62rem);
 }
+
 
 #mouth-wrapper {
     width: clamp(3.45rem, calc(var(--box-size) * 0.46), 5.8rem);
@@ -1144,6 +1146,10 @@ body {
 
     #box-3d {
         max-width: 100%;
+    }
+
+    #eye-row {
+        gap: clamp(0.8rem, 3.8vh, 1.6rem);
     }
 
     .hero-box-label {
