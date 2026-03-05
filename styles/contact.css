@@ -182,9 +182,136 @@
 }
 
 /* Responsive */
+@media (max-width: 1024px) {
+    #contact {
+        padding-block: 5.5rem;
+        padding-inline: 1.5rem;
+    }
+
+    #contact > div:last-child {
+        gap: 2.5rem;
+    }
+
+    #contact > div:last-child > div:first-child h3 {
+        font-size: clamp(2.6rem, 8vw, 4.5rem);
+        margin-bottom: 1.5rem;
+    }
+
+    #contact > div:last-child > div:first-child p {
+        margin-bottom: 2rem;
+    }
+
+    #contact > div:last-child > div:last-child > div {
+        padding: 1.5rem;
+    }
+
+    #contact form {
+        gap: 2rem;
+    }
+
+    #contact form > div:nth-of-type(1) {
+        gap: 1.5rem;
+    }
+}
+
 @media (max-width: 768px) {
     #contact {
-        padding: 5rem 1.5rem;
+        padding-block: 4rem;
+        padding-inline: 1rem;
+    }
+
+    #contact > div:first-child {
+        width: 260px;
+        height: 260px;
+        filter: blur(80px);
+    }
+
+    #contact > div:last-child {
+        gap: 2rem;
+    }
+
+    #contact > div:last-child > div:first-child h2 {
+        margin-bottom: 1rem;
+        letter-spacing: 0.35em;
+    }
+
+    #contact > div:last-child > div:first-child h3 {
+        font-size: clamp(2rem, 11vw, 3rem);
+        line-height: 0.95;
+        margin-bottom: 1rem;
+    }
+
+    #contact > div:last-child > div:first-child p {
+        font-size: 0.95rem;
+        line-height: 1.6;
+        margin-bottom: 1.5rem;
+        max-width: 100%;
+    }
+
+    #contact > div:last-child > div:first-child .space-y-10 {
+        gap: 1.1rem;
+    }
+
+    #contact > div:last-child > div:first-child .space-y-10 > div a,
+    #contact > div:last-child > div:first-child .space-y-10 > div p:last-child {
+        font-size: 0.98rem;
+        line-height: 1.35;
+    }
+
+    #contact > div:last-child > div:first-child .space-y-10 > div:nth-child(2) a {
+        display: block;
+    }
+
+    #contact > div:last-child > div:last-child > div {
+        padding: 1rem;
+        border-radius: 0.9rem;
+    }
+
+    #contact form {
+        gap: 1.5rem;
+    }
+
+    #contact form > div:nth-of-type(1) {
+        grid-template-columns: 1fr;
+        gap: 1.25rem;
+    }
+
+    #contact form > div:nth-of-type(1) > div:nth-child(4) > p {
+        margin-bottom: 0.65rem;
+        letter-spacing: 0.2em;
+        font-size: 0.5rem;
+    }
+
+    #contact form > div:nth-of-type(1) > div:nth-child(4) > div {
+        gap: 0.45rem;
+    }
+
+    #contact form > div:nth-of-type(1) > div:nth-child(4) > div > label {
+        min-width: calc(50% - 0.225rem);
+        flex: 1 1 calc(50% - 0.225rem);
+    }
+
+    #contact form > div:nth-of-type(1) > div:nth-child(4) > div > label > div {
+        font-size: 0.58rem;
+        letter-spacing: 0.08em;
+        padding-top: 0.5rem;
+        padding-bottom: 0.5rem;
+    }
+
+    #contact form input,
+    #contact form textarea {
+        font-size: 0.9rem;
+    }
+
+    #contact form textarea {
+        min-height: 120px;
+    }
+
+    #contact form button[type="submit"] {
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+        font-size: 0.68rem;
+        letter-spacing: 0.28em;
     }
 
     .contact-form-wrapper {
@@ -193,5 +320,22 @@
 
     .form-group {
         margin-bottom: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    #contact > div:last-child > div:first-child .space-y-10 > div a,
+    #contact > div:last-child > div:first-child .space-y-10 > div p:last-child {
+        font-size: 0.9rem;
+    }
+
+    #contact form > div:nth-of-type(1) > div:nth-child(4) > div > label {
+        min-width: 100%;
+        flex-basis: 100%;
+    }
+
+    #contact form button[type="submit"] {
+        font-size: 0.62rem;
+        letter-spacing: 0.2em;
     }
 }
