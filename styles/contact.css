@@ -3,7 +3,8 @@
 #contact {
     background: #0c0f14;
     color: white;
-    padding: 10rem 1.5rem;
+    padding-block: 10rem;
+    padding-inline: var(--hero-align-x, clamp(0.9rem, 3.4vw, 4.5rem));
     position: relative;
     overflow: hidden;
 }
@@ -185,7 +186,7 @@
 @media (max-width: 1024px) {
     #contact {
         padding-block: 5.5rem;
-        padding-inline: 1.5rem;
+        padding-inline: var(--hero-align-x, clamp(0.9rem, 3.4vw, 4.5rem));
     }
 
     #contact > div:last-child {
@@ -217,7 +218,7 @@
 @media (max-width: 768px) {
     #contact {
         padding-block: 4rem;
-        padding-inline: 1rem;
+        padding-inline: var(--hero-align-x, clamp(0.9rem, 3.4vw, 4.5rem));
     }
 
     #contact > div:first-child {

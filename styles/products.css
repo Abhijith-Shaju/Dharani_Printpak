@@ -4,7 +4,8 @@
     min-height: 100vh;
     min-height: 100dvh;
     background-color: #f4f4f4;
-    padding: 5rem 7rem;
+    padding-block: 5rem;
+    padding-inline: var(--hero-align-x, clamp(0.9rem, 3.4vw, 4.5rem));
     display: flex;
     flex-direction: column;
     overflow: hidden;
@@ -18,10 +19,9 @@
 
 #products-mobile {
     background-color: #f4f4f4;
-    padding: clamp(2.5rem, 6vw, 4rem) clamp(1rem, 4vw, 1.5rem);
+    padding-block: clamp(2.5rem, 6vw, 4rem);
+    padding-inline: var(--hero-align-x, clamp(0.9rem, 3.4vw, 4.5rem));
     display: none;
-    max-width: 900px;
-    margin: 0 auto;
 }
 
 @media (max-width: 1023px) {
@@ -259,7 +259,7 @@
 
 @media (min-width: 640px) and (max-width: 1023px) {
     #products-mobile {
-        padding-inline: 1.5rem;
+        padding-inline: var(--hero-align-x, clamp(0.9rem, 3.4vw, 4.5rem));
         padding-top: 3rem;
         padding-bottom: 3.5rem;
     }
@@ -289,7 +289,7 @@
 
 @media (max-width: 480px) {
     #products-mobile {
-        padding-inline: 0.85rem;
+        padding-inline: var(--hero-align-x, clamp(0.9rem, 3.4vw, 4.5rem));
     }
 
     #products-mobile > .reveal h3 {

@@ -6,7 +6,7 @@
     background: #0c0f14;
     color: white;
     padding-block: clamp(3.5rem, 7vw, 7rem);
-    padding-inline: clamp(1rem, 4vw, 7rem);
+    padding-inline: var(--hero-align-x, clamp(0.9rem, 3.4vw, 4.5rem));
     border-top: 1px solid rgba(255, 255, 255, 0.05);
 }
 
@@ -212,7 +212,7 @@
 @media (max-width: 1024px) {
     #location {
         padding-block: 4.5rem;
-        padding-inline: 1.75rem;
+        padding-inline: var(--hero-align-x, clamp(0.9rem, 3.4vw, 4.5rem));
     }
 
     #location > div {
@@ -248,7 +248,7 @@
 @media (max-width: 768px) {
     #location {
         padding-block: 3.5rem;
-        padding-inline: 1rem;
+        padding-inline: var(--hero-align-x, clamp(0.9rem, 3.4vw, 4.5rem));
     }
 
     #location > div {

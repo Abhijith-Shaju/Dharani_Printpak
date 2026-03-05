@@ -230,8 +230,8 @@ footer .footer-logo-text {
 @media (max-width: 480px) {
     footer {
         padding-top: 2.5rem;
-        padding-left: 1rem;
-        padding-right: 1rem;
+        padding-left: var(--hero-align-x, clamp(0.9rem, 3.4vw, 4.5rem));
+        padding-right: var(--hero-align-x, clamp(0.9rem, 3.4vw, 4.5rem));
         padding-bottom: 1.5rem;
     }
 

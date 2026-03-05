@@ -10,6 +10,22 @@
 body { font-family: 'Inter', sans-serif; background-color: #ffffff; color: #000000; overflow-x: hidden;}
 .mono { font-family: 'JetBrains Mono', monospace; }
 
+:root {
+    --hero-align-x: clamp(1.9rem, 5.4vw, 7.1rem);
+}
+
+#why-choose-us,
+#products,
+#products-mobile,
+#case-carousel,
+#case-carousel-mobile,
+#about,
+#location,
+#contact,
+footer {
+    padding-inline: var(--hero-align-x);
+}
+
 /* Reveal Animations */
 .reveal { opacity: 0; transform: translateY(30px); transition: transform 0.6s ease, opacity 0.6s ease; }
 .reveal.active { opacity: 1; transform: translateY(0); }

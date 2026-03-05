@@ -3,7 +3,8 @@
     position: relative;
     background: #0b0f14;
     color: white;
-    padding: 1rem 7rem;
+    padding-block: 1rem;
+    padding-inline: var(--hero-align-x, clamp(0.9rem, 3.4vw, 4.5rem));
     border-top: 1px solid rgba(255,255,255,0.05);
     border-bottom: 1px solid rgba(255,255,255,0.05);
     display: none;
@@ -14,7 +15,7 @@
     display: flex;
     align-items: center;
     gap: 1rem;
-    padding: 2rem 1.5rem;
+    padding: 2rem 0;
     max-width: 100%;
     height: 100%;
 }
@@ -110,7 +111,7 @@
     gap: 1rem;
     margin: 1rem 0 0;
     flex-wrap: wrap;
-    padding: 0 1rem;
+    padding: 0 var(--hero-align-x, clamp(0.9rem, 3.4vw, 4.5rem));
 }
 .filter-btn {
     padding: 0.75rem 1.5rem;
@@ -136,7 +137,7 @@
 }
 
 @media (max-width: 768px) {
-    .slider-outer { padding: 1.5rem 0.75rem; }
+    .slider-outer { padding: 1.5rem 0; }
     .slider-arrow { width: 38px; height: 38px; font-size: 1rem; }
     .filter-btn   { padding: 0.6rem 1rem; font-size: 0.75rem; }
 }
@@ -160,7 +161,7 @@
     display: flex;
     gap: 0.5rem;
     overflow-x: auto;
-    padding: 0 clamp(0.8rem, 4vw, 1.25rem) 1rem;
+    padding: 0 var(--hero-align-x, clamp(0.9rem, 3.4vw, 4.5rem)) 1rem;
     scrollbar-width: none;
     -ms-overflow-style: none;
     scroll-snap-type: x mandatory;
@@ -196,7 +197,7 @@
 /* Viewport clips the track */
 .mobile-carousel-viewport {
     overflow: hidden;
-    padding: 0.5rem clamp(0.8rem, 4vw, 1.25rem);
+    padding: 0.5rem var(--hero-align-x, clamp(0.9rem, 3.4vw, 4.5rem));
 }
 
 /* Track — single card at a time */
@@ -298,8 +299,8 @@
     #case-carousel-mobile .text-center {
         padding-top: 2.25rem;
         padding-bottom: 1.25rem;
-        padding-left: 1rem;
-        padding-right: 1rem;
+        padding-left: var(--hero-align-x, clamp(0.9rem, 3.4vw, 4.5rem));
+        padding-right: var(--hero-align-x, clamp(0.9rem, 3.4vw, 4.5rem));
     }
 
     #case-carousel-mobile h2 {
@@ -346,8 +347,8 @@
     #case-carousel-mobile .text-center {
         padding-top: 2.75rem;
         padding-bottom: 1.5rem;
-        padding-left: 1.5rem;
-        padding-right: 1.5rem;
+        padding-left: var(--hero-align-x, clamp(0.9rem, 3.4vw, 4.5rem));
+        padding-right: var(--hero-align-x, clamp(0.9rem, 3.4vw, 4.5rem));
     }
 
     #case-carousel-mobile h2 {
@@ -357,7 +358,7 @@
 
     .filter-row-mobile {
         gap: 0.65rem;
-        padding: 0 1.5rem 1.15rem;
+        padding: 0 var(--hero-align-x, clamp(0.9rem, 3.4vw, 4.5rem)) 1.15rem;
     }
 
     .filter-btn-mobile {
@@ -367,7 +368,7 @@
     }
 
     .mobile-carousel-viewport {
-        padding: 0.6rem 1.5rem;
+        padding: 0.6rem var(--hero-align-x, clamp(0.9rem, 3.4vw, 4.5rem));
     }
 
     #mobile-carousel-track {

@@ -20,7 +20,7 @@ body { font-family: 'Inter', sans-serif; background-color: #ffffff; color: #0000
 #hero {
     --hero-vh: 100svh;
     --hero-size-multiplier: 1.5;
-    --hero-pad-x: clamp(0.9rem, 3.4vw, 4.5rem);
+    --hero-pad-x: var(--hero-align-x, clamp(0.9rem, 3.4vw, 4.5rem));
     --hero-pad-y: clamp(0.55rem, 1.8vh, 1.25rem);
     --hero-gap: clamp(0.55rem, 1.8vh, 1.4rem);
     --hero-overlap-top: clamp(0.9rem, 3.6vh, 3.6rem);
@@ -217,7 +217,7 @@ body { font-family: 'Inter', sans-serif; background-color: #ffffff; color: #0000
 
 @media (max-width: 640px) {
     #hero {
-        --hero-pad-x: clamp(0.7rem, 4vw, 1.1rem);
+        --hero-pad-x: var(--hero-align-x, clamp(0.9rem, 3.4vw, 4.5rem));
         --hero-title-size: clamp(1.55rem, 10.2vw, 2.9rem);
         --hero-overlap-top: clamp(0.4rem, 1.2vh, 0.95rem);
         --hero-overlap-bottom: clamp(0.45rem, 1.4vh, 1.05rem);
@@ -480,7 +480,7 @@ body { font-family: 'Inter', sans-serif; background-color: #ffffff; color: #0000
 
 @media (max-height: 820px) {
     #hero {
-        --hero-pad-x: clamp(0.7rem, 3vw, 3rem);
+        --hero-pad-x: var(--hero-align-x, clamp(0.9rem, 3.4vw, 4.5rem));
         --hero-pad-y: clamp(0.35rem, 1vh, 0.85rem);
         --hero-gap: clamp(0.3rem, 1vh, 0.8rem);
         --hero-overlap-top: clamp(0.65rem, 2.4vh, 2.1rem);
@@ -501,7 +501,7 @@ body { font-family: 'Inter', sans-serif; background-color: #ffffff; color: #0000
 
 @media (max-height: 700px) {
     #hero {
-        --hero-pad-x: clamp(0.6rem, 2.4vw, 2rem);
+        --hero-pad-x: var(--hero-align-x, clamp(0.9rem, 3.4vw, 4.5rem));
         --hero-pad-y: clamp(0.25rem, 0.8vh, 0.6rem);
         --hero-gap: clamp(0.25rem, 0.8vh, 0.55rem);
         --hero-overlap-top: clamp(0.5rem, 1.8vh, 1.5rem);
@@ -536,7 +536,7 @@ body { font-family: 'Inter', sans-serif; background-color: #ffffff; color: #0000
 
 @media (max-height: 620px) {
     #hero {
-        --hero-pad-x: clamp(0.45rem, 2vw, 1.2rem);
+        --hero-pad-x: var(--hero-align-x, clamp(0.9rem, 3.4vw, 4.5rem));
         --hero-pad-y: clamp(0.2rem, 0.6vh, 0.45rem);
         --hero-gap: clamp(0.18rem, 0.6vh, 0.42rem);
         --hero-overlap-top: clamp(0.3rem, 1vh, 0.9rem);
@@ -580,7 +580,7 @@ body { font-family: 'Inter', sans-serif; background-color: #ffffff; color: #0000
 
 @media (max-height: 620px) and (orientation: landscape) {
     #hero {
-        --hero-pad-x: clamp(0.55rem, 1.5vw, 1.2rem);
+        --hero-pad-x: var(--hero-align-x, clamp(0.9rem, 3.4vw, 4.5rem));
         --hero-overlap-top: clamp(0.2rem, 0.6vh, 0.55rem);
         --hero-overlap-bottom: clamp(0.2rem, 0.7vh, 0.6rem);
         --hero-glass-size: clamp(134px, 45vh, 190px);
@@ -1076,7 +1076,7 @@ body {
 @media (max-width: 768px) {
     #hero {
         --hero-size-multiplier: 1.08;
-        --hero-pad-x: clamp(0.75rem, 4vw, 1rem);
+        --hero-pad-x: var(--hero-align-x, clamp(0.9rem, 3.4vw, 4.5rem));
         --hero-pad-y: clamp(0.45rem, 1.1vh, 0.75rem);
         --hero-gap: clamp(0.04rem, 0.35vh, 0.2rem);
         --hero-glass-size: clamp(205px, 44vh, 290px);
