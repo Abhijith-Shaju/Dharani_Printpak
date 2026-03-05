@@ -353,15 +353,15 @@ body { font-family: 'Inter', sans-serif; background-color: #ffffff; color: #0000
 
 
 #gallery-card-rigid-box{
-    background-image: url('../resources/rigidbox.png');
+    background-image: url('../resources/rigidbox.webp');
 }
 
 #gallery-card-mono-box{
-    background-image: url('../resources/mono_carton.png');
+    background-image: url('../resources/mono_carton.webp');
 }
 
 #gallery-card-paperboard{
-    background-image: url('../resources/paperboard_bags.png');
+    background-image: url('../resources/paperboard_bags.webp');
 }
 
 /* Products section split: desktop + mobile */
@@ -1259,3 +1259,4 @@ body {
         letter-spacing: 0.08em;
     }
 }
+

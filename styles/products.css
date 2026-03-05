@@ -116,19 +116,19 @@
 
 /* Background images for gallery cards */
 #gallery-card-rigid-box {
-    background-image: url('../resources/rigidbox.png');
+    background-image: url('../resources/rigidbox.webp');
     background-size: cover;
     background-position: center;
 }
 
 #gallery-card-mono-box {
-    background-image: url('../resources/mono_carton.png');
+    background-image: url('../resources/mono_carton.webp');
     background-size: cover;
     background-position: center;
 }
 
 #gallery-card-paperboard {
-    background-image: url('../resources/paperboard_bags.png');
+    background-image: url('../resources/paperboard_bags.webp');
     background-size: cover;
     background-position: center;
 }
@@ -310,3 +310,4 @@
         font-size: 0.82rem;
     }
 }
+
