@@ -295,7 +295,7 @@ body { font-family: 'Inter', sans-serif; background-color: #ffffff; color: #0000
     background-color: #FF5733;
     overflow: hidden;                    /* NO scroll — content must fit */
     padding: clamp(1rem, 2vw, 2.5rem);
-    justify-content: space-between;
+    justify-content: flex-end;
     display: flex;
     flex-direction: column;
 }
