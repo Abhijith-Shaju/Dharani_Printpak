@@ -93,7 +93,7 @@
 .gallery-card .drawer p {
     font-size: clamp(0.58rem, 0.75vw, 0.9rem);
     line-height: 1.45;
-    color: rgba(255, 255, 255, 0.9);
+    /* color: rgba(255, 255, 255, 0.9); */
 }
 
 .gallery-card .drawer hr {
@@ -105,7 +105,6 @@
 .gallery-card .drawer .mono {
     font-size: clamp(0.5rem, 0.55vw, 0.65rem);
     margin-bottom: clamp(0.3rem, 0.5vw, 0.75rem);
-    color: rgba(255, 255, 255, 0.8);
 }
 
 .gallery-card-title {
