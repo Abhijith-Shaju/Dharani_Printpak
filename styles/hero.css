@@ -98,7 +98,7 @@ body { font-family: 'Inter', sans-serif; background-color: #ffffff; color: #0000
     margin: calc(var(--hero-overlap-bottom) * -1) 0 0;
     align-items: flex-end;
     column-gap: clamp(0.75rem, 2vw, 2.5rem);
-    z-index: 34;
+    /* z-index: 34; */
 }
 
 .hero-meta-copy {
@@ -136,6 +136,7 @@ body { font-family: 'Inter', sans-serif; background-color: #ffffff; color: #0000
 
 .hero-title-bottom {
     text-align: right;
+    z-index: 34;
 }
 
 .hero-since {
@@ -600,6 +601,7 @@ body { font-family: 'Inter', sans-serif; background-color: #ffffff; color: #0000
     .hero-stage-cta {
         bottom: clamp(-0.2rem, -0.4vh, -0.65rem);
         left: clamp(-0.3rem, -1vw, -0.9rem);
+        z-index: 999;
     }
 
     #inquiry-btn {
