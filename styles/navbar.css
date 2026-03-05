@@ -48,6 +48,88 @@
     }
 }
 
+.mobile-nav-toggle {
+    width: 44px;
+    height: 44px;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 999px;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 4px;
+    transition: border-color 0.2s ease, background 0.2s ease;
+}
+
+.mobile-nav-toggle span {
+    display: block;
+    width: 16px;
+    height: 2px;
+    background: #0f172a;
+    transition: transform 0.25s ease, opacity 0.25s ease;
+}
+
+.mobile-nav-toggle.is-open span:nth-child(1) {
+    transform: translateY(6px) rotate(45deg);
+}
+
+.mobile-nav-toggle.is-open span:nth-child(2) {
+    opacity: 0;
+}
+
+.mobile-nav-toggle.is-open span:nth-child(3) {
+    transform: translateY(-6px) rotate(-45deg);
+}
+
+.mobile-nav-menu {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    width: min(84vw, 340px);
+    z-index: 220;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    padding: clamp(4.25rem, 10vh, 5.2rem) 0.9rem 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: rgba(8, 10, 13, 0.94);
+    border-right: 0;
+    border-top-left-radius: 0.95rem;
+    border-bottom-left-radius: 0.95rem;
+    box-shadow: -24px 0 42px rgba(0, 0, 0, 0.35);
+    transform: translateX(105%);
+    opacity: 0;
+    pointer-events: none;
+    transition: transform 0.24s ease, opacity 0.2s ease;
+}
+
+.mobile-nav-menu.is-open {
+    transform: translateX(0);
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.mobile-nav-link {
+    display: block;
+    padding: 0.78rem 0.8rem;
+    border-radius: 0.55rem;
+    color: #e2e8f0;
+    font-size: 0.72rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.22em;
+    text-decoration: none;
+    transition: background 0.2s ease, color 0.2s ease;
+}
+
+.mobile-nav-link:hover,
+.mobile-nav-link.active {
+    background: rgba(255, 87, 51, 0.18);
+    color: #ffffff;
+}
+
 @media (max-width: 768px) {
     #navbar {
         padding: 0.5rem 1rem;
@@ -55,5 +137,9 @@
 
     #navbar .logo {
         height: 60px;
+    }
+
+    .mobile-nav-toggle {
+        display: inline-flex;
     }
 }

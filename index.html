@@ -186,7 +186,20 @@
                 <!-- <a href="#about" class="hover:text-orange-500 transition">Heritage</a> -->
                 <a href="#contact" class="text-orange-500">Inquiry</a>
             </div>
+
+            <button id="mobile-nav-toggle" class="mobile-nav-toggle pointer-events-auto lg:hidden" aria-label="Toggle navigation" aria-expanded="false" aria-controls="mobile-nav-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
         </nav>
+
+        <div id="mobile-nav-menu" class="mobile-nav-menu lg:hidden" aria-hidden="true">
+            <a href="#products" class="mobile-nav-link">Systems</a>
+            <a href="#case-carousel" class="mobile-nav-link">Products</a>
+            <a href="#about" class="mobile-nav-link">Heritage</a>
+            <a href="#contact" class="mobile-nav-link active">Inquiry</a>
+        </div>
         
         <div class="hero-watermark absolute -left-20 top-1/2 -translate-y-1/2 text-[30vw] font-black text-black/[0.02] select-none leading-none pointer-events-none">
             1994

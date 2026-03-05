@@ -1066,7 +1066,7 @@ body {
         --hero-size-multiplier: 1.08;
         --hero-pad-x: clamp(0.75rem, 4vw, 1rem);
         --hero-pad-y: clamp(0.45rem, 1.1vh, 0.75rem);
-        --hero-gap: clamp(0.08rem, 0.45vh, 0.28rem);
+        --hero-gap: clamp(0.04rem, 0.35vh, 0.2rem);
         --hero-glass-size: clamp(205px, 44vh, 290px);
         --hero-box-size: clamp(92px, 21vh, 132px);
         --hero-title-size: clamp(1.7rem, 9.5vw, 3rem);
@@ -1121,7 +1121,7 @@ body {
 
     .hero-stage {
         padding-block: 0;
-        margin-top: -0.7rem;
+        margin-top: -0.9rem;
     }
 
     .hero-glass {

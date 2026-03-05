@@ -3,12 +3,14 @@
 function initNavbar() {
     const navbar = document.getElementById("navbar");
     const navMenu = document.getElementById("nav-menu");
+    const mobileNavMenu = document.getElementById("mobile-nav-menu");
+    const mobileNavToggle = document.getElementById("mobile-nav-toggle");
     
     if (!navbar || !navMenu) return;
 
     // Add active state to navigation links based on scroll position
     const sections = document.querySelectorAll("section[id]");
-    const navLinks = navMenu.querySelectorAll("a");
+    const navLinks = document.querySelectorAll("#nav-menu a, #mobile-nav-menu a");
 
     const observerOptions = {
         threshold: 0.3,
@@ -24,10 +26,8 @@ function initNavbar() {
 
             // Add active class to corresponding link
             const sectionId = entry.target.id;
-            const activeLink = navMenu.querySelector(`a[href="#${sectionId}"]`);
-            if (activeLink) {
-                activeLink.classList.add("active");
-            }
+            const activeLinks = document.querySelectorAll(`#nav-menu a[href="#${sectionId}"], #mobile-nav-menu a[href="#${sectionId}"]`);
+            activeLinks.forEach(link => link.classList.add("active"));
         });
     }, observerOptions);
 
@@ -44,8 +44,36 @@ function initNavbar() {
                     target.scrollIntoView({ behavior: "smooth" });
                 }
             }
+
+            if (mobileNavMenu && mobileNavToggle) {
+                mobileNavMenu.classList.remove("is-open");
+                mobileNavMenu.setAttribute("aria-hidden", "true");
+                mobileNavToggle.classList.remove("is-open");
+                mobileNavToggle.setAttribute("aria-expanded", "false");
+            }
         });
     });
+
+    if (mobileNavMenu && mobileNavToggle) {
+        mobileNavToggle.addEventListener("click", () => {
+            const isOpen = mobileNavMenu.classList.toggle("is-open");
+            mobileNavToggle.classList.toggle("is-open", isOpen);
+            mobileNavToggle.setAttribute("aria-expanded", String(isOpen));
+            mobileNavMenu.setAttribute("aria-hidden", String(!isOpen));
+        });
+
+        document.addEventListener("click", (e) => {
+            const target = e.target;
+            if (!(target instanceof Element)) return;
+            if (!mobileNavMenu.classList.contains("is-open")) return;
+            if (mobileNavMenu.contains(target) || mobileNavToggle.contains(target)) return;
+
+            mobileNavMenu.classList.remove("is-open");
+            mobileNavMenu.setAttribute("aria-hidden", "true");
+            mobileNavToggle.classList.remove("is-open");
+            mobileNavToggle.setAttribute("aria-expanded", "false");
+        });
+    }
 }
 
 document.addEventListener("DOMContentLoaded", initNavbar);
