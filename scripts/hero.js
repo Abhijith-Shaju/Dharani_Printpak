@@ -40,15 +40,18 @@ function initHero() {
     window.__heroAvatarInitialized = true;
 
     const scale = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--scale')) || 1;
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
     let currentEmotion = "neutral";
-    const friction  = 0.08;
-    const lookRange = 600 * scale;
+    const friction  = prefersReducedMotion ? 0.2 : 0.09;
+    const lookRange = 560 * scale;
+    const baseRotate = prefersReducedMotion ? 0 : 18;
+    const basePupilShift = prefersReducedMotion ? 0 : 12;
+    const shadowShift = prefersReducedMotion ? 0 : 34;
 
     let targetX = 0, targetY = 0;
     let curX    = 0, curY    = 0;
-    let mouseX  = 0, mouseY  = 0;
-    let time    = 0;
+    let pointerX  = 0, pointerY  = 0;
 
     function setEmotion(type) {
         if (currentEmotion === type) return;
@@ -63,42 +66,43 @@ function initHero() {
         }
     }
 
-    window.addEventListener("mousemove", (e) => {
-        mouseX = e.clientX;
-        mouseY = e.clientY;
-
+    function onPointerMove(clientX, clientY) {
+        pointerX = clientX;
+        pointerY = clientY;
         const rect          = box3d.getBoundingClientRect();
         const avatarCenterX = rect.left + rect.width  / 2;
         const avatarCenterY = rect.top  + rect.height / 2;
 
-        targetX = Math.max(-1, Math.min(1, (mouseX - avatarCenterX) / lookRange));
-        targetY = Math.max(-1, Math.min(1, (mouseY - avatarCenterY) / lookRange));
+        targetX = Math.max(-1, Math.min(1, (pointerX - avatarCenterX) / lookRange));
+        targetY = Math.max(-1, Math.min(1, (pointerY - avatarCenterY) / lookRange));
 
         if (inquiryBtn) {
             const btnRect    = inquiryBtn.getBoundingClientRect();
             const btnCenterX = btnRect.left + btnRect.width  / 2;
             const btnCenterY = btnRect.top  + btnRect.height / 2;
-            const dist       = Math.hypot(mouseX - btnCenterX, mouseY - btnCenterY);
+            const dist       = Math.hypot(pointerX - btnCenterX, pointerY - btnCenterY);
 
             setEmotion(dist < 400 ? "happy" : "default");
         }
-    });
+    }
+
+    window.addEventListener("pointermove", (e) => {
+        onPointerMove(e.clientX, e.clientY);
+    }, { passive: true });
 
     function animateBox() {
-        time += 0.025;
-
         curX += (targetX - curX) * friction;
         curY += (targetY - curY) * friction;
 
-        box3d.style.transform = `rotateY(${curX * 22}deg) rotateX(${-curY * 22}deg)`;
+        box3d.style.transform = `rotateY(${curX * baseRotate}deg) rotateX(${-curY * baseRotate}deg)`;
 
         pupils.forEach(pupil => {
-            pupil.style.transform = `translate(${curX * 14 * scale}px, ${curY * 14 * scale}px)`;
+            pupil.style.transform = `translate(${curX * basePupilShift * scale}px, ${curY * basePupilShift * scale}px)`;
         });
 
         if (shadow) {
-            shadow.style.transform = `translateX(${-curX * 40 * scale}px)`;
-            shadow.style.opacity   = 0.3;
+            shadow.style.transform = `translateX(${-curX * shadowShift * scale}px)`;
+            shadow.style.opacity   = prefersReducedMotion ? "0.28" : `${0.24 + Math.abs(curX) * 0.08}`;
         }
 
         requestAnimationFrame(animateBox);
@@ -110,8 +114,8 @@ function initHero() {
         lids.forEach(lid => lid.style.transform = "translateY(0%)");
         setTimeout(() => {
             lids.forEach(lid => lid.style.transform = "translateY(-100%)");
-        }, 120);
-        setTimeout(blink, Math.random() * 4000 + 2500);
+        }, prefersReducedMotion ? 80 : 110);
+        setTimeout(blink, Math.random() * 3200 + 2100);
     }
 
     blink();
