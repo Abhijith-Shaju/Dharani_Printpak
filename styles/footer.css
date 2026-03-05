@@ -161,6 +161,8 @@ footer .footer-logo-text {
     footer {
         padding-top: 3rem;
         padding-bottom: 2rem;
+        position: relative;
+        bottom: auto;
     }
 
     footer .footer-content {
@@ -176,5 +178,88 @@ footer .footer-logo-text {
     footer .footer-links {
         gap: 1rem;
         width: 100%;
+    }
+
+    footer > div:nth-child(2) > div:first-child {
+        gap: 2rem;
+        margin-bottom: 2rem;
+    }
+
+    footer > div:nth-child(2) > div:first-child > div:first-child {
+        max-width: 100%;
+    }
+
+    footer > div:nth-child(2) > div:first-child > div:first-child > div:first-child {
+        margin-bottom: 0.85rem;
+    }
+
+    footer > div:nth-child(2) > div:first-child > div:first-child > div:first-child > span:last-child {
+        font-size: 0.72rem;
+        letter-spacing: 0.2em;
+    }
+
+    footer > div:nth-child(2) > div:first-child > div:first-child > p {
+        font-size: 0.72rem;
+        line-height: 1.55;
+        letter-spacing: 0.08em;
+    }
+
+    footer > div:nth-child(2) > div:first-child > div:last-child {
+        width: 100%;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 1.5rem;
+    }
+
+    footer > div:nth-child(2) > div:first-child > div:last-child a {
+        font-size: 0.68rem;
+        letter-spacing: 0.14em;
+    }
+
+    footer > div:nth-child(2) > div:last-child {
+        padding-top: 1rem;
+        gap: 0.6rem;
+        align-items: flex-start;
+    }
+
+    footer > div:nth-child(2) > div:last-child p {
+        font-size: 0.56rem;
+        letter-spacing: 0.2em;
+    }
+}
+
+@media (max-width: 480px) {
+    footer {
+        padding-top: 2.5rem;
+        padding-left: 1rem;
+        padding-right: 1rem;
+        padding-bottom: 1.5rem;
+    }
+
+    footer > div:nth-child(2) > div:first-child {
+        gap: 1.5rem;
+    }
+
+    footer > div:nth-child(2) > div:first-child > div:last-child {
+        grid-template-columns: 1fr;
+        gap: 1.25rem;
+    }
+
+    footer > div:nth-child(2) > div:first-child > div:last-child > div {
+        gap: 0.6rem;
+    }
+
+    footer > div:nth-child(2) > div:first-child > div:last-child p {
+        font-size: 0.62rem;
+        letter-spacing: 0.24em;
+        margin-bottom: 0.35rem;
+    }
+
+    footer > div:nth-child(2) > div:first-child > div:last-child a {
+        font-size: 0.64rem;
+        letter-spacing: 0.12em;
+    }
+
+    footer > div:nth-child(2) > div:last-child p {
+        font-size: 0.52rem;
     }
 }
