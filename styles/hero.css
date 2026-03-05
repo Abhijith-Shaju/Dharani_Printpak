@@ -1059,3 +1059,158 @@ body {
     -webkit-transition: -webkit-transform 0.5s ease;
     transition: transform 0.5s ease;
 }
+
+/* HERO MOBILE REFINEMENT */
+@media (max-width: 768px) {
+    #hero {
+        --hero-size-multiplier: 1.08;
+        --hero-pad-x: clamp(0.75rem, 4vw, 1rem);
+        --hero-pad-y: clamp(0.45rem, 1.1vh, 0.75rem);
+        --hero-gap: clamp(0.08rem, 0.45vh, 0.28rem);
+        --hero-glass-size: clamp(205px, 44vh, 290px);
+        --hero-box-size: clamp(92px, 21vh, 132px);
+        --hero-title-size: clamp(1.7rem, 9.5vw, 3rem);
+        --hero-overlap-top: 0rem;
+        --hero-overlap-bottom: 0rem;
+        min-height: 100svh;
+        height: auto;
+    }
+
+    @supports (height: 100dvh) {
+        #hero {
+            min-height: 100dvh;
+        }
+    }
+
+    .hero-nav {
+        margin-top: 0;
+        min-height: 56px;
+        padding-block: 0.25rem;
+    }
+
+    #navbar .logo {
+        height: clamp(2rem, 5.2vh, 2.8rem);
+    }
+
+    #navbar > .pointer-events-auto.py-3 {
+        padding-block: 0.2rem;
+    }
+
+    #navbar > .pointer-events-auto.py-3 > div {
+        font-size: clamp(0.8rem, 3.2vw, 1rem);
+    }
+
+    #navbar > .pointer-events-auto.py-3 > div span {
+        font-size: clamp(0.44rem, 1.8vw, 0.56rem);
+    }
+
+    .hero-content {
+        grid-template-rows: auto auto auto auto;
+        gap: clamp(0.45rem, 1.2vh, 0.9rem);
+    }
+
+    .hero-topline,
+    .hero-meta {
+        margin: 0;
+    }
+
+    .hero-title-top {
+        max-width: 100%;
+        text-align: center;
+    }
+
+    .hero-stage {
+        padding-block: 0;
+        margin-top: -0.7rem;
+    }
+
+    .hero-glass {
+        width: min(100%, calc(var(--hero-glass-size) * var(--hero-size-multiplier)));
+        border-radius: 0.9rem;
+    }
+
+    .hero-box-wrap {
+        padding: clamp(0.6rem, 2vh, 1.2rem);
+    }
+
+    .hero-stage-cta {
+        left: 50%;
+        right: auto;
+        bottom: clamp(-1.45rem, -4.8vw, -0.9rem);
+        transform: translateX(-50%);
+    }
+
+    .hero-stage-cta .btn-action {
+        width: clamp(3.4rem, 14vw, 4.2rem);
+        height: clamp(3.4rem, 14vw, 4.2rem);
+    }
+
+    .hero-stage-cta .btn-action svg {
+        width: clamp(1.15rem, 4.2vw, 1.5rem);
+        height: clamp(1.15rem, 4.2vw, 1.5rem);
+    }
+
+    .hero-meta {
+        align-items: center;
+        row-gap: 0.35rem;
+        text-align: center;
+        margin-top: 0.25rem;
+    }
+
+    .hero-meta-copy {
+        max-width: 100%;
+        align-items: center;
+        text-align: center;
+        order: 2;
+    }
+
+    .hero-meta-description {
+        max-width: 34ch;
+        text-align: center;
+    }
+
+    #inquiry-btn {
+        font-size: 0.64rem;
+        letter-spacing: 0.22em;
+        padding: 0.58rem 1.05rem;
+    }
+
+    .hero-title-bottom {
+        text-align: center;
+        order: 1;
+        margin-top: 0.15rem;
+        margin-bottom: 0.2rem;
+    }
+
+    .hero-since {
+        padding-top: 0.5rem !important;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .hero-since-subtitle {
+        letter-spacing: 0.22em;
+        font-size: 0.46rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-watermark {
+        display: none;
+    }
+
+    .hero-stage-cta {
+        bottom: -1.1rem;
+    }
+
+    #inquiry-btn {
+        width: 100%;
+        text-align: center;
+        letter-spacing: 0.18em;
+    }
+
+    .hero-title {
+        line-height: 0.9;
+        letter-spacing: -0.04em;
+    }
+}
