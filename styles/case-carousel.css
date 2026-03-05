@@ -40,7 +40,7 @@
     display: block;
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 769px) {
     #carousel-track { gap: 3rem; }
     #case-carousel-mobile { display: none; }
     #case-carousel { display: block; }
@@ -150,13 +150,13 @@
 
 
 
-/* ── MOBILE CAROUSEL ── */
+/*  MOBILE CAROUSEL  */
 #case-carousel-mobile {
     overflow: hidden;
     padding-bottom: clamp(1.5rem, 5vw, 2.5rem);
 }
 
-/* Filter row — horizontal scroll, no wrapping */
+/* Filter row  horizontal scroll, no wrapping */
 .filter-row-mobile {
     display: flex;
     gap: 0.5rem;
@@ -200,7 +200,7 @@
     padding: 0.5rem var(--hero-align-x, clamp(0.9rem, 3.4vw, 4.5rem));
 }
 
-/* Track — single card at a time */
+/* Track  single card at a time */
 #mobile-carousel-track {
     display: flex;
     gap: 0.75rem;
@@ -339,7 +339,7 @@
     }
 }
 
-@media (min-width: 768px) and (max-width: 1023px) {
+@media (min-width: 640px) and (max-width: 768px) {
     #case-carousel-mobile {
         padding-bottom: 2.25rem;
     }

@@ -1680,7 +1680,7 @@ video {
     line-height: 1;
   }
 }
-@media (min-width: 1024px) {
+@media (min-width: 769px) {
 
   .lg\:col-span-5 {
     grid-column: span 5 / span 5;

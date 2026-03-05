@@ -24,7 +24,7 @@
     display: none;
 }
 
-@media (max-width: 1023px) {
+@media (max-width: 768px) {
     #products {
         display: none;
     }
@@ -134,7 +134,7 @@
 }
 
 /* Mobile product card styles */
-/* ── Mobile Products Accordion ── */
+/*  Mobile Products Accordion  */
 #products-mobile > .reveal h2 {
     font-size: 0.62rem;
     letter-spacing: 0.32em;
@@ -208,7 +208,7 @@
     margin: 0;
 }
 
-/* The + / × indicator */
+/* The + /  indicator */
 #products-mobile .accordion-btn .toggle-icon {
     width: 2rem;
     height: 2rem;
@@ -226,7 +226,7 @@
 
 /* Rotate when open */
 #products-mobile .border.open .accordion-btn .toggle-icon {
-    transform: rotate(45deg);   /* + becomes × */
+    transform: rotate(45deg);   /* + becomes  */
 }
 
 /* Accordion body: hidden by default */
@@ -257,7 +257,7 @@
     background: rgba(255, 87, 51, 0.75);
 }
 
-@media (min-width: 640px) and (max-width: 1023px) {
+@media (min-width: 640px) and (max-width: 768px) {
     #products-mobile {
         padding-inline: var(--hero-align-x, clamp(0.9rem, 3.4vw, 4.5rem));
         padding-top: 3rem;

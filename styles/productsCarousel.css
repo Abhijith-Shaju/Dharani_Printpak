@@ -1,15 +1,15 @@
 /* =============================================
-   CAROUSEL SECTION — RESPONSIVE
+   CAROUSEL SECTION  RESPONSIVE
    Add these to the END of your index.css
    ============================================= */
 
-/* ── Scroll keyframe (translateX -50% = one full set) ── */
+/*  Scroll keyframe (translateX -50% = one full set)  */
 @keyframes carousel-scroll {
     from { transform: translateX(0); }
     to   { transform: translateX(-50%); }
 }
 
-/* ── Base (Mobile first — up to 639px) ── */
+/*  Base (Mobile first  up to 639px)  */
 #case-carousel {
     padding-top: 4rem;
     padding-bottom: 4rem;
@@ -60,7 +60,7 @@
     padding: 1rem 1.25rem;
 }
 
-/* ── Tablet (640px+) ── */
+/*  Tablet (640px+)  */
 @media (min-width: 640px) {
     #case-carousel {
         padding-top: 6rem;
@@ -102,8 +102,8 @@
     }
 }
 
-/* ── Small Laptop (1024px+) ── */
-@media (min-width: 1024px) {
+/*  Small Laptop (1024px+)  */
+@media (min-width: 769px) {
     #case-carousel {
         padding-top: 8rem;
         padding-bottom: 8rem;
@@ -145,7 +145,7 @@
     }
 }
 
-/* ── Desktop (1280px+) ── */
+/*  Desktop (1280px+)  */
 @media (min-width: 1280px) {
     #case-carousel {
         padding-top: 10rem;
@@ -185,7 +185,7 @@
 
 
 
-/* ── Carousel card info text ──
+/* -- Carousel card info text --
    Add to index.css alongside your other carousel rules */
 
 #carousel-track li .card-info {
@@ -220,7 +220,7 @@
     }
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 769px) {
     #carousel-track li .card-info {
         padding: 1.5rem 2rem;
     }

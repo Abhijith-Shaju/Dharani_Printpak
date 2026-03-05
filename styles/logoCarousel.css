@@ -1,22 +1,22 @@
 /* =============================================
-   LOGO TRACK — RESPONSIVE
+   LOGO TRACK  RESPONSIVE
    Add these to the END of your index.css
    ============================================= */
 
-/* ── Scroll keyframe ── */
+/*  Scroll keyframe  */
 @keyframes logo-scroll {
     from { transform: translateX(0); }
     to   { transform: translateX(-50%); }
 }
 
-/* ── Wrapper ── */
+/*  Wrapper  */
 #logo-track-wrapper {
     overflow: hidden;
     width: 100%;
     margin-top: 3rem;
 }
 
-/* ── Track ── */
+/*  Track  */
 #logo-track {
     display: flex;
     align-items: center;
@@ -28,7 +28,7 @@
     animation-play-state: paused;
 }
 
-/* ── Each logo cell ── */
+/*  Each logo cell  */
 #logo-track li {
     flex-shrink: 0;
     background: #f4f4f4;
@@ -48,7 +48,7 @@
     transition: opacity 0.3s ease;
 }
 
-/* ── Mobile (base — up to 639px) ── */
+/*  Mobile (base  up to 639px)  */
 #logo-track-wrapper {
     margin-top: 3rem;
 }
@@ -59,7 +59,7 @@
     padding: 14px;
 }
 
-/* ── Tablet (640px+) ── */
+/*  Tablet (640px+)  */
 @media (min-width: 640px) {
     #logo-track-wrapper {
         margin-top: 4rem;
@@ -72,8 +72,8 @@
     }
 }
 
-/* ── Small Laptop (1024px+) ── */
-@media (min-width: 1024px) {
+/*  Small Laptop (1024px+)  */
+@media (min-width: 769px) {
     #logo-track-wrapper {
         margin-top: 5rem;
     }
@@ -85,7 +85,7 @@
     }
 }
 
-/* ── Desktop (1280px+) ── */
+/*  Desktop (1280px+)  */
 @media (min-width: 1280px) {
     #logo-track-wrapper {
         margin-top: 5rem;

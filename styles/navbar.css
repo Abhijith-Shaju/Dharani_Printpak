@@ -42,7 +42,7 @@
     color: #FF5733;
 }
 
-@media (max-width: 1023px) {
+@media (max-width: 768px) {
     #nav-menu {
         display: none;
     }

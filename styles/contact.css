@@ -183,7 +183,7 @@
 }
 
 /* Responsive */
-@media (max-width: 1024px) {
+@media (max-width: 768px) {
     #contact {
         padding-block: 5.5rem;
         padding-inline: var(--hero-align-x, clamp(0.9rem, 3.4vw, 4.5rem));
