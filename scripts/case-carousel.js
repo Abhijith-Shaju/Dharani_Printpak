@@ -240,7 +240,7 @@ function initMobileCarousel() {
 
     function getItemsPerPage() {
         const viewport = window.innerWidth || document.documentElement.clientWidth || 0;
-        if (viewport <= 768) return 2;
+        if (viewport <= 1023) return 2;
         return 3;
     }
 

@@ -337,3 +337,69 @@
         font-size: 1rem;
     }
 }
+
+@media (min-width: 768px) and (max-width: 1023px) {
+    #case-carousel-mobile {
+        padding-bottom: 2.25rem;
+    }
+
+    #case-carousel-mobile .text-center {
+        padding-top: 2.75rem;
+        padding-bottom: 1.5rem;
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+    }
+
+    #case-carousel-mobile h2 {
+        font-size: clamp(2rem, 4.5vw, 2.6rem);
+        line-height: 1.02;
+    }
+
+    .filter-row-mobile {
+        gap: 0.65rem;
+        padding: 0 1.5rem 1.15rem;
+    }
+
+    .filter-btn-mobile {
+        min-height: 2.5rem;
+        padding: 0.6rem 1.05rem;
+        font-size: 0.7rem;
+    }
+
+    .mobile-carousel-viewport {
+        padding: 0.6rem 1.5rem;
+    }
+
+    #mobile-carousel-track {
+        gap: 0.9rem;
+    }
+
+    #mobile-carousel-track li img {
+        aspect-ratio: 1 / 0.8;
+        padding: 0.55rem;
+    }
+
+    #mobile-carousel-track .card-info-mobile {
+        padding: 0.85rem;
+        min-height: 96px;
+    }
+
+    #mobile-carousel-track .card-info-mobile .mob-title {
+        font-size: 0.95rem;
+    }
+
+    .mobile-carousel-controls {
+        gap: 1.1rem;
+        padding-top: 0.85rem;
+    }
+
+    .mobile-arrow {
+        width: 46px;
+        height: 46px;
+        font-size: 1.2rem;
+    }
+
+    .mobile-counter {
+        font-size: 0.86rem;
+    }
+}
