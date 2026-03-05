@@ -18,8 +18,10 @@
 
 #products-mobile {
     background-color: #f4f4f4;
-    padding: 4rem 1.5rem;
+    padding: clamp(2.5rem, 6vw, 4rem) clamp(1rem, 4vw, 1.5rem);
     display: none;
+    max-width: 900px;
+    margin: 0 auto;
 }
 
 @media (max-width: 1023px) {
@@ -134,20 +136,38 @@
 
 /* Mobile product card styles */
 /* ── Mobile Products Accordion ── */
+#products-mobile > .reveal h2 {
+    font-size: 0.62rem;
+    letter-spacing: 0.32em;
+    margin-bottom: 0.45rem;
+}
+
+#products-mobile > .reveal h3 {
+    font-size: clamp(1.9rem, 7.8vw, 2.6rem);
+    line-height: 0.95;
+}
+
 #products-mobile .border {
-    border-radius: 0.5rem;
+    border-radius: 0.9rem;
     overflow: hidden;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    border: 1px solid rgba(15, 23, 42, 0.08);
+    box-shadow: 0 10px 26px rgba(2, 6, 23, 0.08);
+    transition: border-color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
+}
+
+#products-mobile .border.open {
+    border-color: rgba(255, 87, 51, 0.5);
+    box-shadow: 0 14px 30px rgba(255, 87, 51, 0.15);
 }
 
 /* Image header: ensure it always renders */
-#products-mobile .relative {
-    height: 11rem;          /* fixed height so image is visible */
+#products-mobile .border > .relative {
+    height: clamp(9.25rem, 35vw, 12rem);
     position: relative;
     display: block;
 }
 
-#products-mobile .relative img {
+#products-mobile .border > .relative img {
     position: absolute;
     inset: 0;
     width: 100%;
@@ -158,10 +178,10 @@
 }
 
 /* Dark overlay */
-#products-mobile .relative .bg-black\/50 {
+#products-mobile .border > .relative .bg-black\/50 {
     position: absolute;
     inset: 0;
-    background: rgba(0, 0, 0, 0.50);
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.42) 0%, rgba(0, 0, 0, 0.62) 100%);
     z-index: 1;
 }
 
@@ -173,7 +193,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0 1.5rem;
+    padding: 0 1rem 0 1.1rem;
     background: transparent;
     border: none;
     cursor: pointer;
@@ -182,7 +202,7 @@
 }
 
 #products-mobile .accordion-btn h3 {
-    font-size: 1.35rem;
+    font-size: clamp(1.05rem, 5vw, 1.35rem);
     font-weight: 900;
     text-transform: uppercase;
     letter-spacing: -0.02em;
@@ -191,11 +211,18 @@
 
 /* The + / × indicator */
 #products-mobile .accordion-btn .toggle-icon {
-    font-size: 1.75rem;
-    font-weight: 700;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, 0.45);
+    background: rgba(255, 255, 255, 0.12);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    font-weight: 900;
     line-height: 1;
-    transition: transform 0.35s ease;
-    display: inline-block;
+    transition: transform 0.35s ease, background 0.25s ease, border-color 0.25s ease;
 }
 
 /* Rotate when open */
@@ -217,9 +244,70 @@
 
 /* Inner text padding */
 #products-mobile .accordion-content > div {
-    padding: 1.25rem 1.5rem;
+    padding: 1rem 1.1rem 1.1rem;
     font-size: 0.875rem;
     font-weight: 600;
-    line-height: 1.6;
-    text-align: justify;
+    line-height: 1.65;
+    text-align: left;
+    color: #334155;
+    background: linear-gradient(180deg, #fff 0%, #f8fafc 100%);
+}
+
+#products-mobile .border.open .accordion-btn .toggle-icon {
+    border-color: rgba(255, 255, 255, 0.8);
+    background: rgba(255, 87, 51, 0.75);
+}
+
+@media (min-width: 640px) and (max-width: 1023px) {
+    #products-mobile {
+        padding-inline: 1.5rem;
+        padding-top: 3rem;
+        padding-bottom: 3.5rem;
+    }
+
+    #products-mobile > .reveal h2 {
+        font-size: 0.68rem;
+        letter-spacing: 0.38em;
+    }
+
+    #products-mobile > .reveal h3 {
+        font-size: clamp(2.1rem, 5.2vw, 2.9rem);
+    }
+
+    #products-mobile .border > .relative {
+        height: 13rem;
+    }
+
+    #products-mobile .accordion-btn {
+        padding-inline: 1.3rem;
+    }
+
+    #products-mobile .accordion-content > div {
+        padding: 1.15rem 1.3rem 1.25rem;
+        font-size: 0.94rem;
+    }
+}
+
+@media (max-width: 480px) {
+    #products-mobile {
+        padding-inline: 0.85rem;
+    }
+
+    #products-mobile > .reveal h3 {
+        font-size: clamp(1.7rem, 8.8vw, 2.2rem);
+    }
+
+    #products-mobile .accordion-btn h3 {
+        font-size: 1rem;
+    }
+
+    #products-mobile .accordion-btn .toggle-icon {
+        width: 1.8rem;
+        height: 1.8rem;
+        font-size: 1rem;
+    }
+
+    #products-mobile .accordion-content > div {
+        font-size: 0.82rem;
+    }
 }
