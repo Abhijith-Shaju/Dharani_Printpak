@@ -71,7 +71,7 @@ body { font-family: 'Inter', sans-serif; background-color: #ffffff; color: #0000
 
 .hero-watermark {
     left: clamp(-3.2rem, -4.8vw, -1rem);
-    font-size: clamp(6rem, 26vw, 24rem);
+    font-size: clamp(9.5rem, 36vw, 34rem);
 }
 
 .hero-content {
@@ -157,7 +157,7 @@ body { font-family: 'Inter', sans-serif; background-color: #ffffff; color: #0000
 }
 
 .hero-glass {
-    width: calc(var(--hero-glass-size) * var(--hero-size-multiplier));
+    width: calc(var(--hero-glass-size) * var(--hero-size-multiplier) * 0.9);
     height: auto;
     aspect-ratio: 1 / 1;
     perspective: 1400px;
@@ -391,9 +391,10 @@ body { font-family: 'Inter', sans-serif; background-color: #ffffff; color: #0000
 
 #box-3d {
     --box-size: calc(var(--hero-box-size) * var(--hero-size-multiplier));
-    width: var(--box-size);
-    height: var(--box-size);
-    --face-depth: calc(var(--box-size) / 2);
+    --box-shell-scale: 0.9;
+    width: calc(var(--box-size) * var(--box-shell-scale));
+    height: calc(var(--box-size) * var(--box-shell-scale));
+    --face-depth: calc((var(--box-size) / 2) * var(--box-shell-scale));
     -webkit-transform-style: preserve-3d;
     transform-style: preserve-3d;
     will-change: transform;
@@ -444,8 +445,8 @@ body { font-family: 'Inter', sans-serif; background-color: #ffffff; color: #0000
 
 
 #mouth-wrapper {
-    width: clamp(3.45rem, calc(var(--box-size) * 0.46), 5.8rem);
-    height: clamp(2rem, calc(var(--box-size) * 0.25), 3.2rem);
+    width: clamp(3rem, calc(var(--box-size) * 0.41), 5.1rem);
+    height: clamp(1.72rem, calc(var(--box-size) * 0.21), 2.75rem);
 }
 
 .hero-box-label {
