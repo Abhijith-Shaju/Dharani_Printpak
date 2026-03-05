@@ -487,7 +487,6 @@ body { font-family: 'Inter', sans-serif; background-color: #ffffff; color: #0000
         --hero-overlap-bottom: clamp(0.8rem, 2.8vh, 2.5rem);
         --hero-glass-size: clamp(190px, 33vh, 380px);
         --hero-box-size: clamp(96px, 16vh, 190px);
-        --hero-title-size: clamp(1.65rem, 7.1vw, 4.9rem);
     }
 
     #navbar .logo {
@@ -508,7 +507,6 @@ body { font-family: 'Inter', sans-serif; background-color: #ffffff; color: #0000
         --hero-overlap-bottom: clamp(0.6rem, 2vh, 1.8rem);
         --hero-glass-size: clamp(168px, 31vh, 300px);
         --hero-box-size: clamp(88px, 15vh, 150px);
-        --hero-title-size: clamp(1.35rem, 6.6vw, 3.8rem);
     }
 
     .hero-watermark {
@@ -519,12 +517,7 @@ body { font-family: 'Inter', sans-serif; background-color: #ffffff; color: #0000
         max-width: min(36ch, 52%);
     }
 
-    .hero-meta-description {
-        font-size: clamp(0.55rem, 0.9vw, 0.72rem);
-    }
-
     #inquiry-btn {
-        font-size: clamp(0.54rem, 0.7vw, 0.66rem);
         padding: clamp(0.42rem, 0.75vh, 0.62rem) clamp(0.8rem, 1.9vw, 1.7rem);
         letter-spacing: clamp(0.14em, 0.28vw, 0.28em);
     }
@@ -543,8 +536,6 @@ body { font-family: 'Inter', sans-serif; background-color: #ffffff; color: #0000
         --hero-overlap-bottom: clamp(0.35rem, 1.2vh, 1rem);
         --hero-glass-size: clamp(144px, 29vh, 230px);
         --hero-box-size: clamp(74px, 13.5vh, 120px);
-        --hero-title-size: clamp(1.08rem, 5.6vw, 2.75rem);
-        --hero-micro-size: clamp(0.4rem, 0.74vw, 0.54rem);
     }
 
     .hero-nav {
@@ -573,9 +564,6 @@ body { font-family: 'Inter', sans-serif; background-color: #ffffff; color: #0000
         line-height: 1.3;
     }
 
-    .hero-since-subtitle {
-        font-size: clamp(0.42rem, 0.6vw, 0.5rem);
-    }
 }
 
 @media (max-height: 620px) and (orientation: landscape) {
@@ -584,7 +572,6 @@ body { font-family: 'Inter', sans-serif; background-color: #ffffff; color: #0000
         --hero-overlap-top: clamp(0.2rem, 0.6vh, 0.55rem);
         --hero-overlap-bottom: clamp(0.2rem, 0.7vh, 0.6rem);
         --hero-glass-size: clamp(134px, 45vh, 190px);
-        --hero-title-size: clamp(1rem, 4.5vw, 2.4rem);
     }
 
     .hero-nav {
