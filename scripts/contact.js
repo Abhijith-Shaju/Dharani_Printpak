@@ -45,7 +45,7 @@ function initContact() {
             setTimeout(() => {
                 rfqForm.reset();
                 if (iti) iti.setNumber("");
-                formMessage.style.display = "none";
+                if (formMessage) formMessage.style.display = "none";
             }, 2000);
         });
     }

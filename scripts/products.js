@@ -65,7 +65,7 @@ function initProducts() {
                 if (!isOpen) {
                     card.classList.add("open");
                     content.style.maxHeight = content.scrollHeight + "px"; // exact height — no cutoff
-                    if (icon) icon.textContent = "×";
+                    if (icon) icon.textContent = "x";
                 }
             });
         });

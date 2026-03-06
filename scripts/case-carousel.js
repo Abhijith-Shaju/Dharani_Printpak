@@ -169,7 +169,9 @@ const syncHeight = new ResizeObserver((entries) => {
   }
 });
 
-syncHeight.observe(track);
+if (track) {
+    syncHeight.observe(track);
+}
     
 
 document.addEventListener("DOMContentLoaded", initCaseCarousel);

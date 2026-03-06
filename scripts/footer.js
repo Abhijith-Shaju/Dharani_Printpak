@@ -24,7 +24,7 @@ function initFooter() {
         "./resources/dpp/Madhavan.svg",
         "./resources/dpp/navrathan.svg",
         "./resources/dpp/Popular.svg",
-        "./resources/dpp/sukra.svg",
+        "./resources/dpp/Sukra.svg",
         "./resources/dpp/Tamil logo.svg",
         "./resources/dpp/Thattukadai.svg",
         "./resources/dpp/Vadnerkar.svg",
