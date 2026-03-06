@@ -90,6 +90,12 @@
     box-shadow: 0 0 0 3px rgba(255, 87, 51, 0.1);
 }
 
+/* Disable global focus ring inside contact form */
+#contact form :is(input, textarea, select, button):focus-visible {
+    outline: none !important;
+    outline-offset: 0;
+}
+
 .form-group textarea {
     resize: vertical;
     min-height: 150px;

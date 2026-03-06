@@ -24,10 +24,6 @@
     animation: logo-scroll 40s linear infinite;
 }
 
-#logo-track:hover {
-    animation-play-state: paused;
-}
-
 /* ── Each logo cell ── */
 #logo-track li {
     flex-shrink: 0;

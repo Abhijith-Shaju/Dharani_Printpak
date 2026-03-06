@@ -82,8 +82,6 @@ function initFooter() {
         logoResizeTimer = setTimeout(buildLogos, 200);
     });
 
-    track.addEventListener("mouseenter", () => track.style.animationPlayState = "paused");
-    track.addEventListener("mouseleave", () => track.style.animationPlayState = "running");
 }
 
 document.addEventListener("DOMContentLoaded", initFooter);
