@@ -196,8 +196,8 @@ body { font-family: 'Inter', sans-serif; background-color: #ffffff; color: #0000
 }
 
 .hero-stage-cta {
-    bottom: clamp(-0.6rem, -1.6vh, -1.9rem);
-    left: clamp(-0.9rem, -1.9vw, -2.2rem);
+    bottom: clamp(-3rem, -3.6vh, -2rem);
+    left: clamp(-2.2rem, -1.9vw, -2rem);
     z-index: 40;
 }
 
