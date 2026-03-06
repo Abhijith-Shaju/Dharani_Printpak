@@ -493,7 +493,7 @@ body { font-family: 'Inter', sans-serif; background-color: #ffffff; color: #0000
         --hero-overlap-top: clamp(0.65rem, 2.4vh, 2.1rem);
         --hero-overlap-bottom: clamp(0.8rem, 2.8vh, 2.5rem);
         --hero-glass-size: clamp(190px, 33vh, 380px);
-        --hero-box-size: clamp(96px, 16vh, 190px);
+        /* --hero-box-size: clamp(96px, 16vh, 190px); */
     }
 
     #navbar .logo {
