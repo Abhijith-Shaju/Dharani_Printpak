@@ -60,6 +60,32 @@
     #carousel-track { gap: 3rem; }
     #case-carousel-mobile { display: none; }
     #case-carousel { display: block; }
+
+    /* Give desktop carousel a little more breathing room. */
+    #case-carousel {
+        min-height: calc(var(--carousel-vh) + clamp(2.5rem, 4vh, 4rem));
+        padding-top: clamp(1.25rem, 2.2vh, 2rem);
+        padding-bottom: clamp(2.25rem, 4vh, 3.5rem);
+    }
+
+    .filter-row {
+        margin-top: clamp(1.25rem, 2vh, 2rem);
+        padding-bottom: clamp(1.5rem, 3vh, 2.25rem);
+    }
+}
+
+@media (min-width: 769px) and (max-height: 980px) {
+    #case-carousel {
+        min-height: calc(var(--carousel-vh) + 5rem);
+    }
+
+    .slider-outer {
+        padding: 1.75rem 0 2rem;
+    }
+
+    .filter-row {
+        padding-bottom: 2.5rem;
+    }
 }
 
 /* Cards */
