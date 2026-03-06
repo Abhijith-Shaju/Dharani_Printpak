@@ -70,8 +70,8 @@ body { font-family: 'Inter', sans-serif; background-color: #ffffff; color: #0000
 }
 
 .hero-watermark {
-    left: clamp(-3.2rem, -4.8vw, -1rem);
-    font-size: clamp(9.5rem, 36vw, 34rem);
+    left: clamp(0.2rem, -0.6vw, 1rem);
+    font-size: clamp(10rem, calc(var(--hero-glass-size) * 1.32), 28rem);
 }
 
 .hero-content {
@@ -856,7 +856,7 @@ body { font-family: 'Inter', sans-serif; background-color: #ffffff; color: #0000
 }
 
 @media (max-width: 768px) {
-    .map-scene{
+    #hero .map-scene{
         display: none;
     }
 
