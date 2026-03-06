@@ -8,7 +8,7 @@
 }
 
 :root {
-    --scale: clamp(0.58, calc(0.58 + (100vw - 768px) / (1440px - 768px) * 0.42), 1.0);    /* at 768px → ~0.59  |  at 1280px → ~0.84  |  at 1440px → 1.0 */
+    --scale: clamp(0.58, calc(0.58 + (100vw - 768px) / (1440px - 768px) * 0.42), 1.0);    /* at 768px -> ~0.59  |  at 1280px -> ~0.84  |  at 1440px -> 1.0 */
 }
 
 
@@ -168,7 +168,7 @@ body { font-family: 'Inter', sans-serif; background-color: #ffffff; color: #0000
     backdrop-filter: blur(0px);
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 769px) {
     .hero-glass {
         -webkit-backdrop-filter: blur(20px);
         backdrop-filter: blur(20px);
@@ -194,7 +194,7 @@ body { font-family: 'Inter', sans-serif; background-color: #ffffff; color: #0000
     left: clamp(-0.9rem, -1.9vw, -2.2rem);
 }
 
-@media (max-width: 900px) {
+@media (max-width: 768px) {
     #hero {
         --hero-overlap-top: clamp(0.45rem, 1.6vh, 1.2rem);
         --hero-overlap-bottom: clamp(0.5rem, 1.8vh, 1.3rem);
@@ -293,7 +293,7 @@ body { font-family: 'Inter', sans-serif; background-color: #ffffff; color: #0000
 .gallery-card .drawer {
     transform: translateX(-100%);
     background-color: #FF5733;
-    overflow: hidden;                    /* NO scroll — content must fit */
+    overflow: hidden;                    /* NO scroll - content must fit */
     padding: clamp(1rem, 2vw, 2.5rem);
     justify-content: flex-end;
     display: flex;
@@ -330,7 +330,7 @@ body { font-family: 'Inter', sans-serif; background-color: #ffffff; color: #0000
 
 .gallery-card {
     height: clamp(520px, 38vw, 720px);  /* consistent across all screen sizes */
-    overflow: hidden;                    /* NO scroll ever */
+    overflow: hidden;                    /* NO scroll - content must fit */
 }
 
 .gallery-card {
@@ -369,7 +369,7 @@ body { font-family: 'Inter', sans-serif; background-color: #ffffff; color: #0000
     display: none;
 }
 
-@media (max-width: 1023px) {
+@media (max-width: 768px) {
     #products {
         display: none;
     }
@@ -379,7 +379,7 @@ body { font-family: 'Inter', sans-serif; background-color: #ffffff; color: #0000
     }
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 769px) {
     #products {
         display: flex;
     }
@@ -707,7 +707,7 @@ body { font-family: 'Inter', sans-serif; background-color: #ffffff; color: #0000
     gap: 2rem;
 }
 
-@media (min-width: 900px) {
+@media (min-width: 769px) {
     #why-choose-us .why-cards-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
     }
@@ -848,7 +848,7 @@ body { font-family: 'Inter', sans-serif; background-color: #ffffff; color: #0000
     }
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 768px) {
     .map-scene{
         display: none;
     }
@@ -1009,35 +1009,35 @@ body { font-family: 'Inter', sans-serif; background-color: #ffffff; color: #0000
   animation: logo-scroll 40s linear infinite;
 }
 
-/* Box size + depth — fluid across all widths */
-/* 1 — Backdrop blur requires -webkit- prefix in Safari */
-/* 2 — 3D transform context needs -webkit- prefix in Safari */
-/* 3 — scrollbar-width not supported in Safari, wrap in @supports */
+/* Box size + depth - fluid across all widths */
+/* 1 - Backdrop blur requires -webkit- prefix in Safari */
+/* 2 - 3D transform context needs -webkit- prefix in Safari */
+/* 3 - scrollbar-width not supported in Safari, wrap in @supports */
 #carousel-track {
     scrollbar-width: auto;
     scrollbar-color: #FF5733 #000000;
 }
 
-/* 4 — flex gap fallback for Safari 14.0 and below */
+/* 4 - flex gap fallback for Safari 14.0 and below */
 @supports not (gap: 1rem) {
     .nav-menu-items > * + * { margin-left: 2rem; }
     
     #why-choose-us .why-stats > * + * { margin-left: 3rem; }
 }
 
-/* 5 — smooth scroll for Safari versions that don't support scroll-behavior */
+/* 5 - smooth scroll for Safari versions that don't support scroll-behavior */
 html {
     scroll-behavior: smooth;
     -webkit-overflow-scrolling: touch;
 }
 
-/* 6 — prevent text size adjustment on orientation change (Safari iOS) */
+/* 6 - prevent text size adjustment on orientation change (Safari iOS) */
 body {
     -webkit-text-size-adjust: 100%;
     text-size-adjust: 100%;
 }
 
-/* 7 — animation prefix for Safari */
+/* 7 - animation prefix for Safari */
 @-webkit-keyframes pulseScale {
     0% { -webkit-transform: scale(1); opacity: 0.6; }
     100% { -webkit-transform: scale(1.4); opacity: 0; }
@@ -1053,7 +1053,7 @@ body {
     to { -webkit-transform: translate(-50%, -50%) rotateX(60deg) rotateZ(360deg); }
 }
 
-/* 8 — fix transition on gallery drawer for Safari */
+/* 8 - fix transition on gallery drawer for Safari */
 .gallery-card .drawer {
     -webkit-transition: -webkit-transform 0.5s ease;
     transition: transform 0.5s ease;

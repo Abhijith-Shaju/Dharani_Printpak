@@ -240,7 +240,7 @@ function initMobileCarousel() {
 
     function getItemsPerPage() {
         const viewport = window.innerWidth || document.documentElement.clientWidth || 0;
-        if (viewport <= 1023) return 2;
+        if (viewport <= 768) return 2;
         return 3;
     }
 
@@ -291,7 +291,7 @@ function initMobileCarousel() {
         // Update counter
         if (counter) counter.textContent = `${currentPage + 1} / ${max + 1}`;
 
-        // Disable arrows at hard ends if you prefer (optional — remove for infinite loop)
+        // Disable arrows at hard ends if you prefer (optional  remove for infinite loop)
         // if (prevBtn) prevBtn.disabled = currentPage === 0;
         // if (nextBtn) nextBtn.disabled = currentPage === max;
     }
@@ -312,8 +312,7 @@ function initMobileCarousel() {
             buildCards({ resetPage: true });
         });
     });
-
-    // ── Swipe / Touch support ──
+    // -- Swipe / Touch support --
     let touchStartX = 0;
     let touchEndX   = 0;
 

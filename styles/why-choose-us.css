@@ -101,7 +101,7 @@
     gap: 2rem;
 }
 
-@media (min-width: 900px) {
+@media (min-width: 769px) {
     #why-choose-us .why-cards-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
     }
@@ -127,13 +127,6 @@
     will-change: transform;
 }
 
-#why-choose-us .why-cards-grid > div:hover {
-    transform: translateY(-5px);
-    border-color: rgba(255, 255, 255, 0.22);
-    box-shadow: 0 18px 34px rgba(0, 0, 0, 0.24);
-    background-color: #ea580c;
-}
-
 #why-choose-us .why-cards-grid > div .why-card-eyebrow,
 #why-choose-us .why-cards-grid > div .why-card-title,
 #why-choose-us .why-cards-grid > div .why-card-copy,
@@ -141,9 +134,32 @@
     transition: color 0.28s ease;
 }
 
-#why-choose-us .why-cards-grid > div:hover .why-card-copy,
-#why-choose-us .why-cards-grid > div:hover p.text-slate-400 {
-    color: rgba(255, 255, 255, 0.92);
+@media (hover: hover) and (pointer: fine) {
+    #why-choose-us .why-cards-grid > div:hover {
+        transform: translateY(-5px);
+        border-color: rgba(255, 255, 255, 0.22);
+        box-shadow: 0 18px 34px rgba(0, 0, 0, 0.24);
+        background-color: #ea580c;
+    }
+
+    #why-choose-us .why-cards-grid > div:hover .why-card-copy,
+    #why-choose-us .why-cards-grid > div:hover p.text-slate-400 {
+        color: rgba(255, 255, 255, 0.92);
+    }
+}
+
+@media (hover: none), (pointer: coarse) {
+    #why-choose-us .why-cards-grid > div:hover {
+        transform: none;
+        border-color: rgba(255, 255, 255, 0.1);
+        box-shadow: 0 12px 26px rgba(0, 0, 0, 0.12);
+        background: rgba(255, 255, 255, 0.02);
+    }
+
+    #why-choose-us .why-cards-grid > div:hover .why-card-copy,
+    #why-choose-us .why-cards-grid > div:hover p.text-slate-400 {
+        color: rgb(148 163 184 / 1);
+    }
 }
 
 @media (prefers-reduced-motion: reduce) {

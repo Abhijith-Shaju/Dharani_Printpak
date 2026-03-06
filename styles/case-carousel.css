@@ -40,7 +40,7 @@
     display: block;
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 769px) {
     #carousel-track { gap: 3rem; }
     #case-carousel-mobile { display: none; }
     #case-carousel { display: block; }
@@ -150,22 +150,26 @@
 
 
 
-/* ── MOBILE CAROUSEL ── */
+/*  MOBILE CAROUSEL  */
 #case-carousel-mobile {
     overflow: hidden;
     padding-bottom: clamp(1.5rem, 5vw, 2.5rem);
 }
 
-/* Filter row — horizontal scroll, no wrapping */
+/* Filter row  horizontal scroll, no wrapping */
 .filter-row-mobile {
     display: flex;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    flex-wrap: nowrap;
     gap: 0.5rem;
     overflow-x: auto;
-    padding: 0 var(--hero-align-x, clamp(0.9rem, 3.4vw, 4.5rem)) 1rem;
+    padding: 0 clamp(0.6rem, 3.2vw, 1.25rem) 1rem;
     scrollbar-width: none;
     -ms-overflow-style: none;
     scroll-snap-type: x mandatory;
-    justify-content: center;
+    justify-content: flex-start;
 }
 .filter-row-mobile::-webkit-scrollbar { display: none; }
 
@@ -176,7 +180,7 @@
     background: rgba(255,255,255,0.07);
     color: white;
     border: 1px solid rgba(255,255,255,0.2);
-    border-radius: 50px;
+    border-radius: 0;
     font-size: 0.7rem;
     font-weight: 800;
     text-transform: uppercase;
@@ -200,7 +204,7 @@
     padding: 0.5rem var(--hero-align-x, clamp(0.9rem, 3.4vw, 4.5rem));
 }
 
-/* Track — single card at a time */
+/* Track  single card at a time */
 #mobile-carousel-track {
     display: flex;
     gap: 0.75rem;
@@ -268,7 +272,7 @@
     border: 1px solid rgba(255,255,255,0.2);
     color: white;
     font-size: 1.15rem;
-    border-radius: 50%;
+    border-radius: 0;
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -339,7 +343,7 @@
     }
 }
 
-@media (min-width: 768px) and (max-width: 1023px) {
+@media (min-width: 640px) and (max-width: 768px) {
     #case-carousel-mobile {
         padding-bottom: 2.25rem;
     }
@@ -358,7 +362,7 @@
 
     .filter-row-mobile {
         gap: 0.65rem;
-        padding: 0 var(--hero-align-x, clamp(0.9rem, 3.4vw, 4.5rem)) 1.15rem;
+        padding: 0 clamp(0.85rem, 2.8vw, 1.6rem) 1.15rem;
     }
 
     .filter-btn-mobile {
