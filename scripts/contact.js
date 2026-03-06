@@ -22,9 +22,10 @@ function initContact() {
 
     const rfqForm = document.querySelector('form[name="rfq"]');
     const formMessage = document.querySelector(".form-message");
+    const submitBtn = rfqForm ? rfqForm.querySelector('button[type="submit"]') : null;
 
     if (rfqForm) {
-        rfqForm.addEventListener("submit", function (e) {
+        rfqForm.addEventListener("submit", async function (e) {
             e.preventDefault();
 
             // Validate phone number
@@ -38,15 +39,31 @@ function initContact() {
                 phoneInput.value = iti.getNumber();
             }
 
-            // Show success message
-            showFormMessage(formMessage, "Thank you! We'll get back to you shortly.", "success");
+            if (submitBtn) submitBtn.disabled = true;
+            showFormMessage(formMessage, "Submitting your request...", "success");
 
-            // Reset form after successful submission
-            setTimeout(() => {
-                rfqForm.reset();
-                if (iti) iti.setNumber("");
-                if (formMessage) formMessage.style.display = "none";
-            }, 2000);
+            try {
+                const body = new URLSearchParams(new FormData(rfqForm)).toString();
+                const response = await fetch("/", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/x-www-form-urlencoded" },
+                    body,
+                });
+
+                if (!response.ok) throw new Error("Submit failed");
+
+                showFormMessage(formMessage, "Thanks. Your RFQ has been submitted. Our team will respond within 24 hours.", "success");
+
+                setTimeout(() => {
+                    rfqForm.reset();
+                    if (iti) iti.setNumber("");
+                    if (formMessage) formMessage.style.display = "none";
+                }, 2200);
+            } catch {
+                showFormMessage(formMessage, "Submission failed. Please try again or contact us directly by phone.", "error");
+            } finally {
+                if (submitBtn) submitBtn.disabled = false;
+            }
         });
     }
 

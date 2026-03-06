@@ -86,7 +86,7 @@ body { font-family: 'Inter', sans-serif; background-color: #ffffff; color: #0000
 .hero-stage {
     min-height: 0;
     position: relative;
-    z-index: 20;
+    z-index: auto;
 }
 
 .hero-topline {
@@ -96,14 +96,17 @@ body { font-family: 'Inter', sans-serif; background-color: #ffffff; color: #0000
 
 .hero-meta {
     margin: calc(var(--hero-overlap-bottom) * -1) 0 0;
+    position: relative;
+    z-index: 30;
     align-items: flex-end;
     column-gap: clamp(0.75rem, 2vw, 2.5rem);
-    /* z-index: 34; */
+    pointer-events: none;
 }
 
 .hero-meta-copy {
     max-width: min(32ch, 42%);
     row-gap: clamp(0.35rem, 0.9vh, 0.85rem);
+    pointer-events: auto;
 }
 
 .hero-meta-kicker {
@@ -137,6 +140,7 @@ body { font-family: 'Inter', sans-serif; background-color: #ffffff; color: #0000
 .hero-title-bottom {
     text-align: right;
     z-index: 34;
+    pointer-events: none;
 }
 
 .hero-since {
@@ -159,6 +163,7 @@ body { font-family: 'Inter', sans-serif; background-color: #ffffff; color: #0000
 .hero-glass {
     width: calc(var(--hero-glass-size) * var(--hero-size-multiplier) * 0.9);
     height: auto;
+    z-index: 20;
     aspect-ratio: 1 / 1;
     perspective: 1400px;
     background: rgba(255,255,255,0.75);
@@ -192,6 +197,7 @@ body { font-family: 'Inter', sans-serif; background-color: #ffffff; color: #0000
 .hero-stage-cta {
     bottom: clamp(-0.6rem, -1.6vh, -1.9rem);
     left: clamp(-0.9rem, -1.9vw, -2.2rem);
+    z-index: 40;
 }
 
 @media (max-width: 768px) {

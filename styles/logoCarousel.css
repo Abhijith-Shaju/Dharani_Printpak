@@ -68,7 +68,7 @@
     }
 }
 
-/*  Small Laptop (1024px+)  */
+/*  Small Laptop (769px+)  */
 @media (min-width: 769px) {
     #logo-track-wrapper {
         margin-top: 5rem;

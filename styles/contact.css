@@ -90,10 +90,10 @@
     box-shadow: 0 0 0 3px rgba(255, 87, 51, 0.1);
 }
 
-/* Disable global focus ring inside contact form */
+/* Keep keyboard focus visible in contact form */
 #contact form :is(input, textarea, select, button):focus-visible {
-    outline: none !important;
-    outline-offset: 0;
+    outline: 2px solid #FF5733;
+    outline-offset: 2px;
 }
 
 .form-group textarea {
@@ -164,6 +164,11 @@
     transform: translateY(0);
 }
 
+#contact form button[type="submit"]:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
 /* Form message */
 .form-message {
     display: none;
@@ -186,39 +191,6 @@
     background: rgba(255, 87, 51, 0.2);
     border: 1px solid #FF5733;
     color: #ffb8a3;
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-    #contact {
-        padding-block: 5.5rem;
-        padding-inline: var(--hero-align-x, clamp(0.9rem, 3.4vw, 4.5rem));
-    }
-
-    #contact > div:last-child {
-        gap: 2.5rem;
-    }
-
-    #contact > div:last-child > div:first-child h3 {
-        font-size: clamp(2.6rem, 8vw, 4.5rem);
-        margin-bottom: 1.5rem;
-    }
-
-    #contact > div:last-child > div:first-child p {
-        margin-bottom: 2rem;
-    }
-
-    #contact > div:last-child > div:last-child > div {
-        padding: 1.5rem;
-    }
-
-    #contact form {
-        gap: 2rem;
-    }
-
-    #contact form > div:nth-of-type(1) {
-        gap: 1.5rem;
-    }
 }
 
 @media (max-width: 768px) {

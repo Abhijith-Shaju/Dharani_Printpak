@@ -499,6 +499,17 @@ video {
 [hidden]:where(:not([hidden="until-found"])) {
   display: none;
 }
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
 .pointer-events-none {
   pointer-events: none;
 }
@@ -507,9 +518,6 @@ video {
 }
 .visible {
   visibility: visible;
-}
-.fixed {
-  position: fixed;
 }
 .absolute {
   position: absolute;
@@ -1305,6 +1313,9 @@ video {
 .leading-tight {
   line-height: 1.25;
 }
+.tracking-\[0\.22em\] {
+  letter-spacing: 0.22em;
+}
 .tracking-\[0\.2em\] {
   letter-spacing: 0.2em;
 }
@@ -1623,6 +1634,18 @@ video {
 .peer:focus ~ .peer-focus\:text-orange-500 {
   --tw-text-opacity: 1;
   color: rgb(249 115 22 / var(--tw-text-opacity, 1));
+}
+.peer:focus-visible ~ .peer-focus-visible\:outline {
+  outline-style: solid;
+}
+.peer:focus-visible ~ .peer-focus-visible\:outline-2 {
+  outline-width: 2px;
+}
+.peer:focus-visible ~ .peer-focus-visible\:outline-offset-2 {
+  outline-offset: 2px;
+}
+.peer:focus-visible ~ .peer-focus-visible\:outline-orange-500 {
+  outline-color: #f97316;
 }
 .peer:not(:-moz-placeholder) ~ .peer-\[\:not\(\:-moz-placeholder\)\]\:-top-6 {
   top: -1.5rem;

@@ -1,13 +1,29 @@
 /* SLIDER SECTION */
 #case-carousel {
+    --carousel-vh: 100svh;
     position: relative;
     background: #0b0f14;
     color: white;
+    min-height: var(--carousel-vh);
     padding-block: 1rem;
     padding-inline: var(--hero-align-x, clamp(0.9rem, 3.4vw, 4.5rem));
     border-top: 1px solid rgba(255,255,255,0.05);
     border-bottom: 1px solid rgba(255,255,255,0.05);
     display: none;
+}
+
+@supports (height: 100dvh) {
+    #case-carousel {
+        --carousel-vh: 100dvh;
+    }
+}
+
+.carousel-header h2 {
+    font-size: clamp(2.5rem, 5vw, 5rem);
+}
+
+.carousel-header {
+    padding-block: clamp(1.5rem, 4vw, 3rem);
 }
 
 /* Slider layout */
@@ -118,7 +134,7 @@
     background: rgba(255,255,255,0.08);
     color: white;
     border: 1px solid rgba(255,255,255,0.2);
-    border-radius: 50px;
+    /* border-radius: 50px; */
     font-size: 0.85rem;
     font-weight: 700;
     text-transform: uppercase;
@@ -128,7 +144,7 @@
 }
 .filter-btn:hover {
     border-color: #FF5733;
-    color: #FF5733;
+    color: #ffffff;
 }
 .filter-btn.active-filter {
     background: #FF5733;
@@ -180,7 +196,7 @@
     background: rgba(255,255,255,0.07);
     color: white;
     border: 1px solid rgba(255,255,255,0.2);
-    border-radius: 0;
+    /* border-radius: 0; */
     font-size: 0.7rem;
     font-weight: 800;
     text-transform: uppercase;
