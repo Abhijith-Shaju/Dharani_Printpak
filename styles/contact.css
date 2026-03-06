@@ -199,10 +199,11 @@
         padding-inline: var(--hero-align-x, clamp(0.9rem, 3.4vw, 4.5rem));
     }
 
+    /* Keep the main contact grid in normal document flow on mobile */
     #contact > div:first-child {
-        width: 260px;
-        height: 260px;
-        filter: blur(80px);
+        width: 100%;
+        height: auto;
+        filter: none;
     }
 
     #contact > div:last-child {
