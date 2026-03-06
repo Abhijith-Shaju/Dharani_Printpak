@@ -95,8 +95,9 @@ body { font-family: 'Inter', sans-serif; background-color: #ffffff; color: #0000
 }
 
 .hero-meta {
-    margin: calc(var(--hero-overlap-bottom) * -1) 0 0;
+    margin: 0;
     position: relative;
+    top: calc(var(--hero-overlap-bottom) * -1.4);
     z-index: 30;
     align-items: flex-end;
     column-gap: clamp(0.75rem, 2vw, 2.5rem);
