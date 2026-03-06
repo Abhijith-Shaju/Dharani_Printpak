@@ -9,6 +9,13 @@ module.exports = {
       "2xl": "1536px",
     },
     extend: {
+      colors: {
+        orange: {
+          400: "#FF5733",
+          500: "#FF5733",
+          600: "#FF5733",
+        },
+      },
       animation: {
         testspin: "testspin 5s linear infinite",
       },

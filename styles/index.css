@@ -115,7 +115,8 @@ html::-webkit-scrollbar-thumb:hover,
 body::-webkit-scrollbar-thumb:hover,
 #carousel-track::-webkit-scrollbar-thumb:hover,
 *::-webkit-scrollbar-thumb:hover {
-    background: #ff6a42;
+    background: #FF5733;
     -webkit-border-radius: 0 !important;
     border-radius: 0 !important;
 }
+

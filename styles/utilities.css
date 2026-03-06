@@ -25,7 +25,7 @@
     height: 20px;
     background: rgba(#FF5733, 0.8);
     opacity: 1;
-    border: #e64428 1px solid;
+    border: #FF5733 1px solid;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -90,7 +90,7 @@
 }
 
 .btn-primary:hover {
-    background: #e64428;
+    background: #FF5733;
     transform: translateY(-2px);
     box-shadow: 0 8px 20px rgba(255, 87, 51, 0.3);
 }
@@ -142,7 +142,7 @@ html {
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: #e64428;
+    background: #FF5733;
     border-radius: 0 !important;
 }
 
@@ -220,3 +220,4 @@ html {
 .all-transition {
     transition: all 0.3s ease;
 }
+
