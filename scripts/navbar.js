@@ -25,7 +25,7 @@ function initNavbar() {
             navLinks.forEach(link => link.classList.remove("active"));
 
             // Add active class to corresponding link
-            const sectionId = entry.target.id;
+            const sectionId = normalizeSectionId(entry.target.id);
             const activeLinks = document.querySelectorAll(`#nav-menu a[href="#${sectionId}"], #mobile-nav-menu a[href="#${sectionId}"]`);
             activeLinks.forEach(link => link.classList.add("active"));
         });
@@ -39,7 +39,7 @@ function initNavbar() {
             const href = link.getAttribute("href");
             if (href && href.startsWith("#")) {
                 e.preventDefault();
-                const target = document.querySelector(href);
+                const target = document.querySelector(resolveHashTarget(href));
                 if (target) {
                     target.scrollIntoView({ behavior: "smooth" });
                 }
@@ -77,3 +77,23 @@ function initNavbar() {
 }
 
 document.addEventListener("DOMContentLoaded", initNavbar);
+    function isMobileViewViewport(width = window.innerWidth || document.documentElement.clientWidth || 0) {
+        const isPortrait = window.matchMedia
+            ? window.matchMedia("(orientation: portrait)").matches
+            : window.innerHeight >= window.innerWidth;
+        return width <= 768 || (isPortrait && width <= 1024);
+    }
+
+    function normalizeSectionId(sectionId) {
+        if (!isMobileViewViewport()) return sectionId;
+        if (sectionId === "products-mobile") return "products";
+        if (sectionId === "case-carousel-mobile") return "case-carousel";
+        return sectionId;
+    }
+
+    function resolveHashTarget(href) {
+        if (!isMobileViewViewport()) return href;
+        if (href === "#products") return "#products-mobile";
+        if (href === "#case-carousel") return "#case-carousel-mobile";
+        return href;
+    }
