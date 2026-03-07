@@ -1,4 +1,10 @@
 /* CASE CAROUSEL COMPONENT LOGIC */
+function isMobileViewViewport(width = window.innerWidth || document.documentElement.clientWidth || 0) {
+    const isPortrait = window.matchMedia
+        ? window.matchMedia("(orientation: portrait)").matches
+        : window.innerHeight >= window.innerWidth;
+    return width <= 768 || (isPortrait && width <= 1024);
+}
 
 function initCaseCarousel() {
     const showcaseItems = [

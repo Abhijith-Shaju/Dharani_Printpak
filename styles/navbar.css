@@ -42,7 +42,7 @@
     color: #FF5733;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 768px), (orientation: portrait) and (max-width: 1024px) {
     #nav-menu {
         display: none;
     }
@@ -130,7 +130,7 @@
     color: #ffffff;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 768px), (orientation: portrait) and (max-width: 1024px) {
     #navbar {
         padding: 0.5rem 1rem;
     }
@@ -143,3 +143,4 @@
         display: inline-flex;
     }
 }
+

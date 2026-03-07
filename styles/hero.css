@@ -174,7 +174,7 @@ body { font-family: 'Inter', sans-serif; background-color: #ffffff; color: #0000
     backdrop-filter: blur(0px);
 }
 
-@media (min-width: 769px) {
+@media (min-width: 1025px), (min-width: 769px) and (orientation: landscape) {
     .hero-glass {
         -webkit-backdrop-filter: blur(20px);
         backdrop-filter: blur(20px);
@@ -201,7 +201,7 @@ body { font-family: 'Inter', sans-serif; background-color: #ffffff; color: #0000
     z-index: 40;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 768px), (orientation: portrait) and (max-width: 1024px) {
     #hero {
         --hero-overlap-top: clamp(0.45rem, 1.6vh, 1.2rem);
         --hero-overlap-bottom: clamp(0.5rem, 1.8vh, 1.3rem);
@@ -369,31 +369,6 @@ body { font-family: 'Inter', sans-serif; background-color: #ffffff; color: #0000
 
 #gallery-card-paperboard{
     background-image: url('../resources/paperboard_bags.webp');
-}
-
-/* Products section split: desktop + mobile */
-#products-mobile {
-    display: none;
-}
-
-@media (max-width: 768px) {
-    #products {
-        display: none;
-    }
-
-    #products-mobile {
-        display: block;
-    }
-}
-
-@media (min-width: 769px) {
-    #products {
-        display: flex;
-    }
-
-    #products-mobile {
-        display: none;
-    }
 }
 
 #box-3d {
@@ -714,7 +689,7 @@ body { font-family: 'Inter', sans-serif; background-color: #ffffff; color: #0000
     gap: 2rem;
 }
 
-@media (min-width: 769px) {
+@media (min-width: 1025px), (min-width: 769px) and (orientation: landscape) {
     #why-choose-us .why-cards-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
     }
@@ -855,7 +830,7 @@ body { font-family: 'Inter', sans-serif; background-color: #ffffff; color: #0000
     }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 768px), (orientation: portrait) and (max-width: 1024px) {
     #hero .map-scene{
         display: none;
     }
@@ -939,7 +914,7 @@ body { font-family: 'Inter', sans-serif; background-color: #ffffff; color: #0000
     transition: opacity 0.3s ease;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 768px), (orientation: portrait) and (max-width: 1024px) {
     #cursor-cube {
         display: none !important;
     }
@@ -1067,7 +1042,7 @@ body {
 }
 
 /* HERO MOBILE REFINEMENT */
-@media (max-width: 768px) {
+@media (max-width: 768px), (orientation: portrait) and (max-width: 1024px) {
     #hero {
         --hero-size-multiplier: 1.08;
         --hero-pad-x: var(--hero-align-x, clamp(0.9rem, 3.4vw, 4.5rem));
@@ -1253,4 +1228,5 @@ body {
         letter-spacing: 0.08em;
     }
 }
+
 
