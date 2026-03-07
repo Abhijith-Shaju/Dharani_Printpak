@@ -186,3 +186,9 @@
 
 }
 
+@media (min-width: 769px) and (max-width: 1366px) and (orientation: landscape) {
+    #about .about-grid-img {
+        filter: none !important;
+    }
+}
+
