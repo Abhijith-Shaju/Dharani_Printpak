@@ -43,7 +43,7 @@ footer {
     padding-inline: var(--hero-align-x);
 }
 
-@media (min-width: 769px) {
+@media (min-width: 1025px), (min-width: 769px) and (orientation: landscape) {
     #why-choose-us,
     #products,
     #products-mobile,
@@ -119,4 +119,5 @@ body::-webkit-scrollbar-thumb:hover,
     -webkit-border-radius: 0 !important;
     border-radius: 0 !important;
 }
+
 

@@ -103,7 +103,7 @@
 }
 
 /*  Small Laptop (1024px+)  */
-@media (min-width: 769px) {
+@media (min-width: 1025px), (min-width: 769px) and (orientation: landscape) {
     #case-carousel {
         padding-top: 8rem;
         padding-bottom: 8rem;
@@ -220,7 +220,7 @@
     }
 }
 
-@media (min-width: 769px) {
+@media (min-width: 1025px), (min-width: 769px) and (orientation: landscape) {
     #carousel-track li .card-info {
         padding: 1.5rem 2rem;
     }
@@ -228,3 +228,4 @@
         font-size: 15px;
     }
 }
+

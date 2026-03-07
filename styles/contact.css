@@ -187,7 +187,7 @@
     color: #FF5733;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 768px), (orientation: portrait) and (max-width: 1024px) {
     #contact {
         padding-block: 4rem;
         padding-inline: var(--hero-align-x, clamp(0.9rem, 3.4vw, 4.5rem));
@@ -313,4 +313,5 @@
         letter-spacing: 0.2em;
     }
 }
+
 

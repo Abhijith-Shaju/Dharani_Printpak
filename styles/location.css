@@ -208,7 +208,7 @@
     opacity: 0.8;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 768px), (orientation: portrait) and (max-width: 1024px) {
     #location {
         padding-block: 3.5rem;
         padding-inline: var(--hero-align-x, clamp(0.9rem, 3.4vw, 4.5rem));
@@ -270,3 +270,4 @@
         animation-duration: 44s;
     }
 }
+

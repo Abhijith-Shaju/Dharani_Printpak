@@ -3,8 +3,8 @@ module.exports = {
   theme: {
     screens: {
       sm: "640px",
-      md: "768px",
-      lg: "769px",
+      md: { raw: "(min-width: 1025px), (min-width: 769px) and (orientation: landscape)" },
+      lg: { raw: "(min-width: 1025px), (min-width: 769px) and (orientation: landscape)" },
       xl: "1280px",
       "2xl": "1536px",
     },

@@ -101,7 +101,7 @@
     gap: 2rem;
 }
 
-@media (min-width: 769px) {
+@media (min-width: 1025px), (min-width: 769px) and (orientation: landscape) {
     #why-choose-us .why-cards-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
     }
@@ -200,7 +200,7 @@
 }
 
 /* Responsive */
-@media (max-width: 768px) {
+@media (max-width: 768px), (orientation: portrait) and (max-width: 1024px) {
     #why-choose-us .why-header {
         flex-direction: column;
         gap: 1.75rem;
@@ -274,3 +274,4 @@
         font-size: 0.95rem;
     }
 }
+

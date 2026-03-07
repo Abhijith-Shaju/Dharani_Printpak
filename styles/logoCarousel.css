@@ -69,7 +69,7 @@
 }
 
 /*  Small Laptop (769px+)  */
-@media (min-width: 769px) {
+@media (min-width: 1025px), (min-width: 769px) and (orientation: landscape) {
     #logo-track-wrapper {
         margin-top: 5rem;
     }
@@ -93,3 +93,4 @@
         padding: 24px;
     }
 }
+

@@ -152,7 +152,7 @@ footer .footer-logo-text {
 }
 
 /* Responsive */
-@media (max-width: 768px) {
+@media (max-width: 768px), (orientation: portrait) and (max-width: 1024px) {
     footer {
         padding-top: 3rem;
         padding-bottom: 2rem;
@@ -258,3 +258,4 @@ footer .footer-logo-text {
         font-size: 0.52rem;
     }
 }
+

@@ -24,7 +24,7 @@
     display: none;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 768px), (orientation: portrait) and (max-width: 1024px) {
     #products {
         display: none;
     }
@@ -34,7 +34,7 @@
     }
 }
 
-@media (min-width: 769px) and (max-width: 1024px) and (orientation: portrait) {
+@media (orientation: portrait) and (max-width: 1024px) {
     #products {
         display: none;
     }
@@ -52,6 +52,12 @@
     aspect-ratio: unset;
     transition: all 0.3s ease;
     cursor: pointer;
+}
+
+@media (hover: none), (pointer: coarse) {
+    .gallery-card {
+        cursor: default;
+    }
 }
 
 .gallery-card:hover {
@@ -282,7 +288,7 @@
     background: rgba(255, 87, 51, 0.75);
 }
 
-@media (min-width: 640px) and (max-width: 768px) {
+@media (min-width: 640px) and (max-width: 768px), (min-width: 769px) and (max-width: 1024px) and (orientation: portrait) {
     #products-mobile {
         padding-inline: var(--hero-align-x, clamp(0.9rem, 3.4vw, 4.5rem));
         padding-top: 3rem;
@@ -335,4 +341,5 @@
         font-size: 0.82rem;
     }
 }
+
 

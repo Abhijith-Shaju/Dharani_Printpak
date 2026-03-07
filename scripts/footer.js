@@ -1,4 +1,10 @@
 /* FOOTER COMPONENT LOGIC */
+function isMobileViewViewport(width = window.innerWidth || document.documentElement.clientWidth || 0) {
+    const isPortrait = window.matchMedia
+        ? window.matchMedia("(orientation: portrait)").matches
+        : window.innerHeight >= window.innerWidth;
+    return width <= 768 || (isPortrait && width <= 1024);
+}
 
 function initFooter() {
     /* ============================================================
@@ -41,7 +47,7 @@ function initFooter() {
     function getCellSize() {
         const w = window.innerWidth;
         if (w >= 1280) return { width: 320, height: 210 };
-        if (w >= 769) return { width: 270, height: 185 };
+        if (!isMobileViewViewport(w) && w >= 769) return { width: 270, height: 185 };
         if (w >= 640)  return { width: 230, height: 155 };
         return             { width: 190, height: 120 };
     }

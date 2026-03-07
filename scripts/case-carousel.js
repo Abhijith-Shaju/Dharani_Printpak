@@ -1,4 +1,10 @@
 /* CASE CAROUSEL COMPONENT LOGIC */
+function isMobileViewViewport(width = window.innerWidth || document.documentElement.clientWidth || 0) {
+    const isPortrait = window.matchMedia
+        ? window.matchMedia("(orientation: portrait)").matches
+        : window.innerHeight >= window.innerWidth;
+    return width <= 768 || (isPortrait && width <= 1024);
+}
 
 function initCaseCarousel() {
     const showcaseItems = [
@@ -242,7 +248,7 @@ function initMobileCarousel() {
 
     function getItemsPerPage() {
         const viewport = window.innerWidth || document.documentElement.clientWidth || 0;
-        if (viewport <= 768) return 2;
+        if (isMobileViewViewport(viewport)) return 2;
         return 3;
     }
 
