@@ -225,6 +225,7 @@ function initMobileCarousel() {
     ];
 
     const track      = document.getElementById("mobile-carousel-track");
+    const viewportEl = track ? track.parentElement : null;
     const prevBtn    = document.getElementById("mobile-prev");
     const nextBtn    = document.getElementById("mobile-next");
     const counter    = document.getElementById("mobile-counter");
@@ -241,20 +242,39 @@ function initMobileCarousel() {
     }
 
     function getItemsPerPage() {
-        const viewport = window.innerWidth || document.documentElement.clientWidth || 0;
-        if (viewport <= 768) return 2;
-        return 3;
+        return 2;
+    }
+
+    function layoutViewport() {
+        if (!viewportEl) return;
+
+        const section = document.getElementById("case-carousel-mobile");
+        const baseWidth = section ? section.clientWidth : viewportEl.clientWidth;
+        const sideInset = Math.min(32, Math.max(14, Math.round(baseWidth * 0.06)));
+        const targetWidth = Math.max(0, baseWidth - sideInset * 2);
+
+        viewportEl.style.width = `${targetWidth}px`;
+        viewportEl.style.maxWidth = "100%";
+        viewportEl.style.margin = "0 auto";
+        viewportEl.style.padding = "0";
     }
 
     function getCardWidth() {
         const viewport = track.parentElement;
-        const viewportWidth = viewport ? viewport.clientWidth : 0;
+        let viewportWidth = viewport ? viewport.clientWidth : 0;
+        if (viewport) {
+            const viewportStyles = window.getComputedStyle(viewport);
+            const paddingLeft = parseFloat(viewportStyles.paddingLeft || "0");
+            // Track starts after left padding, but right padding is still visible due overflow clipping.
+            viewportWidth = Math.max(0, viewportWidth - paddingLeft);
+        }
         const itemsPerPage = getItemsPerPage();
         const totalGap = getGap() * (itemsPerPage - 1);
         return Math.max(0, (viewportWidth - totalGap) / itemsPerPage);
     }
 
     function buildCards({ resetPage = true } = {}) {
+        layoutViewport();
         track.innerHTML = "";
         const cardW = getCardWidth();
         activeItems.forEach(item => {
@@ -314,19 +334,27 @@ function initMobileCarousel() {
             buildCards({ resetPage: true });
         });
     });
-    // -- Swipe / Touch support --
+    // -- Swipe / Touch support (ignore vertical page scroll gestures) --
     let touchStartX = 0;
+    let touchStartY = 0;
     let touchEndX   = 0;
+    let touchEndY   = 0;
 
     track.addEventListener("touchstart", e => {
         touchStartX = e.changedTouches[0].screenX;
+        touchStartY = e.changedTouches[0].screenY;
     }, { passive: true });
 
     track.addEventListener("touchend", e => {
         touchEndX = e.changedTouches[0].screenX;
-        const diff = touchStartX - touchEndX;
-        if (Math.abs(diff) > 40) {          // 40px threshold
-            diff > 0 ? goToPage(currentPage + 1) : goToPage(currentPage - 1);
+        touchEndY = e.changedTouches[0].screenY;
+
+        const diffX = touchStartX - touchEndX;
+        const diffY = touchStartY - touchEndY;
+        const horizontalIntent = Math.abs(diffX) > Math.abs(diffY) * 1.2;
+
+        if (horizontalIntent && Math.abs(diffX) > 40) {
+            diffX > 0 ? goToPage(currentPage + 1) : goToPage(currentPage - 1);
         }
     }, { passive: true });
 
