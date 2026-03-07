@@ -93,7 +93,12 @@
 .gallery-card .drawer p {
     font-size: clamp(0.58rem, 0.75vw, 0.9rem);
     line-height: 1.45;
+    transition: font-size 0.25s ease;
     /* color: rgba(255, 255, 255, 0.9); */
+}
+
+.gallery-card:hover .drawer p {
+    font-size: clamp(0.62rem, 0.8vw, 0.98rem);
 }
 
 .gallery-card .drawer hr {
@@ -112,6 +117,16 @@
     line-height: 1;
     letter-spacing: -0.02em;
     font-weight: 900;
+}
+
+.gallery-card-subtitle {
+    font-size: clamp(0.62rem, 0.7vw, 0.74rem);
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+    .gallery-card {
+        cursor: default;
+    }
 }
 
 /* Background images for gallery cards */
