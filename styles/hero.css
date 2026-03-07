@@ -920,6 +920,12 @@ body { font-family: 'Inter', sans-serif; background-color: #ffffff; color: #0000
     }
 }
 
+@media (pointer: coarse), (hover: none), (min-width: 769px) and (max-width: 1366px) and (orientation: landscape) {
+    #cursor-cube {
+        display: none !important;
+    }
+}
+
 .cube-wrapper {
     width: 100%;
     height: 100%;
