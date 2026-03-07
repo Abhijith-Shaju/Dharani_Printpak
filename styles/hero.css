@@ -364,11 +364,11 @@ body { font-family: 'Inter', sans-serif; background-color: #ffffff; color: #0000
 }
 
 #gallery-card-mono-box{
-    background-image: url('../resources/mono_carton.webp');
+    background-image: url('../resources/mono-carton.webp');
 }
 
 #gallery-card-paperboard{
-    background-image: url('../resources/paperboard_bags.webp');
+    background-image: url('../resources/paperboard-bags.webp');
 }
 
 #box-3d {

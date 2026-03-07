@@ -153,13 +153,13 @@
 }
 
 #gallery-card-mono-box {
-    background-image: url('../resources/mono_carton.webp');
+    background-image: url('../resources/mono-carton.webp');
     background-size: cover;
     background-position: center;
 }
 
 #gallery-card-paperboard {
-    background-image: url('../resources/paperboard_bags.webp');
+    background-image: url('../resources/paperboard-bags.webp');
     background-size: cover;
     background-position: center;
 }

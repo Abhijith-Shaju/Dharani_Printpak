@@ -1042,11 +1042,11 @@ video {
 .bg-white\/\[0\.02\] {
   background-color: rgb(255 255 255 / 0.02);
 }
-.bg-\[url\(\'\.\/resources\/mono_carton\.webp\'\)\] {
-  background-image: url('./resources/mono_carton.webp');
+.bg-\[url\(\'\.\/resources\/mono-carton\.webp\'\)\] {
+  background-image: url('./resources/mono-carton.webp');
 }
-.bg-\[url\(\'\.\/resources\/paperboard_bags\.webp\'\)\] {
-  background-image: url('./resources/paperboard_bags.webp');
+.bg-\[url\(\'\.\/resources\/paperboard-bags\.webp\'\)\] {
+  background-image: url('./resources/paperboard-bags.webp');
 }
 .bg-gradient-to-br {
   background-image: linear-gradient(to bottom right, var(--tw-gradient-stops));
