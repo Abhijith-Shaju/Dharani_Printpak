@@ -53,7 +53,20 @@ function initFooter() {
         return             { width: 190, height: 120 };
     }
 
-    function buildLogos() {
+    function getCurrentOffsetPx() {
+        const transform = getComputedStyle(track).transform;
+        if (!transform || transform === "none") return 0;
+        const match = transform.match(/matrix(3d)?\((.+)\)/);
+        if (!match) return 0;
+        const values = match[2].split(",").map(v => Number(v.trim()));
+        if (match[1] === "3d") return Number.isFinite(values[12]) ? values[12] : 0;
+        return Number.isFinite(values[4]) ? values[4] : 0;
+    }
+
+    function buildLogos(preserveProgress = false) {
+        const previousLoopWidth = Number(track.dataset.loopWidth || 0);
+        const currentOffsetPx = preserveProgress ? getCurrentOffsetPx() : 0;
+
         track.innerHTML = "";
 
         const { width, height } = getCellSize();
@@ -74,25 +87,45 @@ function initFooter() {
         const totalWidth   = brandLogos.length * width;
         const pixelsPerSec = 120;
         const duration     = Math.round(totalWidth / pixelsPerSec);
+        let progressRatio  = 0;
+
+        if (preserveProgress && previousLoopWidth > 0) {
+            const traveled = ((-currentOffsetPx % previousLoopWidth) + previousLoopWidth) % previousLoopWidth;
+            progressRatio = traveled / previousLoopWidth;
+        }
 
         track.style.animation = "none";
+        track.style.animationDelay = "0s";
         void track.offsetWidth;
         track.style.animation = `logo-scroll ${duration}s linear infinite`;
+        if (progressRatio > 0) {
+            track.style.animationDelay = `${-(progressRatio * duration)}s`;
+        }
+        track.dataset.loopWidth = String(totalWidth);
     }
 
     buildLogos();
     let lastSizeKey = getSizeKey();
 
-    // Rebuild on resize
+    // Rebuild on resize (desktop only). Mobile browsers emit resize while scrolling.
     let logoResizeTimer;
     window.addEventListener("resize", () => {
         clearTimeout(logoResizeTimer);
         logoResizeTimer = setTimeout(() => {
+            if (window.innerWidth < 769) return;
             const nextSizeKey = getSizeKey();
             if (nextSizeKey === lastSizeKey) return;
             lastSizeKey = nextSizeKey;
-            buildLogos();
+            buildLogos(true);
         }, 200);
+    });
+
+    // Rebuild on orientation change for mobile/tablet, preserving progress.
+    window.addEventListener("orientationchange", () => {
+        setTimeout(() => {
+            lastSizeKey = getSizeKey();
+            buildLogos(true);
+        }, 250);
     });
 
 }
