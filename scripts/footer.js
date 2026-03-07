@@ -13,7 +13,6 @@ function initFooter() {
         "./resources/dpp/AB.svg",
         "./resources/dpp/Abak.svg",
         "./resources/dpp/Arjuna.svg",
-        "./resources/dpp/Bhima.svg",
         "./resources/dpp/CH.svg",
         "./resources/dpp/GANDVEDIKAR.svg",
         "./resources/dpp/Grt.svg",
@@ -37,6 +36,14 @@ function initFooter() {
 
     const track = document.getElementById("logo-track");
     if (!track) return;
+
+    function getSizeKey() {
+        const w = window.innerWidth;
+        if (w >= 1280) return "xl";
+        if (w >= 769) return "lg";
+        if (w >= 640) return "sm";
+        return "xs";
+    }
 
     function getCellSize() {
         const w = window.innerWidth;
@@ -74,12 +81,18 @@ function initFooter() {
     }
 
     buildLogos();
+    let lastSizeKey = getSizeKey();
 
     // Rebuild on resize
     let logoResizeTimer;
     window.addEventListener("resize", () => {
         clearTimeout(logoResizeTimer);
-        logoResizeTimer = setTimeout(buildLogos, 200);
+        logoResizeTimer = setTimeout(() => {
+            const nextSizeKey = getSizeKey();
+            if (nextSizeKey === lastSizeKey) return;
+            lastSizeKey = nextSizeKey;
+            buildLogos();
+        }, 200);
     });
 
 }
