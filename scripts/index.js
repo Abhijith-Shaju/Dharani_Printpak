@@ -60,7 +60,30 @@ function initGlobalCursorCube() {
     if (!cube) return;
 
     const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    if (prefersReducedMotion) return;
+    if (prefersReducedMotion) {
+        cube.style.display = "none";
+        return;
+    }
+
+    const isTouchScreen = () =>
+        window.matchMedia("(pointer: coarse)").matches ||
+        navigator.maxTouchPoints > 0 ||
+        "ontouchstart" in window;
+
+    const isTabletLandscape = () => {
+        const width = window.innerWidth || document.documentElement.clientWidth || 0;
+        const isLandscape = window.matchMedia
+            ? window.matchMedia("(orientation: landscape)").matches
+            : window.innerWidth >= window.innerHeight;
+        return isLandscape && width >= 769 && width <= 1366;
+    };
+
+    const shouldHideCursorCube = () => isTouchScreen() || isTabletLandscape();
+    if (shouldHideCursorCube()) {
+        cube.style.opacity = "0";
+        cube.style.display = "none";
+        return;
+    }
 
     let targetX = 0;
     let targetY = 0;
