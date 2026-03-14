@@ -109,12 +109,18 @@
 .gallery-card .drawer p {
     font-size: clamp(0.58rem, 0.75vw, 0.9rem);
     line-height: 1.45;
-    transition: font-size 0.25s ease;
+    transition: opacity 0.25s ease, transform 0.35s ease;
     /* color: rgba(255, 255, 255, 0.9); */
 }
 
+.gallery-card .drawer p {
+    opacity: 0.96;
+    transform: translateY(6px);
+}
+
 .gallery-card:hover .drawer p {
-    font-size: clamp(0.62rem, 0.8vw, 0.98rem);
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .gallery-card .drawer hr {

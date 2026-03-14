@@ -47,7 +47,7 @@ body { font-family: 'Inter', sans-serif; background-color: #ffffff; color: #0000
 
 .hero-nav {
     margin-top: clamp(0.15rem, 1vh, 0.95rem);
-    padding-inline: clamp(0rem, 0.5vw, 0.4rem);
+    padding-inline: 0;
     padding-block: clamp(0.35rem, 1.1vh, 0.9rem);
     min-height: clamp(68px, 11vh, 108px);
 }
@@ -324,6 +324,9 @@ body { font-family: 'Inter', sans-serif; background-color: #ffffff; color: #0000
 .gallery-card .drawer p {
     font-size: clamp(0.58rem, 0.75vw, 0.9rem);
     line-height: 1.45;
+    transition: opacity 0.25s ease, transform 0.35s ease;
+    opacity: 0.96;
+    transform: translateY(6px);
 }
 
 .gallery-card .drawer hr {
@@ -352,6 +355,11 @@ body { font-family: 'Inter', sans-serif; background-color: #ffffff; color: #0000
 
 .gallery-card:hover .drawer { 
     transform: translateX(0); 
+}
+
+.gallery-card:hover .drawer p {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .calligraphy-text {
