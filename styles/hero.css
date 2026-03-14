@@ -247,7 +247,7 @@ body { font-family: 'Inter', sans-serif; background-color: #ffffff; color: #0000
 .btn-action {
     width: clamp(3rem, 10vh, 5.625rem);
     height: clamp(3rem, 10vh, 5.625rem);
-    background-color: #FF5733;
+    background-color: #f64900;
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -275,7 +275,7 @@ body { font-family: 'Inter', sans-serif; background-color: #ffffff; color: #0000
 
 .btn-action:hover {
     transform: scale(1.1) rotate(90deg);
-    border: #FF5733 4px solid;
+    border: #f64900 4px solid;
     background-color: #ffffff;
 }
 
@@ -299,7 +299,7 @@ body { font-family: 'Inter', sans-serif; background-color: #ffffff; color: #0000
 /* Gallery Drawer */
 .gallery-card .drawer {
     transform: translateX(-100%);
-    background-color: #FF5733;
+    background-color: #f64900;
     overflow: hidden;                    /* NO scroll - content must fit */
     padding: clamp(1rem, 2vw, 2.5rem);
     justify-content: flex-end;
@@ -861,7 +861,7 @@ body { font-family: 'Inter', sans-serif; background-color: #ffffff; color: #0000
 
     width: 20px;
     height: 20px;
-    background: #FF5733;
+    background: #f64900;
     border-radius: 50%;
 
     box-shadow:
@@ -946,8 +946,8 @@ body { font-family: 'Inter', sans-serif; background-color: #ffffff; color: #0000
     position: absolute;
     width: 20px;
     height: 20px;
-    background: rgba(255, 87, 51, 0.2); /* Your Orange */
-    border: 1px solid rgba(255, 87, 51, 0.8);
+    background: rgba(246, 73, 0, 0.2); /* Your Orange */
+    border: 1px solid rgba(246, 73, 0, 0.8);
 }
 
 /* Position faces to form a cube */
@@ -1011,7 +1011,7 @@ body { font-family: 'Inter', sans-serif; background-color: #ffffff; color: #0000
 /* 3 - scrollbar-width not supported in Safari, wrap in @supports */
 #carousel-track {
     scrollbar-width: auto;
-    scrollbar-color: #FF5733 #000000;
+    scrollbar-color: #f64900 #000000;
 }
 
 /* 4 - flex gap fallback for Safari 14.0 and below */

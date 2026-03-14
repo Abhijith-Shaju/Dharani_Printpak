@@ -19,7 +19,7 @@
     font-weight: 900;
     text-transform: uppercase;
     letter-spacing: 0.6em;
-    color: #FF5733;
+    color: #f64900;
     margin-bottom: 1.5rem;
 }
 
@@ -86,8 +86,8 @@
 .form-group select:focus {
     outline: none;
     background: rgba(255, 255, 255, 0.08);
-    border-color: #FF5733;
-    box-shadow: 0 0 0 3px rgba(255, 87, 51, 0.1);
+    border-color: #f64900;
+    box-shadow: 0 0 0 3px rgba(246, 73, 0, 0.1);
 }
 
 .form-group textarea {
@@ -113,7 +113,7 @@
 .iti__tel-input:focus {
     outline: none;
     background: rgba(255, 255, 255, 0.08);
-    border-color: #FF5733;
+    border-color: #f64900;
 }
 
 .iti__dropdown {
@@ -128,14 +128,14 @@
 
 .iti__list-item:hover,
 .iti__list-item.iti__highlight {
-    background: rgba(255, 87, 51, 0.2);
+    background: rgba(246, 73, 0, 0.2);
 }
 
 /* Submit button */
 .form-submit {
     width: 100%;
     padding: 1rem;
-    background: #FF5733;
+    background: #f64900;
     color: white;
     border: none;
     border-radius: 0.4rem;
@@ -149,9 +149,9 @@
 }
 
 .form-submit:hover {
-    background: #FF5733;
+    background: #f64900;
     transform: translateY(-2px);
-    box-shadow: 0 10px 20px rgba(255, 87, 51, 0.3);
+    box-shadow: 0 10px 20px rgba(246, 73, 0, 0.3);
 }
 
 .form-submit:active {
@@ -182,9 +182,9 @@
 
 .form-message.error {
     display: block;
-    background: rgba(255, 87, 51, 0.2);
-    border: 1px solid #FF5733;
-    color: #FF5733;
+    background: rgba(246, 73, 0, 0.2);
+    border: 1px solid #f64900;
+    color: #f64900;
 }
 
 @media (max-width: 768px), (orientation: portrait) and (max-width: 1024px) {

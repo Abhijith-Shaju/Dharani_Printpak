@@ -33,7 +33,7 @@
     font-weight: 900;
     text-transform: uppercase;
     letter-spacing: 0.6em;
-    color: #FF5733;
+    color: #f64900;
     margin-bottom: 1.5rem;
 }
 
@@ -147,7 +147,7 @@
     top: 50%;
     width: 40px;
     height: 40px;
-    background: #FF5733;
+    background: #f64900;
     border-radius: 50% 50% 50% 0;
     transform: translate(-50%, -100%) rotate(-45deg);
     animation: pulsePin 2s ease-in-out infinite;
@@ -191,7 +191,7 @@
 
 #location .info-card:hover {
     background: rgba(255, 255, 255, 0.05);
-    border-color: #FF5733;
+    border-color: #f64900;
     transform: translateY(-5px);
 }
 
@@ -199,7 +199,7 @@
     font-size: 1.25rem;
     font-weight: 900;
     margin-bottom: 1rem;
-    color: #FF5733;
+    color: #f64900;
 }
 
 #location .info-card p {

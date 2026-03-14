@@ -70,7 +70,7 @@
 
 .gallery-card .drawer {
     transform: translateX(-100%);
-    background-color: #FF5733;
+    background-color: #f64900;
     overflow: hidden;
     padding: clamp(1rem, 2vw, 2.5rem); 
     display: flex;
@@ -103,7 +103,7 @@
     border-radius: 999px;
     background: #ffffff;
     margin-bottom: 0.5rem;
-    color: #FF5733;
+    color: #f64900;
 }
 
 .gallery-card .drawer p {
@@ -192,8 +192,8 @@
 }
 
 #products-mobile .border.open {
-    border-color: rgba(255, 87, 51, 0.5);
-    box-shadow: 0 14px 30px rgba(255, 87, 51, 0.15);
+    border-color: rgba(246, 73, 0, 0.5);
+    box-shadow: 0 14px 30px rgba(246, 73, 0, 0.15);
 }
 
 /* Image header: ensure it always renders */
@@ -291,7 +291,7 @@
 
 #products-mobile .border.open .accordion-btn .toggle-icon {
     border-color: rgba(255, 255, 255, 0.8);
-    background: rgba(255, 87, 51, 0.75);
+    background: rgba(246, 73, 0, 0.75);
 }
 
 @media (min-width: 640px) and (max-width: 768px), (min-width: 769px) and (max-width: 1024px) and (orientation: portrait) {

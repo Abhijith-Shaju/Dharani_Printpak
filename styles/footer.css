@@ -23,7 +23,7 @@ footer .footer-section h3 {
     text-transform: uppercase;
     letter-spacing: 0.1em;
     margin-bottom: 1rem;
-    color: #FF5733;
+    color: #f64900;
 }
 
 footer .footer-section p,
@@ -41,7 +41,7 @@ footer .footer-section a {
 }
 
 footer .footer-section a:hover {
-    color: #FF5733;
+    color: #f64900;
     opacity: 1;
     padding-left: 0.5rem;
 }
@@ -74,7 +74,7 @@ footer .social-links a {
 }
 
 footer .social-links a:hover {
-    background: #FF5733;
+    background: #f64900;
     transform: translateY(-3px);
 }
 
@@ -110,7 +110,7 @@ footer .footer-links a {
 
 footer .footer-links a:hover {
     opacity: 1;
-    color: #FF5733;
+    color: #f64900;
 }
 
 /* Logo Section in Footer */

@@ -69,7 +69,7 @@ footer {
 html {
     scroll-behavior: smooth;
     -webkit-overflow-scrolling: touch;
-    scrollbar-color: #FF5733 #000000;
+    scrollbar-color: #f64900 #000000;
     scrollbar-width: auto;
 }
 
@@ -105,7 +105,7 @@ html::-webkit-scrollbar-thumb,
 body::-webkit-scrollbar-thumb,
 #carousel-track::-webkit-scrollbar-thumb,
 *::-webkit-scrollbar-thumb {
-    background: #FF5733;
+    background: #f64900;
     border: 0;
     -webkit-border-radius: 0 !important;
     border-radius: 0 !important;
@@ -115,7 +115,7 @@ html::-webkit-scrollbar-thumb:hover,
 body::-webkit-scrollbar-thumb:hover,
 #carousel-track::-webkit-scrollbar-thumb:hover,
 *::-webkit-scrollbar-thumb:hover {
-    background: #FF5733;
+    background: #f64900;
     -webkit-border-radius: 0 !important;
     border-radius: 0 !important;
 }

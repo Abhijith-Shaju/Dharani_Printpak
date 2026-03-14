@@ -35,11 +35,11 @@
 }
 
 #nav-menu a:hover {
-    color: #FF5733;
+    color: #f64900;
 }
 
 #nav-menu a.active {
-    color: #FF5733;
+    color: #f64900;
 }
 
 @media (max-width: 768px), (orientation: portrait) and (max-width: 1024px) {
@@ -126,7 +126,7 @@
 
 .mobile-nav-link:hover,
 .mobile-nav-link.active {
-    background: rgba(255, 87, 51, 0.18);
+    background: rgba(246, 73, 0, 0.18);
     color: #ffffff;
 }
 

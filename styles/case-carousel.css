@@ -97,7 +97,7 @@
     transition: border-color 0.3s ease, transform 0.3s ease;
 }
 #carousel-track li:hover {
-    border-color: #FF5733;
+    border-color: #f64900;
     transform: translateY(-5px);
 }
 
@@ -115,7 +115,7 @@
     font-weight: 900;
     text-transform: uppercase;
     letter-spacing: 0.1em;
-    color: #FF5733;
+    color: #f64900;
     margin-bottom: 0.5rem;
 }
 .carousel-card-title {
@@ -142,8 +142,8 @@
     transition: background 0.3s ease, border-color 0.3s ease, opacity 0.3s ease;
 }
 .slider-arrow:hover {
-    background: #FF5733;
-    border-color: #FF5733;
+    background: #f64900;
+    border-color: #f64900;
 }
 
 /* Filter buttons */
@@ -169,12 +169,12 @@
     transition: all 0.3s ease;
 }
 .filter-btn:hover {
-    border-color: #FF5733;
+    border-color: #f64900;
     color: #ffffff;
 }
 .filter-btn.active-filter {
-    background: #FF5733;
-    border-color: #FF5733;
+    background: #f64900;
+    border-color: #f64900;
     color: white;
 }
 
@@ -230,12 +230,12 @@
     transition: all 0.25s ease;
     white-space: nowrap;
 }
-.filter-btn-mobile:hover { border-color: #FF5733; }
+.filter-btn-mobile:hover { border-color: #f64900; }
 .filter-btn-mobile.active-filter {
-    background: #FF5733;
-    border-color: #FF5733;
+    background: #f64900;
+    border-color: #f64900;
     color: white;
-    box-shadow: 0 8px 20px rgba(255, 87, 51, 0.25);
+    box-shadow: 0 8px 20px rgba(246, 73, 0, 0.25);
 }
 
 /* Viewport clips the track */
@@ -286,7 +286,7 @@
     font-weight: 900;
     text-transform: uppercase;
     letter-spacing: 0.06em;
-    color: #FF5733;
+    color: #f64900;
     margin-bottom: 0.3rem;
 }
 #mobile-carousel-track .card-info-mobile .mob-title {
@@ -322,8 +322,8 @@
 }
 .mobile-arrow:hover,
 .mobile-arrow:active {
-    background: #FF5733;
-    border-color: #FF5733;
+    background: #f64900;
+    border-color: #f64900;
 }
 .mobile-arrow:active { transform: scale(0.96); }
 .mobile-arrow:disabled {

@@ -23,9 +23,9 @@
     position: absolute;
     width: 20px;
     height: 20px;
-    background: rgba(#FF5733, 0.8);
+    background: rgba(#f64900, 0.8);
     opacity: 1;
-    border: #FF5733 1px solid;
+    border: #f64900 1px solid;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -76,7 +76,7 @@
     align-items: center;
     gap: 0.5rem;
     padding: 0.75rem 2rem;
-    background: #FF5733;
+    background: #f64900;
     color: white;
     text-decoration: none;
     border: none;
@@ -90,9 +90,9 @@
 }
 
 .btn-primary:hover {
-    background: #FF5733;
+    background: #f64900;
     transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(255, 87, 51, 0.3);
+    box-shadow: 0 8px 20px rgba(246, 73, 0, 0.3);
 }
 
 .btn-primary:active {
@@ -101,12 +101,12 @@
 
 .btn-primary-light {
     background: transparent;
-    color: #FF5733;
-    border: 2px solid #FF5733;
+    color: #f64900;
+    border: 2px solid #f64900;
 }
 
 .btn-primary-light:hover {
-    background: #FF5733;
+    background: #f64900;
     color: white;
 }
 
@@ -117,12 +117,12 @@ html {
 
 /* Selection color */
 ::selection {
-    background: #FF5733;
+    background: #f64900;
     color: white;
 }
 
 ::-moz-selection {
-    background: #FF5733;
+    background: #f64900;
     color: white;
 }
 
@@ -137,12 +137,12 @@ html {
 }
 
 ::-webkit-scrollbar-thumb {
-    background: #FF5733;
+    background: #f64900;
     border-radius: 0 !important;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: #FF5733;
+    background: #f64900;
     border-radius: 0 !important;
 }
 
@@ -156,7 +156,7 @@ html {
 
 /* Focus visible for accessibility */
 :focus-visible {
-    outline: 3px solid #FF5733;
+    outline: 3px solid #f64900;
     outline-offset: 2px;
 }
 
