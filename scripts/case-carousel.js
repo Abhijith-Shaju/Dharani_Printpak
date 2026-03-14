@@ -7,23 +7,6 @@ function isMobileViewViewport(width = window.innerWidth || document.documentElem
 }
 
 const CASE_CAROUSEL_FILE_MAP = {
-    MC: [
-        "M1 Coin Window Box.webp",
-        "M2 Chikki Slide Box.webp",
-        "M3 Indian Sweet Carton.webp",
-        "M4 Chocolate Tuck Box.webp",
-        "M5 Die Cut Carton.webp",
-        "M6 3D Window Box.webp",
-        "M7 Window Boxes.webp",
-        "M8 Chikki Tuck Box.webp",
-        "M9 Retail Product Box.webp",
-        "M10 Silver Article Box.webp",
-    ],
-    PB: [
-        "P1 Return Gift Bag.webp",
-        "P2 Jewellery Gift Bag.webp",
-        "P3 Laminated Gift Bag.webp",
-    ],
     RN: [
         "R1 Magnetic Coin Box.webp",
         "R2 Jewellery Slide Box.webp",
@@ -45,6 +28,23 @@ const CASE_CAROUSEL_FILE_MAP = {
         "R18 Jewellery Box.webp",
         "R19 Return Gift Box.webp",
         "R20 Collapsible Gift Box.webp",
+    ],
+    MC: [
+        "M1 Coin Window Box.webp",
+        "M2 Chikki Slide Box.webp",
+        "M3 Indian Sweet Carton.webp",
+        "M4 Chocolate Tuck Box.webp",
+        "M5 Die Cut Carton.webp",
+        "M6 3D Window Box.webp",
+        "M7 Window Boxes.webp",
+        "M8 Chikki Tuck Box.webp",
+        "M9 Retail Product Box.webp",
+        "M10 Silver Article Box.webp",
+    ],
+    PB: [
+        "P1 Return Gift Bag.webp",
+        "P2 Jewellery Gift Bag.webp",
+        "P3 Laminated Gift Bag.webp",
     ],
 };
 
