@@ -11,7 +11,7 @@ const CASE_CAROUSEL_FILE_MAP = {
         "R1 Magnetic Coin Box.webp",
         "R2 Jewellery Slide Box.webp",
         "R3 Premium Gift Box.webp",
-        "R4 Sweet Bakery Carton.webp",
+        "R4 Sweet Bakery Box.webp",
         "R5 Satin Rigid Box.webp",
         "R6 Jewellery Window Box.webp",
         "R7 Hexagon Rigid Box.webp",
