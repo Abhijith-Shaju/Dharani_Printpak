@@ -143,6 +143,7 @@
 
 .gallery-card-subtitle {
     font-size: clamp(0.62rem, 0.7vw, 0.74rem);
+    color: #ff8904;
 }
 
 @media (min-width: 769px) and (max-width: 1024px) and (orientation: landscape) {

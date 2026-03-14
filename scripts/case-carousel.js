@@ -6,44 +6,72 @@ function isMobileViewViewport(width = window.innerWidth || document.documentElem
     return width <= 768 || (isPortrait && width <= 1024);
 }
 
+const CASE_CAROUSEL_FILE_MAP = {
+    MC: [
+        "M1 Coin Window Box.webp",
+        "M2 Chikki Slide Box.webp",
+        "M3 Indian Sweet Carton.webp",
+        "M4 Chocolate Tuck Box.webp",
+        "M5 Die Cut Carton.webp",
+        "M6 3D Window Box.webp",
+        "M7 Window Boxes.webp",
+        "M8 Chikki Tuck Box.webp",
+        "M9 Retail Product Box.webp",
+        "M10 Silver Article Box.webp",
+    ],
+    PB: [
+        "P1 Return Gift Bag.webp",
+        "P2 Jewellery Gift Bag.webp",
+        "P3 Laminated Gift Bag.webp",
+    ],
+    RN: [
+        "R1 Magnetic Coin Box.webp",
+        "R2 Jewellery Slide Box.webp",
+        "R3 Premium Gift Box.webp",
+        "R4 Sweet Bakery Carton.webp",
+        "R5 Satin Rigid Box.webp",
+        "R6 Jewellery Window Box.webp",
+        "R7 Hexagon Rigid Box.webp",
+        "R8 Chocolate Rigid Box.webp",
+        "R9 Magnetic Flap Box.webp",
+        "R10 Bangle Drawer Box.webp",
+        "R11 Magnetic Collapsible Box.webp",
+        "R12 Magnetic Kit Box.webp",
+        "R13 Ribbon Drawer Box.webp",
+        "R14 Jewellery Drawer Box.webp",
+        "R15 Premium Rigid Box.webp",
+        "R16 Jewellery Slide Box.webp",
+        "R17 Multi Layer Gift Box.webp",
+        "R18 Jewellery Box.webp",
+        "R19 Return Gift Box.webp",
+        "R20 Collapsible Gift Box.webp",
+    ],
+};
+
+const CASE_CAROUSEL_CATEGORY_MAP = {
+    MC: "MONOCARTON",
+    PB: "PAPERBOARD",
+    RN: "RIGID BOX",
+};
+
+function getCaseCarouselTitle(fileName) {
+    const nameWithoutExt = fileName.replace(/\.[^.]+$/, "");
+    const title = nameWithoutExt.replace(/^[A-Z]+\d+\s*/, "").trim();
+    return title || nameWithoutExt;
+}
+
+function getCaseCarouselItems() {
+    return Object.entries(CASE_CAROUSEL_FILE_MAP).flatMap(([folder, files]) =>
+        files.map(file => ({
+            image: encodeURI(`./resources/Box/${folder}/${file}`),
+            category: CASE_CAROUSEL_CATEGORY_MAP[folder],
+            title: getCaseCarouselTitle(file),
+        }))
+    );
+}
+
 function initCaseCarousel() {
-    const showcaseItems = [
-        { image: "./resources/box_photos/MC/M1.webp",   category: "MONOCARTON",   title: "Luxury Electronics Packaging" },
-        { image: "./resources/box_photos/MC/M2.webp",   category: "MONOCARTON",   title: "Luxury Electronics Packaging" },
-        { image: "./resources/box_photos/MC/M3.webp",   category: "MONOCARTON",   title: "Luxury Electronics Packaging" },
-        { image: "./resources/box_photos/MC/M5.webp",   category: "MONOCARTON",   title: "Luxury Electronics Packaging" },
-        { image: "./resources/box_photos/MC/M6.webp",   category: "MONOCARTON",   title: "Luxury Electronics Packaging" },
-        { image: "./resources/box_photos/MC/M8.webp",   category: "MONOCARTON",   title: "Luxury Electronics Packaging" },
-        { image: "./resources/box_photos/MC/M9.webp",   category: "MONOCARTON",   title: "Luxury Electronics Packaging" },
-        { image: "./resources/box_photos/MC/M10.webp",  category: "MONOCARTON",   title: "Luxury Electronics Packaging" },
-        { image: "./resources/box_photos/MC/MN1.webp",  category: "MONOCARTON",   title: "Luxury Electronics Packaging" },
-        { image: "./resources/box_photos/MC/MN2.webp",  category: "MONOCARTON",   title: "Luxury Electronics Packaging" },
-        { image: "./resources/box_photos/RN/R1.webp",   category: "RIGID SYSTEM", title: "Luxury Electronics Packaging" },
-        { image: "./resources/box_photos/RN/R2.webp",   category: "RIGID SYSTEM", title: "Luxury Electronics Packaging" },
-        { image: "./resources/box_photos/RN/R4.webp",   category: "RIGID SYSTEM", title: "Luxury Electronics Packaging" },
-        { image: "./resources/box_photos/RN/R5.webp",   category: "RIGID SYSTEM", title: "Luxury Electronics Packaging" },
-        { image: "./resources/box_photos/RN/R6.webp",   category: "RIGID SYSTEM", title: "Luxury Electronics Packaging" },
-        { image: "./resources/box_photos/RN/R7.webp",   category: "RIGID SYSTEM", title: "Luxury Electronics Packaging" },
-        { image: "./resources/box_photos/RN/R8.webp",   category: "RIGID SYSTEM", title: "Luxury Electronics Packaging" },
-        { image: "./resources/box_photos/RN/R9.webp",   category: "RIGID SYSTEM", title: "Luxury Electronics Packaging" },
-        { image: "./resources/box_photos/RN/R10.webp",  category: "RIGID SYSTEM", title: "Luxury Electronics Packaging" },
-        { image: "./resources/box_photos/RN/R11.webp",  category: "RIGID SYSTEM", title: "Luxury Electronics Packaging" },
-        { image: "./resources/box_photos/RN/R12.webp",  category: "RIGID SYSTEM", title: "Luxury Electronics Packaging" },
-        { image: "./resources/box_photos/RN/R14.webp",  category: "RIGID SYSTEM", title: "Luxury Electronics Packaging" },
-        { image: "./resources/box_photos/RN/RN1.webp",  category: "RIGID SYSTEM", title: "Luxury Electronics Packaging" },
-        { image: "./resources/box_photos/RN/RN3.webp",  category: "RIGID SYSTEM", title: "Luxury Electronics Packaging" },
-        { image: "./resources/box_photos/RN/RN4.webp",  category: "RIGID SYSTEM", title: "Luxury Electronics Packaging" },
-        { image: "./resources/box_photos/RN/RN5.webp",  category: "RIGID SYSTEM", title: "Luxury Electronics Packaging" },
-        { image: "./resources/box_photos/RN/RN7.webp",  category: "RIGID SYSTEM", title: "Luxury Electronics Packaging" },
-        { image: "./resources/box_photos/RN/RN9.webp",  category: "RIGID SYSTEM", title: "Luxury Electronics Packaging" },
-        { image: "./resources/box_photos/RN/RN14.webp", category: "RIGID SYSTEM", title: "Luxury Electronics Packaging" },
-        { image: "./resources/box_photos/RN/RN15.webp", category: "RIGID SYSTEM", title: "Luxury Electronics Packaging" },
-        { image: "./resources/box_photos/RN/RN16.webp", category: "RIGID SYSTEM", title: "Luxury Electronics Packaging" },
-        { image: "./resources/box_photos/RN/RN17.webp", category: "RIGID SYSTEM", title: "Luxury Electronics Packaging" },
-        { image: "./resources/box_photos/PB/PB1.webp",  category: "PAPERBOARD",   title: "Luxury Electronics Packaging" },
-        { image: "./resources/box_photos/PB/PB2.webp",  category: "PAPERBOARD",   title: "Luxury Electronics Packaging" },
-        { image: "./resources/box_photos/PB/PB3.webp",  category: "PAPERBOARD",   title: "Luxury Electronics Packaging" },
-    ];
+    const showcaseItems = getCaseCarouselItems();
 
     const track      = document.getElementById("carousel-track");
     const prevBtn    = document.getElementById("slider-prev");
@@ -192,43 +220,7 @@ document.addEventListener("DOMContentLoaded", initCaseCarousel);
 
 /* MOBILE CAROUSEL */
 function initMobileCarousel() {
-    const showcaseItems = [
-        { image: "./resources/box_photos/MC/M1.webp",   category: "MONOCARTON",   title: "Luxury Electronics Packaging" },
-        { image: "./resources/box_photos/MC/M2.webp",   category: "MONOCARTON",   title: "Luxury Electronics Packaging" },
-        { image: "./resources/box_photos/MC/M3.webp",   category: "MONOCARTON",   title: "Luxury Electronics Packaging" },
-        { image: "./resources/box_photos/MC/M5.webp",   category: "MONOCARTON",   title: "Luxury Electronics Packaging" },
-        { image: "./resources/box_photos/MC/M6.webp",   category: "MONOCARTON",   title: "Luxury Electronics Packaging" },
-        { image: "./resources/box_photos/MC/M8.webp",   category: "MONOCARTON",   title: "Luxury Electronics Packaging" },
-        { image: "./resources/box_photos/MC/M9.webp",   category: "MONOCARTON",   title: "Luxury Electronics Packaging" },
-        { image: "./resources/box_photos/MC/M10.webp",  category: "MONOCARTON",   title: "Luxury Electronics Packaging" },
-        { image: "./resources/box_photos/MC/MN1.webp",  category: "MONOCARTON",   title: "Luxury Electronics Packaging" },
-        { image: "./resources/box_photos/MC/MN2.webp",  category: "MONOCARTON",   title: "Luxury Electronics Packaging" },
-        { image: "./resources/box_photos/RN/R1.webp",   category: "RIGID SYSTEM", title: "Luxury Electronics Packaging" },
-        { image: "./resources/box_photos/RN/R2.webp",   category: "RIGID SYSTEM", title: "Luxury Electronics Packaging" },
-        { image: "./resources/box_photos/RN/R4.webp",   category: "RIGID SYSTEM", title: "Luxury Electronics Packaging" },
-        { image: "./resources/box_photos/RN/R5.webp",   category: "RIGID SYSTEM", title: "Luxury Electronics Packaging" },
-        { image: "./resources/box_photos/RN/R6.webp",   category: "RIGID SYSTEM", title: "Luxury Electronics Packaging" },
-        { image: "./resources/box_photos/RN/R7.webp",   category: "RIGID SYSTEM", title: "Luxury Electronics Packaging" },
-        { image: "./resources/box_photos/RN/R8.webp",   category: "RIGID SYSTEM", title: "Luxury Electronics Packaging" },
-        { image: "./resources/box_photos/RN/R9.webp",   category: "RIGID SYSTEM", title: "Luxury Electronics Packaging" },
-        { image: "./resources/box_photos/RN/R10.webp",  category: "RIGID SYSTEM", title: "Luxury Electronics Packaging" },
-        { image: "./resources/box_photos/RN/R11.webp",  category: "RIGID SYSTEM", title: "Luxury Electronics Packaging" },
-        { image: "./resources/box_photos/RN/R12.webp",  category: "RIGID SYSTEM", title: "Luxury Electronics Packaging" },
-        { image: "./resources/box_photos/RN/R14.webp",  category: "RIGID SYSTEM", title: "Luxury Electronics Packaging" },
-        { image: "./resources/box_photos/RN/RN1.webp",  category: "RIGID SYSTEM", title: "Luxury Electronics Packaging" },
-        { image: "./resources/box_photos/RN/RN3.webp",  category: "RIGID SYSTEM", title: "Luxury Electronics Packaging" },
-        { image: "./resources/box_photos/RN/RN4.webp",  category: "RIGID SYSTEM", title: "Luxury Electronics Packaging" },
-        { image: "./resources/box_photos/RN/RN5.webp",  category: "RIGID SYSTEM", title: "Luxury Electronics Packaging" },
-        { image: "./resources/box_photos/RN/RN7.webp",  category: "RIGID SYSTEM", title: "Luxury Electronics Packaging" },
-        { image: "./resources/box_photos/RN/RN9.webp",  category: "RIGID SYSTEM", title: "Luxury Electronics Packaging" },
-        { image: "./resources/box_photos/RN/RN14.webp", category: "RIGID SYSTEM", title: "Luxury Electronics Packaging" },
-        { image: "./resources/box_photos/RN/RN15.webp", category: "RIGID SYSTEM", title: "Luxury Electronics Packaging" },
-        { image: "./resources/box_photos/RN/RN16.webp", category: "RIGID SYSTEM", title: "Luxury Electronics Packaging" },
-        { image: "./resources/box_photos/RN/RN17.webp", category: "RIGID SYSTEM", title: "Luxury Electronics Packaging" },
-        { image: "./resources/box_photos/PB/PB1.webp",  category: "PAPERBOARD",   title: "Luxury Electronics Packaging" },
-        { image: "./resources/box_photos/PB/PB2.webp",  category: "PAPERBOARD",   title: "Luxury Electronics Packaging" },
-        { image: "./resources/box_photos/PB/PB3.webp",  category: "PAPERBOARD",   title: "Luxury Electronics Packaging" },
-    ];
+    const showcaseItems = getCaseCarouselItems();
 
     const track      = document.getElementById("mobile-carousel-track");
     const viewportEl = track ? track.parentElement : null;
